@@ -113,10 +113,6 @@ import {Image} from "astro:assets"
 </Layout>
 
 <style>
-    body {
-        background: wheat;
-        color: black;
-    }
 
     main {
         margin: 2rem;
@@ -147,8 +143,8 @@ import {Image} from "astro:assets"
 
     .package {
         margin: 1rem 0;
-        background: blanchedalmond;
         border-radius: 16px;
+        @apply shadow-2xl
     }
 
     @media screen and (min-width: 1400px) {

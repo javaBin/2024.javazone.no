@@ -9,7 +9,8 @@ export default {
                 sans: ["JosefinSans-Light", "JosefinSans-SemiBold", "LimeLight-Regular", ...defaultTheme.fontFamily.sans]
             },
             colors: {
-                'darkgray': '#1a1a1a'
+                'darkgray': '#1a1a1a',
+                'turquoise': '#00f3d2'
             }
         },
 	},
