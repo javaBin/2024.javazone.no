@@ -30,11 +30,11 @@
 @layer base {
     body {
         font-family: JosefinSans-Light, system-ui, sans-serif;
-        @apply text-darkgray bg-turquoise
+        @apply text-darkgray bg-turquoise;
     }
 
     main {
-        @apply p-4
+        @apply p-4 md:mx-32;
     }
 
     h1 {
