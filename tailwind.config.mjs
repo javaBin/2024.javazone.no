@@ -7,6 +7,9 @@ export default {
 		extend: {
             fontFamily: {
                 sans: ["JosefinSans-Light", "JosefinSans-SemiBold", "LimeLight-Regular", ...defaultTheme.fontFamily.sans]
+            },
+            colors: {
+                'darkgray': '#1a1a1a'
             }
         },
 	},
