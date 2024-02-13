@@ -33,6 +33,10 @@
         @apply text-darkgray bg-turquoise
     }
 
+    main {
+        @apply p-4
+    }
+
     h1 {
         font-family: Limelight-Regular, sans-serif;
         @apply text-5xl
