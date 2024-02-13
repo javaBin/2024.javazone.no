@@ -28,6 +28,10 @@
 }
 
 @layer base {
+    html {
+        @apply scroll-smooth
+    }
+
     body {
         font-family: JosefinSans-Light, system-ui, sans-serif;
         @apply text-darkgray bg-turquoise;
