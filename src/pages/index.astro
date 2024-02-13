@@ -10,9 +10,23 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
             <p>September {formatOrdinals(4)}-{formatOrdinals(5)} 2024 in Oslo Spektrum, Norway</p>
             <p>Conference: September {formatOrdinals(4)}-{formatOrdinals(5)}</p>
             <p>Workshops: September {formatOrdinals(3)}</p>
-            <p><a href="/partner">Information for partners found here</a></p>
-            <p>Last year's program can be found at <a href="https://2023.javazone.no/program">https://2023.javazone.no/program</a>
-            </p>
+
+            <div class="center">
+
+                <p>Ticket sales starts on March {formatOrdinals(1)} at 10 AM</p>
+                <p>8 790,- (ex MVA and fee)</p>
+                <div class="button">
+                    <a href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</a>
+                </div>
+
+                <br/>
+                <p>Registered partners will also be able to reserve tickets on March {formatOrdinals(1)}</p>
+                <div class="button">
+                    <a href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve partner tickets</a>
+                </div>
+
+            </div>
+
         </section>
     </main>
 
@@ -35,5 +49,32 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
         min-height: 100dvh;
         display: grid;
         place-content: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .button {
+        margin-top: 1rem;
+        background: #4681f4;
+        padding: 1rem;
+        border-radius: 8px;
+
+        a {
+            color: white;
+        }
+    }
+
+    .center {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .center p {
+        width: 18rem;
     }
 </style>
