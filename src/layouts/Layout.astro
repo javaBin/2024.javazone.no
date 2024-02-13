@@ -18,9 +18,20 @@ import "../../public/styles/base.css"
     <title>{title}</title>
 </head>
 <body>
+<a href="#main-content" class="skiplink">Skip to main content</a>
 <Header/>
 <main id="main-content">
     <slot/>
 </main>
 </body>
 </html>
+
+<style>
+    .skiplink {
+        @apply absolute left-[-2000px] top-0
+    }
+
+    .skiplink:hover {
+        @apply left-0
+    }
+</style>
