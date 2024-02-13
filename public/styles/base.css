@@ -1,0 +1,41 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'JosefinSans-Light';
+    src: url('../fonts/JosefinSans-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JosefinSans-SemiBold';
+    src: url('../fonts/JosefinSans-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Limelight-Regular';
+    src: url('../fonts/Limelight-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@layer base {
+    h1 {
+        font-family: Limelight-Regular, sans-serif;
+    }
+    h2,h3,h4,h5,h6 {
+        font-family: JosefinSans-SemiBold, sans-serif;
+    }
+    body {
+        font-family: JosefinSans-Light, system-ui, sans-serif;
+    }
+}
+
