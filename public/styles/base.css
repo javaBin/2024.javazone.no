@@ -30,12 +30,31 @@
 @layer base {
     h1 {
         font-family: Limelight-Regular, sans-serif;
+        @apply text-5xl
     }
-    h2,h3,h4,h5,h6 {
+
+    h2 {
+        font-family: JosefinSans-SemiBold, sans-serif;
+        @apply text-4xl
+
+    }
+
+    h3 {
+        font-family: JosefinSans-SemiBold, sans-serif;
+        @apply text-3xl
+
+    }
+
+    h4, h5, h6 {
         font-family: JosefinSans-SemiBold, sans-serif;
     }
+
     body {
         font-family: JosefinSans-Light, system-ui, sans-serif;
+    }
+
+    a {
+        @apply text-blue-600 underline;
     }
 }
 
