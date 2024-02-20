@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'JosefinSans-Light';
-    src: url('../fonts/JosefinSans-Light.woff') format('woff');
+    src: url('/fonts/JosefinSans-Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'JosefinSans-SemiBold';
-    src: url('../fonts/JosefinSans-SemiBold.woff') format('woff');
+    src: url('/fonts/JosefinSans-SemiBold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: 'Limelight-Regular';
-    src: url('../fonts/Limelight-Regular.woff') format('woff');
+    src: url('/fonts/Limelight-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -34,12 +34,10 @@
 
     body {
         font-family: JosefinSans-Light, system-ui, sans-serif;
+        height: 100%;
         @apply text-darkgray bg-turquoise;
     }
 
-    main {
-        @apply p-4 md:mx-32;
-    }
 
     h1 {
         font-family: Limelight-Regular, sans-serif;
