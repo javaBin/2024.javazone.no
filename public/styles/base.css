@@ -34,12 +34,10 @@
 
     body {
         font-family: JosefinSans-Light, system-ui, sans-serif;
+        height: 100%;
         @apply text-darkgray bg-turquoise;
     }
 
-    main {
-        @apply p-4 md:mx-32;
-    }
 
     h1 {
         font-family: Limelight-Regular, sans-serif;
