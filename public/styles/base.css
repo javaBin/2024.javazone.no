@@ -27,6 +27,18 @@
     font-display: swap;
 }
 
+:root {
+    --step--2: clamp(0.8681rem, 0.8965rem + -0.0379vi, 0.8889rem);
+    --step--1: clamp(1rem, 0.9848rem + 0.0758vi, 1.0417rem);
+    --step-0: clamp(1.125rem, 1.0795rem + 0.2273vi, 1.25rem);
+    --step-1: clamp(1.2656rem, 1.1804rem + 0.4261vi, 1.5rem);
+    --step-2: clamp(1.4238rem, 1.287rem + 0.6839vi, 1.8rem);
+    --step-3: clamp(1.6018rem, 1.3988rem + 1.0149vi, 2.16rem);
+    --step-4: clamp(1.802rem, 1.5148rem + 1.4363vi, 2.592rem);
+    --step-5: clamp(2.0273rem, 1.6334rem + 1.9693vi, 3.1104rem);
+    --step-6: clamp(2.2807rem, 1.7528rem + 2.6396vi, 3.7325rem);
+}
+
 @layer base {
     html {
         @apply scroll-smooth
@@ -34,7 +46,6 @@
 
     body {
         font-family: JosefinSans-Light, system-ui, sans-serif;
-        height: 100%;
         @apply text-darkgray bg-turquoise;
     }
 
