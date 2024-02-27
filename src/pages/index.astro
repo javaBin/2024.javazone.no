@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import {Image} from "astro:assets"
 import {formatOrdinals} from "@/utils/formatOrdinals";
 ---
 
@@ -14,21 +15,20 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
             <p>Conference: September {formatOrdinals(4)}-{formatOrdinals(5)}</p>
             <p>Workshops: September {formatOrdinals(3)}</p>
 
-            <div class="center">
-
+            <div>
                 <p>Ticket sales starts on March {formatOrdinals(1)} at 10 AM</p>
                 <p>8 790,- (ex MVA and fee)</p>
                 <p>Late Bird from May {formatOrdinals(1)} 9 590,- (ex MVA and fee)</p>
                 <div class="button">
                     <a href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</a>
                 </div>
-
-                <br/>
+            </div>
+            <div>
                 <p>Registered partners will also be able to reserve tickets on March {formatOrdinals(1)}</p>
                 <div class="button">
-                    <a href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve partner tickets</a>
+                    <a href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
+                        partner tickets</a>
                 </div>
-
             </div>
 
         </section>
