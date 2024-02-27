@@ -4,6 +4,9 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
 ---
 
 <Layout title="JavaZone 2024">
+    <div class="center">
+        <img class="z-40" src="/public/images/JavaZone2024-comp-cropped.svg" alt="comp">
+    </div>
     <div class="wrapper">
         <section class="p-4 shadow-2xl bg-turquoise">
             <h1>JavaZone 2024</h1>
@@ -35,8 +38,10 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
 
 <style>
     body {
-        background-image: url("../images/main-area.jpg");
-        backdrop-filter: blur(3px);
+       background: repeating-conic-gradient(
+            hsla(0,0%,100%,.2) 0deg 15deg,
+            hsla(0,0%,100%,0) 0deg 30deg
+        ) #00dfc1;
     }
 
     .wrapper {
