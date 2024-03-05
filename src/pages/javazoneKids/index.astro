@@ -1,7 +1,10 @@
 ---
----
+import Layout from "../../layouts/Layout.astro";
 
-<div>
+---
+<Layout title="JavaZone Kids!">
+
+<div class="h-screen mx-4">
     <h1>JavaZone Kids
     </h1>
     <p>En smakebit på JavaZone for framtidens utviklere
@@ -11,4 +14,57 @@
         Hold av datoen, mer informasjon kommer.</p>
 </div>
 
+</Layout>
 
+
+<style>
+    section {
+        @apply p-4
+    }
+
+    .package {
+        margin: 1rem 0;
+        border-radius: 16px;
+        @apply shadow-2xl
+    }
+
+    @media screen and (min-width: 1400px) {
+        .packages {
+            display: grid;
+            gap: 0.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 1rem 0;
+        }
+
+        .package {
+            gap: 1rem;
+            margin: 0;
+            display: grid;
+            align-content: baseline;
+        }
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .partner-tickets {
+        grid-column: 1 / end;
+    }
+
+    .stand-image {
+        object-fit: cover;
+    }
+
+    .register-button {
+        display: inline-block;
+        margin-top: 1rem;
+        background: blue;
+        padding: 1rem;
+        border-radius: 8px;
+
+        a {
+            color: white;
+        }
+    }
+</style>
