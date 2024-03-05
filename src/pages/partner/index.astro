@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import {Image} from "astro:assets"
+import ButtonLink from "@/components/ButtonLink.astro"
+
 ---
 
 <Layout title="JavaZone 2024 Partner">
@@ -21,8 +23,9 @@ import {Image} from "astro:assets"
                 any cancellations</p>
             <p>You must choose one type of package. Once you complete the registration you will receive a
                 confirmation of your choice. The formal contract and invoice will be sent to you later </p>
-            <div class="register-button"><a
-                href="https://app.checkin.no/event/65953/javazone-2024-partnership">Register here</a></div>
+            <ButtonLink
+                href="https://app.checkin.no/event/65953/javazone-2024-partnership">Register here
+            </ButtonLink>
         </section>
 
         <section>
@@ -139,17 +142,5 @@ import {Image} from "astro:assets"
 
     .stand-image {
         object-fit: cover;
-    }
-
-    .register-button {
-        display: inline-block;
-        margin-top: 1rem;
-        background: blue;
-        padding: 1rem;
-        border-radius: 8px;
-
-        a {
-            color: white;
-        }
     }
 </style>

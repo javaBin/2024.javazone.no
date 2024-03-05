@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import ButtonLink from "../../components/ButtonLink.astro"
 ---
 
 <Layout title="JavaZone 2024 - Speakers">
@@ -14,9 +15,7 @@ import Layout from "../../layouts/Layout.astro";
         <p>JavaZone hosts both international and Norwegian speakers. We'd love to have you join us the coming
             September!</p>
 
-        <div class="submit-button">
-            <a href="https://talks.javazone.no/" target="_blank">Submit your talk!</a>
-        </div>
+        <ButtonLink href="https://talks.javazone.no/" target="_blank">Submit your talk!</ButtonLink>
 
         <p>Our call for speakers is open from <span class="bold">January 29th</span> until <span
             class="bold">April 8th</span>.
@@ -141,19 +140,5 @@ import Layout from "../../layouts/Layout.astro";
 
     .bold {
         font-weight: bold;
-    }
-
-    .submit-button {
-        display: inline-block;
-        margin-top: 1rem;
-        background: darkred;
-        padding: 1rem;
-        border-radius: 8px;
-
-        a {
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-        }
     }
 </style>

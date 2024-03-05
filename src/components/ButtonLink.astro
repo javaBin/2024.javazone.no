@@ -1,0 +1,12 @@
+---
+import {HTMLAttributes} from "astro/types";
+interface Props extends HTMLAttributes<'a'> {
+}
+---
+<div class="my-4">
+    <a {...Astro.props}
+       class="font-['JosefinSans-SemiBold'] bg-darkgreen py-4 px-8 text-white no-underline rounded-md hover:bg-white hover:border-2 border-darkgray hover:text-darkgray">
+        <slot/>
+    </a>
+</div>
+
