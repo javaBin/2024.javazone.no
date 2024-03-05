@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 ---
 
 <Layout title="JavaZone 2024 - Speakers - reimbursement policy">
-    <section>
+    <article>
         <h1>Reimbursement policy</h1>
 
         <section>
@@ -55,37 +55,11 @@ import Layout from "../../../layouts/Layout.astro";
                 who applied for reimbursement and process the payments once payment details are provided.
             </p>
         </section>
-    </section>
+    </article>
 </Layout>
 
 <style>
-
-    main {
-        margin: 2rem;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    p {
-        word-wrap: break-word;
-        line-height: 1.6rem;
-    }
-
-    section {
-        padding: 1rem;
-    }
-
-    .bold {
-        font-weight: bold;
+    article {
+        @apply mx-8
     }
 </style>

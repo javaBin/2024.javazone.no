@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 ---
 
 <Layout title="JavaZone 2024 - Speakers - Submission tips">
-    <section>
+    <article>
         <h1>Submission tips for speakers</h1>
 
         <section>
@@ -165,36 +165,11 @@ import Layout from "../../../layouts/Layout.astro";
                 the program meant that many of these ended up being rejected.
             </p>
         </section>
-    </section>
+    </article>
 </Layout>
 
 <style>
-    main {
-        margin: 2rem;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    p {
-        word-wrap: break-word;
-        line-height: 1.6rem;
-    }
-
-    section {
-        padding: 1rem;
-    }
-
-    .bold {
-        font-weight: bold;
+    article {
+        @apply m-8
     }
 </style>
