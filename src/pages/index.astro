@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import {Image} from "astro:assets"
+import ButtonLink from "@/components/ButtonLink.astro"
 import {formatOrdinals} from "@/utils/formatOrdinals";
 ---
 
@@ -24,16 +25,12 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
                 <p>Ticket sales starts on March {formatOrdinals(1)} at 10 AM</p>
                 <p>8 790,- + 120,- fee (ex MVA)</p>
                 <p>Late Bird from May {formatOrdinals(1)} 9 590,- + 120,- fee (ex MVA)</p>
-                <div class="button">
-                    <a href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</a>
-                </div>
+                    <ButtonLink href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</ButtonLink>
             </div>
             <div>
                 <p>Registered partners will also be able to reserve tickets on March {formatOrdinals(1)}</p>
-                <div class="button">
-                    <a href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
-                        partner tickets</a>
-                </div>
+                    <ButtonLink href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
+                        partner tickets</ButtonLink>
             </div>
 
         </section>
