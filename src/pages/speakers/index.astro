@@ -117,7 +117,7 @@ import ButtonLink from "../../components/ButtonLink.astro"
                 from javaBin (the Norwegian Java User Group) and is run as a non-profit organization. This means that we
                 have three important principles for selecting talks:
             </p>
-            <ul>
+            <ul class="m-4">
                 <li>We do not sell speaker slots.</li>
                 <li>We do not accept sales pitches masked as presentations.</li>
                 <li>We do not differentiate between speakers from partners and independent speakers.</li>
@@ -136,5 +136,9 @@ import ButtonLink from "../../components/ButtonLink.astro"
 <style>
     article {
         @apply mx-8
+    }
+
+    li {
+        @apply list-decimal
     }
 </style>
