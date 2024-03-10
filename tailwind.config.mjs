@@ -21,7 +21,8 @@ export default {
         extend: {
             colors: {
                 'darkgray': '#1a1a1a',
-                'turquoise': '#00f3d2'
+                'turquoise': '#00f3d2',
+                'darkgreen': 'rgb(46, 107, 104)'
             },
         }
     },
