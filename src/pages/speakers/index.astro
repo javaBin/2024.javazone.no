@@ -91,7 +91,7 @@ import ButtonLink from "../../components/ButtonLink.astro"
 
         <section>
             <h2>Submission tips</h2>
-            <p>Over the years, we have gathered some <a href="/speakers/speakers-tips">submission tips</a>, which may be
+            <p>Over the years, we have gathered some <a class="font-bold text-[1.5rem]"  href="/speakers/speakers-tips" >submission tips</a>, which may be
                 useful to both
                 new and experienced speakers.</p>
         </section>
@@ -106,7 +106,7 @@ import ButtonLink from "../../components/ButtonLink.astro"
                 wilderness. More details will be available soon.</p>
 
             <h3>Coverage of expenses</h3>
-            <p>Please see our <a href="/speakers/reimbursement-policy">reimbursement policy</a> if you have any
+            <p>Please see our <a class="font-bold text-[1.5rem]" href="/speakers/reimbursement-policy">reimbursement policy</a> if you have any
                 questions
                 regarding coverage of other expenses.
         </section>
@@ -117,7 +117,7 @@ import ButtonLink from "../../components/ButtonLink.astro"
                 from javaBin (the Norwegian Java User Group) and is run as a non-profit organization. This means that we
                 have three important principles for selecting talks:
             </p>
-            <ul class="m-4">
+            <ul class="ml-8 my-4 list-disc">
                 <li>We do not sell speaker slots.</li>
                 <li>We do not accept sales pitches masked as presentations.</li>
                 <li>We do not differentiate between speakers from partners and independent speakers.</li>
@@ -136,6 +136,19 @@ import ButtonLink from "../../components/ButtonLink.astro"
 <style>
     article {
         @apply mx-8
+    }
+
+    p {
+        word-wrap: break-word;
+        line-height: 1.6rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .bold {
+        font-weight: bold;
     }
 
     li {

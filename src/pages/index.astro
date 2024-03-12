@@ -41,9 +41,23 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
 <style>
     body {
         background: repeating-conic-gradient(
-            hsla(0, 0%, 100%, .2) 0deg 15deg,
+            hsla(0, 0%, 0%, 0.2) 0deg 15deg,
             hsla(0, 0%, 100%, 0) 0deg 30deg
         ) #00f3d2 no-repeat;
         background-size: auto 100%;
     }
+
+    .wiggly-box {
+            --mask:
+                radial-gradient(1em at 50% 1em,#000 99%,#0000 101%) calc(50% - 2em) 0/4em 51% repeat-x,
+                radial-gradient(1em at 50% 0em,#0000 99%,#000 101%) 50% 1em/4em calc(51% - 1em) repeat-x,
+                radial-gradient(1em at 50% calc(100% - 1em),#000 99%,#0000 101%) 50% 100%/4em 51% repeat-x,
+                radial-gradient(1em at 50% calc(100% + 0em),#0000 99%,#000 101%) calc(50% - 2em) calc(100% - 1em)/4em calc(51% - 1em) repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+        background: rgb(38,69,69);
+        background: linear-gradient(0deg, rgba(38,69,69,1) 0%, rgba(0,243,210,1) 30%, rgba(0,243,210,1) 70%, rgba(38,69,69,0.9850533963585434) 100%);
+        height: 22rem;
+        width: 35rem;
+        }
 </style>
