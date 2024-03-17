@@ -3,7 +3,7 @@ import {Image} from "astro:assets"
 ---
 
 <!-- component -->
-<header class="bg-white">
+<header class="bg-white w-full">
     <nav class="flex items-center gap-16 py-4 mx-8">
         <div>
             <a href="/">
@@ -13,6 +13,7 @@ import {Image} from "astro:assets"
         <div class="flex gap-4">
             <a href="/speakers">Speakers</a>
             <a href="/partner">Partner</a>
+            <a href="/aboutUs">About Us</a>
             <a href="/javazoneKids">JavaZone Kids</a>
         </div>
 
@@ -22,7 +23,8 @@ import {Image} from "astro:assets"
 <style>
     a {
         font-family: JosefinSans-SemiBold, sans-serif;
-        @apply text-darkgray no-underline
+        @apply text-darkgray no-underline;
+
     }
 
     a:hover {

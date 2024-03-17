@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import {Image} from "astro:assets"
+import ButtonLink from "@/components/ButtonLink.astro"
 import {formatOrdinals} from "@/utils/formatOrdinals";
 ---
 
@@ -17,18 +18,14 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
 
             <div>
                 <p>Ticket sales starts on March {formatOrdinals(1)} at 10 AM</p>
-                <p>8 790,- (ex MVA and fee)</p>
-                <p>Late Bird from May {formatOrdinals(1)} 9 590,- (ex MVA and fee)</p>
-                <div class="button">
-                    <a href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</a>
-                </div>
+                <p>8 790,- + 120,- fee (ex MVA)</p>
+                <p>Late Bird from May {formatOrdinals(1)} 9 590,- + 120,- fee (ex MVA)</p>
+                    <ButtonLink href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</ButtonLink>
             </div>
             <div>
                 <p>Registered partners will also be able to reserve tickets on March {formatOrdinals(1)}</p>
-                <div class="button">
-                    <a href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
-                        partner tickets</a>
-                </div>
+                    <ButtonLink href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
+                        partner tickets</ButtonLink>
             </div>
 
         </section>
@@ -38,6 +35,7 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
 
 <style>
     body {
+
        background: repeating-conic-gradient(
             hsla(0,0%,100%,.2) 0deg 15deg,
             hsla(0,0%,100%,0) 0deg 30deg
@@ -75,5 +73,26 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
 
     .center p {
         width: 18rem;
+
+        background: repeating-conic-gradient(
+            hsla(0, 0%, 0%, 0.2) 0deg 15deg,
+            hsla(0, 0%, 100%, 0) 0deg 30deg
+        ) #00f3d2 no-repeat;
+        background-size: auto 100%;
+
     }
+
+    .wiggly-box {
+            --mask:
+                radial-gradient(1em at 50% 1em,#000 99%,#0000 101%) calc(50% - 2em) 0/4em 51% repeat-x,
+                radial-gradient(1em at 50% 0em,#0000 99%,#000 101%) 50% 1em/4em calc(51% - 1em) repeat-x,
+                radial-gradient(1em at 50% calc(100% - 1em),#000 99%,#0000 101%) 50% 100%/4em 51% repeat-x,
+                radial-gradient(1em at 50% calc(100% + 0em),#0000 99%,#000 101%) calc(50% - 2em) calc(100% - 1em)/4em calc(51% - 1em) repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+        background: rgb(38,69,69);
+        background: linear-gradient(0deg, rgba(38,69,69,1) 0%, rgba(0,243,210,1) 30%, rgba(0,243,210,1) 70%, rgba(38,69,69,0.9850533963585434) 100%);
+        height: 22rem;
+        width: 35rem;
+        }
 </style>

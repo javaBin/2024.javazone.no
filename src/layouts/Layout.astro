@@ -13,7 +13,11 @@ import "public/styles/base.css"
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="description" content="Astro description"/>
+    <meta property="og:title" content="JavaZone 2024 - the biggest community-driven Java conference." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://2024.javazone.no/" />
+    <meta property="og:description" content="Join us on September 4th-5th, 2024 in Oslo Spektrum, Norway for JavaZone 2024. Featuring a wide range of tech talks, workshops, and networking opportunities. Tickets on sale now!" />
+    <meta property="og:site_name" content="JavaZone 2024" />
     <meta name="viewport" content="width=device-width"/>
     <meta name="generator" content={Astro.generator}/>
     <title>{title}</title>
@@ -22,7 +26,13 @@ import "public/styles/base.css"
 <a href="#main-content" class="skiplink">Skip to main content</a>
 <Header/>
 <main id="main-content">
-    <slot/>
+    <div class="min-h-screen flex flex-col justify-between items-stretch">
+        <div class="flex items-center grow shrink-0 py-12 !px-6 md:!px-12 ">
+            <div class="relative grow shrink w-auto my-0 w-full lg:max-w-[960px] mx-auto">
+                <slot/>
+            </div>
+        </div>
+    </div>
     <a href="#main-content">Go to the top</a>
 </main>
 <Footer/>
@@ -41,7 +51,6 @@ import "public/styles/base.css"
     body {
         cursor: url('../../public/images/JavaZone2024-arrow.gif'), auto;
 
-        
 
     }
 
