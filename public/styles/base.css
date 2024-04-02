@@ -32,24 +32,30 @@
         @apply scroll-smooth
     }
 
+    :root {
+        --base: 1.4rem
+    }
+
     body {
         font-family: JosefinSans-Light, system-ui, sans-serif;
-        font-size: clamp(1.4rem, 4vw, 2rem);
+        font-size: clamp(var(--base), 4vw, 2rem);
         @apply text-darkgray bg-turquoise;
     }
 
 
     h1 {
         font-family: Limelight-Regular, sans-serif;
+        font-size: calc(var(--base) * 2.5);
     }
 
     h2 {
         font-family: JosefinSans-SemiBold, sans-serif;
-
+        font-size: calc(var(--base) * 2);
     }
 
     h3 {
         font-family: JosefinSans-SemiBold, sans-serif;
+        font-size: calc(var(--base) * 1.5);
 
     }
 
