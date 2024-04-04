@@ -1,25 +1,33 @@
 ---
 import {Image} from "astro:assets"
+
 ---
 
 <!-- component -->
 <header class="bg-white w-full">
-    <nav class="flex items-center gap-16 py-8 mx-8">
+    <nav class="flex flex-col md:flex-row items-center md:gap-16 py-8 mx-8">
         <div>
             <a href="/">
                 <Image src="/images/JavaZone2024-logo-cropped.svg" alt="JavaZone 2024" width="110" height="50"/>
             </a>
         </div>
-        <div class="flex gap-4">
+        <label class="hamburger-menu opacity-90 md:opacity-0">
+            <input type="checkbox">
+            </label>
+        <aside class="sidebar flex flex-col md:flex-row gap-4">
             <a href="/speakers">Speakers</a>
             <a href="/partner">Partner</a>
             <a href="/aboutUs">About Us</a>
             <a href="/javazoneKids">JZ-Kids</a>
             <a href="/volunteers">Frivillig</a>
-        </div>
+        </aside>
 
     </nav>
 </header>
+
+
+
+
 
 <style>
     a {
@@ -31,4 +39,95 @@ import {Image} from "astro:assets"
     a:hover {
         @apply text-turquoise;
     }
+
+
+
+
+@media (max-width: 640px) {
+
+    :root {
+    --bar-width: 40px;
+    --bar-height: 6px;
+    --hamburger-gap: 4px;
+    --menu-height: 190px;
+    --foreground: #333;
+    --background: white;
+    --hamburger-margin: 24px;
+    --animation-timing: 250ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2)
+
+
+}
+
+.hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    right: var(--hamburger-margin);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    content:"";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    border-radius: 9999px;
+    transform-origin: left center;
+    background-color: var(--foreground);
+    transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing);
+}
+
+.hamburger-menu:has(input:checked)::before{
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2); 
+}
+
+.hamburger-menu:has(input:checked)::after{
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2); 
+}
+
+
+.hamburger-menu input{
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+    .sidebar {
+    height: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--animation-timing), height var(--animation-timing), padding var(--animation-timing);
+
+    }
+
+    .hamburger-menu:has(input:checked) + .sidebar {
+    height: var(--menu-height);
+    padding: 14px;
+    opacity: 100;
+    pointer-events: all;
+    transition: opacity var(--animation-timing), height var(--animation-timing), padding var(--animation-timing);
+
+}
+
+}
+
 </style>
