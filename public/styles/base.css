@@ -69,10 +69,6 @@
         cursor: url('../../public/images/JavaZone2024-hand.gif'), pointer;
     }
 
-    a:active {
-        cursor: url('../../public/images/JavaZone2024-hand-click.gif'), pointer;
-    }
-
     p {
         @apply my-4
     }
