@@ -11,7 +11,8 @@ export default {
             colors: {
                 'darkgray': '#1a1a1a',
                 'turquoise': '#00f3d2',
-                'darkgreen': 'rgb(46, 107, 104)'
+                'darkgreen': 'rgb(46, 107, 104)',
+                'purple': '#6200A3',
             },
         }
     },

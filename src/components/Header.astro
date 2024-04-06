@@ -49,7 +49,7 @@ import {Image} from "astro:assets"
     --bar-width: 40px;
     --bar-height: 6px;
     --hamburger-gap: 4px;
-    --menu-height: 190px;
+    --menu-height: 260px;
     --foreground: #333;
     --background: white;
     --hamburger-margin: 24px;
@@ -114,6 +114,8 @@ import {Image} from "astro:assets"
     height: 0;
     padding: 0;
     opacity: 0;
+    display: grid; 
+    grid-template-columns: 1fr; 
     pointer-events: none;
     transition: opacity var(--animation-timing), height var(--animation-timing), padding var(--animation-timing);
 
