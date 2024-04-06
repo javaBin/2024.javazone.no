@@ -61,7 +61,7 @@
 
     h1 {
         font-family: Limelight-Regular, sans-serif;
-        @apply text-5xl
+        @apply text-4xl
     }
 
     h2 {
