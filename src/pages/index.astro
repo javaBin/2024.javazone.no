@@ -1,16 +1,62 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import {Image} from "astro:assets"
+import { Image } from "astro:assets"
 import ButtonLink from "@/components/ButtonLink.astro"
 import {formatOrdinals} from "@/utils/formatOrdinals";
 ---
 
+<script>
+    const floppyEyeWrapper = document.querySelector('.floppy-eye-wrapper');
+    const floppyEye = document.getElementById('floppy-eye');
+
+    document.addEventListener('mousemove', (e) => {
+        // Calculate the position of the mouse relative to the wrapper
+        const rect = floppyEyeWrapper.getBoundingClientRect();
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        // Calculate the position of the eye within the wrapper
+        const wrapperRect = floppyEyeWrapper.getBoundingClientRect();
+        const wrapperX = wrapperRect.left + (wrapperRect.width / 2);
+        const wrapperY = wrapperRect.top + (wrapperRect.height / 2);
+        const deltaX = mouseX - wrapperX;
+        const deltaY = mouseY - wrapperY;
+        const angle = Math.atan2(deltaY, deltaX);
+
+        // Calculate the maximum distance the eye can move from the center of the wrapper
+        const maxDistance = Math.min(wrapperRect.width / 2, wrapperRect.height / 2) - (floppyEye.offsetWidth / 2);
+
+        // Calculate the position of the eye
+        const eyeX = wrapperX + Math.cos(angle) * maxDistance;
+        const eyeY = wrapperY + Math.sin(angle) * maxDistance;
+
+        // Update the position of the eye
+        floppyEye.style.left = eyeX - (wrapperRect.left + window.pageXOffset) - (floppyEye.offsetWidth / 2) + 'px';
+        floppyEye.style.top = eyeY - (wrapperRect.top + window.pageYOffset) - (floppyEye.offsetHeight / 2) + 'px';
+    });
+</script>
+
 <Layout title="JavaZone 2024">
     <div class="grid">
+
+        <!-- Full illustration wrapper -->
         <div class="grid place-items-center -mt-10">
-            <Image src="/images/JavaZone2024-comp-cropped.svg"
+            <!-- Full illustration image -->
+            <Image src="/images/JavaZone2024-comp-cropped-no-eye.svg"
                    alt="An illustration for 'JavaZone by JavaBin,' inspired by the 1920s Steamboat Willie theme. It features whimsical representations of technology, including small figures of USB sticks, floppy disks, and punch hole cards, among other vintage and modern tech elements. The design combines a nostalgic black-and-white animation style with technology motifs to celebrate the evolution of computing in a playful manner"
                    width="1000" height="800"/>
+        </div>
+
+        <!-- Eye wrapper identical size as illustration wrapper -->
+        <div class="absolute grid place-items-center -mt-10 w-full">
+            <!-- Sub-wrapper to fill same size as illustration image -->
+            <div class="w-[1000px] h-[800px]">
+                <!-- Eye wrapper, placed in front of floppy disk eye -->
+                <div class="floppy-eye-wrapper absolute w-[23px] h-[22px] flex rounded-full">
+                    <!-- Eye illustration -->
+                    <Image src="/images/Eye.svg" alt="Decorative graphic eye" width="8" height="8" class="relative z-50 w-[8px] h-[8px] object-contain" id="floppy-eye" />
+                </div>
+            </div>
         </div>
 
         <section class="shadow-2xl bg-turquoise grid justify-center gap-4 px-4 py-8">
@@ -25,11 +71,12 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
                 <p>Ticket sales starts on March {formatOrdinals(1)} at 10 AM</p>
                 <p>8 790,- + 120,- fee (ex MVA)</p>
                 <p>Late Bird from May {formatOrdinals(1)} 9 590,- + 120,- fee (ex MVA)</p>
-                    <ButtonLink href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</ButtonLink>
+                <ButtonLink href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</ButtonLink>
+
             </div>
             <div>
                 <p>Registered partners will also be able to reserve tickets on March {formatOrdinals(1)}</p>
-                    <ButtonLink href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
+                <ButtonLink href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
                         partner tickets</ButtonLink>
             </div>
 
@@ -39,6 +86,17 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
 </Layout>
 
 <style>
+    /* 1094px går det galt */
+    @media (min-width: 1024px) {
+        .floppy-eye-wrapper {
+            transform: translate(20rem, 20rem);
+        }
+    }
+
+    .floppy-eye-wrapper {
+        transform: translate(23.8rem, 24.8rem);
+    }
+
     @property --a {
         syntax: "<angle>";
         inherits: false;

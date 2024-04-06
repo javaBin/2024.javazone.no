@@ -3,12 +3,20 @@ import Layout from "../../layouts/Layout.astro";
 import {Image} from "astro:assets"
 import ButtonLink from "@/components/ButtonLink.astro"
 import PartnerOverview from "../../components/PartnerOverview.astro";
-import { partners } from "../../api/partners";
+//import { partners } from "../../api/partners";
 interface Partner {
     homepageUrl: string
     name: string
     logoUrl: string
 }
+
+const partners = [
+    {
+        homepageUrl: "https://www.vg.no",
+        name: "Vender",
+        logoUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACjCAMAAAA3vsLfAAAAclBMVEXdAAD////32Nj1xMT2yMj/+/vwq6vwpKTunJzsj4/aAADzvLz30dHiPz/86+vys7P53t7hODjjTU3qgID98vL30tLeEhLgKSnqfn7odXX0wMDlX1/43NzkUlL98PDsi4vnbm7fIiLul5fnamrgMDDfJSUg9B0EAAACmklEQVR4nO3aa3eiMBSFYayKGlGst3qtl878/784xc4wCvuAF2Qt5H2+JqHr7AZIgp4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADqwBnuH2G1Zyuj1uL0N2/S6MMcMjNG+FGj2/qBbs8W+NsqJTdvN7Q3owrXNwZ8npoDo/UKQYllP+zdqmKnc9sb3dvR9HSj+1NrNGZVmm9rq4qD6j23eo+j1olsmvY7SS3ZcV9m3Q9yvRv++e7N6LyPOruZagrF894N1MMhqNJ0c6ERxSTd1Yr4eCrYfYqmoczCqYk5rVJsxiT5Nk/2tB6E/Z96nZpCXf1HP9R1nlpm8YY6jdRNY/T799aVsfX0nzyEftpTiyyetQxZXPSy7uZh3OGG2F7CQAdyeZsa79x23Kl2sXlfOpLz21SG8m2Q3eOlY3NHncnyfw9jA/B1dpHaxWZumuL2nW7v5c3Hi9heaj9/Yqxkm39r+aVTC89LzY1tEbSyVGpXGtPLi/2pzenGyyVKbmwdnX2svFoLdJDP/HbU5HxZZmIHUM/YvLGsJbpNt7JlmhifG9ty1Y+9TmxuKdPZe55ee7wnx9/wSpCXLK3SYrmuSqft9DnPOjX8lgXIC8XmuZXKRx8+TlLrhdrG5rmNjEjoiFO02sbmedPrUmuqQ8waxyYPwlJGakV/y3nbb3XVpxb2ZHqxcSm59PghY5MB65ePvmpFuEV+bPorqt5KHNW3BHkI1aripjTm8hbzja0xUB8HjPxukj5NGZdbZ9FcMzu1pTUrDnl5ZworPdm8vM/EXbu8gfG14RoZl60M+9caGz+rPLfurJp3CHeVPG1LeuAssQ6/OAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/4A5d7JGav8PHyAAAAAElFTkSuQmCC",
+    }
+]
 ---
 
 <Layout title="JavaZone 2024 Partner">
