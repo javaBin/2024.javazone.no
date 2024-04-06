@@ -43,7 +43,7 @@ import {Image} from "astro:assets"
 
 
 
-@media (max-width: 640px) {
+@media (max-width: 770px) {
 
     :root {
     --bar-width: 40px;
@@ -88,13 +88,13 @@ import {Image} from "astro:assets"
 .hamburger-menu:has(input:checked)::before{
     rotate: 45deg;
     width: var(--x-width);
-    translate: 0 calc(var(--bar-height) / -2); 
+    translate: 0 calc(var(--bar-height) / -2);
 }
 
 .hamburger-menu:has(input:checked)::after{
     rotate: -45deg;
     width: var(--x-width);
-    translate: 0 calc(var(--bar-height) / 2); 
+    translate: 0 calc(var(--bar-height) / 2);
 }
 
 
