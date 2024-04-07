@@ -49,11 +49,9 @@ let desktopScreen: boolean = true;
     });
 </script>
 
-<script>
-    (() => {
-        desktopScreen = window.innerWidth >= 1070;
-        console.log(desktopScreen);
-    })();
+<script client:idle>
+    desktopScreen = window.innerWidth >= 1070;
+    console.log(desktopScreen);
 </script>
 
 <Layout title="JavaZone 2024">
