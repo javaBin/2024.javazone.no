@@ -42,6 +42,7 @@
         @apply text-darkgray bg-turquoise;
         font-weight: 400;
 
+        cursor: url("../../public/images/JavaZone2024-arrow.gif"), default;
     }
 
 
@@ -68,11 +69,12 @@
 
     a {
         @apply text-purple underline;
+        cursor: url('../../public/images/JavaZone2024-hand.gif'), pointer;
     }
 
     p {
         @apply my-3
     }
-    
+
 }
 
