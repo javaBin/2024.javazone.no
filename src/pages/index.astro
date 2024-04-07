@@ -3,15 +3,18 @@ import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets"
 import ButtonLink from "@/components/ButtonLink.astro"
 import {formatOrdinals} from "@/utils/formatOrdinals";
+import StaticIllustration from "../components/StaticIllustration.astro";
+//import DynamicIllustration from "../components/DynamicIllustration.astro"; TODO
+
+let desktopScreen: boolean = true;
 ---
 
 <script>
     const floppyEyeWrapper = document.querySelector('.floppy-eye-wrapper');
     const floppyEye = document.getElementById('floppy-eye');
 
-    document.addEventListener('mousemove', (e) => {
+    const floppyEyeAnimation = (e: MouseEvent) => {
         // Calculate the position of the mouse relative to the wrapper
-        const rect = floppyEyeWrapper.getBoundingClientRect();
         const mouseX = e.clientX;
         const mouseY = e.clientY;
 
@@ -33,31 +36,54 @@ import {formatOrdinals} from "@/utils/formatOrdinals";
         // Update the position of the eye
         floppyEye.style.left = eyeX - (wrapperRect.left + window.pageXOffset) - (floppyEye.offsetWidth / 2) + 'px';
         floppyEye.style.top = eyeY - (wrapperRect.top + window.pageYOffset) - (floppyEye.offsetHeight / 2) + 'px';
+    }
+
+    document.addEventListener('mousemove', floppyEyeAnimation);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY === 0) {
+            document.addEventListener('mousemove', floppyEyeAnimation);
+        } else {
+            document.removeEventListener('mousemove', floppyEyeAnimation);
+        }
     });
+</script>
+
+<script>
+    (() => {
+        desktopScreen = window.innerWidth >= 1070;
+        console.log(desktopScreen);
+    })();
 </script>
 
 <Layout title="JavaZone 2024">
     <div class="grid">
 
-        <!-- Full illustration wrapper -->
-        <div class="grid place-items-center -mt-10">
-            <!-- Full illustration image -->
-            <Image src="/images/JavaZone2024-comp-cropped-no-eye.svg"
-                   alt="An illustration for 'JavaZone by JavaBin,' inspired by the 1920s Steamboat Willie theme. It features whimsical representations of technology, including small figures of USB sticks, floppy disks, and punch hole cards, among other vintage and modern tech elements. The design combines a nostalgic black-and-white animation style with technology motifs to celebrate the evolution of computing in a playful manner"
-                   width="1000" height="800"/>
-        </div>
+        {() => {
+            if (desktopScreen) {
 
-        <!-- Eye wrapper identical size as illustration wrapper -->
-        <div class="absolute grid place-items-center -mt-10 w-full">
-            <!-- Sub-wrapper to fill same size as illustration image -->
-            <div class="w-[1000px] h-[800px]">
-                <!-- Eye wrapper, placed in front of floppy disk eye -->
-                <div class="floppy-eye-wrapper absolute w-[23px] h-[22px] flex rounded-full">
-                    <!-- Eye illustration -->
-                    <Image src="/images/Eye.svg" alt="Decorative graphic eye" width="8" height="8" class="relative z-50 w-[8px] h-[8px] object-contain" id="floppy-eye" />
+                return <div class="grid place-items-center -mt-10">
+                    <!-- Full illustration image -->
+                    <Image src="/images/JavaZone2024-comp-cropped-no-eye.svg"
+                           alt="An illustration for 'JavaZone by JavaBin,' inspired by the 1920s Steamboat Willie theme. It features whimsical representations of technology, including small figures of USB sticks, floppy disks, and punch hole cards, among other vintage and modern tech elements. The design combines a nostalgic black-and-white animation style with technology motifs to celebrate the evolution of computing in a playful manner"
+                           width="1000" height="800"/>
                 </div>
-            </div>
-        </div>
+
+                    <!-- Eye wrapper identical size as illustration wrapper -->
+                    <div class="absolute grid place-items-center -mt-10 w-full">
+                        <!-- Sub-wrapper to fill same size as illustration image -->
+                        <div class="w-[1000px] h-[800px]">
+                            <!-- Eye wrapper, placed in front of floppy disk eye -->
+                            <div class="floppy-eye-wrapper absolute w-[23px] h-[22px] flex rounded-full">
+                                <!-- Eye illustration -->
+                                <Image src="/images/Eye.svg" alt="Decorative graphic eye" width="8" height="8" class="relative z-50 w-[8px] h-[8px] object-contain" id="floppy-eye" />
+                            </div>
+                        </div>
+                    </div>
+            } else {
+                return <StaticIllustration />
+            }
+        } }
 
         <section class="shadow-2xl bg-turquoise grid justify-center gap-4 px-4 py-8">
             <h1 class="max-sm:text-3xl">Welcome to JavaZone 2024</h1>
