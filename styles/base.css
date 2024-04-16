@@ -22,7 +22,7 @@
         font-style: normal;
         font-size: clamp(var(--base), 4vw, 1rem);
         @apply text-darkgray bg-turquoise;
-        cursor: url("../images/JavaZone2024-arrow.gif"), default;
+        cursor: url("/images/JavaZone2024-arrow.gif"), default;
     }
 
 
@@ -51,7 +51,7 @@
 
     a {
         @apply text-purple underline;
-        cursor: url('../images/JavaZone2024-hand.gif'), pointer;
+        cursor: url('../../images/JavaZone2024-hand.gif'), pointer;
     }
 
     p {
