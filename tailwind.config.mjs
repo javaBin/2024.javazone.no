@@ -4,9 +4,6 @@ import defaultTheme from "tailwindcss/defaultTheme"
 export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     theme: {
-        fontFamily: {
-            sans: ["JosefinSans-Light", "JosefinSans-SemiBold", "LimeLight-Regular", ...defaultTheme.fontFamily.sans]
-        },
         extend: {
             colors: {
                 'darkgray': '#1a1a1a',
