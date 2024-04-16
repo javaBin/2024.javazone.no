@@ -1,6 +1,8 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '@/components/Footer.astro';
+
+const props = Astro.props;
 interface Props {
     title: string;
 }
@@ -20,6 +22,7 @@ import "styles/base.css"
     <meta property="og:site_name" content="JavaZone 2024" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator}/>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{title}</title>
 </head>
 <body>
@@ -28,13 +31,17 @@ import "styles/base.css"
         <Header/>
         <main id="main-content">
             <div class="min-h-screen flex flex-col justify-between items-stretch">
-                <div class="flex items-center grow shrink-0 py-4 !px-6 md:!px-12 ">
+                <div class="flex items-center grow shrink-0 py-4 !px-6 md:!px-12">
                     <div class="relative grow shrink w-auto my-0 w-full lg:max-w-[120rem] mx-auto">
                         <slot/>
                     </div>
                 </div>
             </div>
-            <a href="#main-content">Go to the top</a>
+            <div class="flex w-full justify-center">
+            <a href="#main-content" class="m-6 -mb-5">
+                <img src="../../public/images/to-top.svg"  alt="An illustration of an arrow pointing up to navigate back to top." width="50" height="50"/>
+            </a>
+            </div>
         </main>
         <Footer />
     </div>
