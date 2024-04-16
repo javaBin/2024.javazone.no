@@ -1,40 +1,19 @@
 ---
+import {Image} from "astro:assets"
 
 ---
 
-<script>
-    const path = window.location.pathname
-
-    const logoClass = "logo-class"
-
-    if (path === "/") {
-        document.getElementById("logo-id").classList.add(logoClass)
-    } else{
-        document.getElementById("logo-id").classList.remove(logoClass)
-    }
-
-    const hamburgerCheckBox = document.getElementById("checkbox-input") as HTMLInputElement
-
-    hamburgerCheckBox.addEventListener("change", () => {
-        if (hamburgerCheckBox.checked) {
-            document.getElementById("logo-id").classList.remove(logoClass)
-        }else if (path === "/") {
-            document.getElementById("logo-id").classList.add(logoClass)
-        }
-    })
-
-</script>
 <!-- component -->
-<header class="bg-white w-full border-y-2 border-y-black">
+<header class="bg-white w-full">
     <nav class="flex flex-col md:flex-row items-center md:gap-16 py-8 mx-8">
         <div>
             <a href="/">
-                <img id="logo-id" src="/images/JavaZone2024-logo-cropped.svg" alt="JavaZone 2024" width="150"/>
+                <Image src="/images/JavaZone2024-logo-cropped.svg" alt="JavaZone 2024" width="110" height="50"/>
             </a>
         </div>
         <label class="hamburger-menu opacity-90 md:opacity-0">
-            <input id="checkbox-input" type="checkbox">
-        </label>
+            <input type="checkbox">
+            </label>
         <aside class="sidebar flex flex-wrap flex-col md:flex-row gap-4">
             <a href="/speakers">Speakers</a>
             <a href="/partner">Partner</a>
@@ -61,16 +40,8 @@
         @apply text-turquoise;
     }
 
-    .logo-class {
-        opacity: 1;
-        transition: opacity 0.5s;
-    }
 
-    @media (max-width: 770px) {
-        .logo-class {
-            opacity: 0;
-        }
-    }
+
 
 @media (max-width: 770px) {
 

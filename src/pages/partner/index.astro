@@ -2,22 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import {Image} from "astro:assets"
 import ButtonLink from "@/components/ButtonLink.astro"
-import PartnerOverview from "../../components/PartnerOverview.astro";
-//import { partners } from "../../api/partners";
-interface Partner {
-    homepageUrl: string
-    name: string
-    logoUrl: string
-}
 
-const partners = []
 ---
 
 <Layout title="JavaZone 2024 Partner">
     <article>
         <h1>JavaZone 2024 Partner</h1>
-
-        <section class="my-6">
+        <section>
             <h2>Information to registered partners</h2>
             <h3>Partner tickets</h3>
             <p>You have four flexible stand tickets included in your partnership package. These are intended for stand personell, and does not give access to the talks. You must order tickets for everyone of you employees that wants to attend a talk (or if you have more than four who needs to be on the stand at once).</p>
@@ -43,8 +34,7 @@ const partners = []
             <h3>Partner meeting #3</h3>
             <p>Scheduled May 28th 2024</p>
         </section>
-
-        <section class="my-6">
+        <section>
             <h2>Partner registration</h2>
             <p>We are currently sold out of partner packages. You can use the link below to register on the waiting list</p>
 
@@ -60,7 +50,7 @@ const partners = []
                 confirmation of your choice. The formal contract and invoice will be sent to you later </p>
         </section>
 
-        <section class="my-6">
+        <section>
             <h2>Partner packages</h2>
             <p>If you have any questions, please send us an e-mail at <a
                 href="mailto:partner@java.no">partner@java.no</a>
@@ -115,10 +105,6 @@ const partners = []
                 </section>
 
             </div>
-        </section>
-
-        <section class="my-6">
-            <PartnerOverview partners={partners} />
         </section>
     </article>
 </Layout>
