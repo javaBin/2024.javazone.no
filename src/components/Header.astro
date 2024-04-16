@@ -3,26 +3,31 @@
 ---
 
 <script>
-    const path = window.location.pathname
+    const path = window.location.pathname;
+    const logoId = document.getElementById("logo-id");
+    const logoClass = "logo-class";
 
-    const logoClass = "logo-class"
+    (() => {
+        if (!logoId) return;
 
-    if (path === "/") {
-        document.getElementById("logo-id").classList.add(logoClass)
-    } else{
-        document.getElementById("logo-id").classList.remove(logoClass)
-    }
-
-    const hamburgerCheckBox = document.getElementById("checkbox-input") as HTMLInputElement
-
-    hamburgerCheckBox.addEventListener("change", () => {
-        if (hamburgerCheckBox.checked) {
-            document.getElementById("logo-id").classList.remove(logoClass)
-        }else if (path === "/") {
-            document.getElementById("logo-id").classList.add(logoClass)
+        if (path === "/") {
+            logoId.classList.add(logoClass)
+        } else {
+            logoId.classList.remove(logoClass)
         }
-    })
 
+        const hamburgerCheckBox = document.getElementById("checkbox-input") as HTMLInputElement
+
+        if (!hamburgerCheckBox) return;
+
+        hamburgerCheckBox.addEventListener("change", () => {
+            if (hamburgerCheckBox.checked) {
+                logoId.classList.remove(logoClass)
+            } else if (path === "/") {
+                logoId.classList.add(logoClass)
+            }
+        });
+    })();
 </script>
 <!-- component -->
 <header class="bg-white w-full border-y-2 border-y-black">

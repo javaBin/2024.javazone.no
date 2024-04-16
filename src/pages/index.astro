@@ -2,8 +2,6 @@
 import Layout from "@/layouts/Layout.astro";
 import ButtonLink from "@/components/ButtonLink.astro"
 import { formatOrdinals } from "@/utils/formatOrdinals";
-import StaticIllustration from "../components/StaticIllustration.astro";
-//import DynamicIllustration from "../components/DynamicIllustration.astro"; TODO
 
 let desktopScreen: boolean = true;
 let illustrationHeight: number = 500;
@@ -22,6 +20,11 @@ let illustrationHeight: number = 500;
     const floppyEye = document.getElementById('floppy-eye');
 
     const floppyEyeAnimation = (e: MouseEvent) => {
+        if (!illustrationHeight || !desktopScreen) return;
+        if (!floppyEye || !floppyEyeWrapper) return;
+        if (!illustrationImage || !illustrationWrapper) return;
+        if (!animationImage) return;
+
         // Calculate the position of the mouse relative to the wrapper
         const mouseX = e.clientX;
         const mouseY = e.clientY;

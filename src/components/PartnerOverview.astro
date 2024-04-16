@@ -18,7 +18,7 @@ const { partners } = Astro.props;
         .sort(() => Math.random() - 0.5)
         .map((partner) => {
             return (
-                <a key={partner.name} href={partner.homepageUrl}>
+                <a href={partner.homepageUrl}>
                     <img
                         height={0}
                         width={0}
