@@ -18,7 +18,7 @@
     hamburgerCheckBox.addEventListener("change", () => {
         if (hamburgerCheckBox.checked) {
             document.getElementById("logo-id").classList.remove(logoClass)
-        }else {
+        }else if (path === "/") {
             document.getElementById("logo-id").classList.add(logoClass)
         }
     })
