@@ -1,9 +1,20 @@
 {
-    "extends": "astro/tsconfigs/strict",
     "compilerOptions": {
+        "target": "es2020",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": false,
+        "jsx": "preserve",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/components/*": ["./src/components/*"],
+            "@/styles/*": ["./src/styles/*"]
         }
-    }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }

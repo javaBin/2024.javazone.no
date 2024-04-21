@@ -1,15 +1,17 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 import ButtonLink from "@/components/ButtonLink.astro"
-import { formatOrdinals } from "@/utils/formatOrdinals";
-
+import {formatOrdinals} from "../utils/formatOrdinals";
 let desktopScreen: boolean = true;
 let illustrationHeight: number = 500;
 ---
 
-<script client:idle>
-    desktopScreen = window.innerWidth >= 1085;
-    illustrationHeight = 500;
+<script {...{'client:only': true} as any}>
+    if (typeof window != 'undefined') {
+        // Code that uses window, document, etc.
+        desktopScreen = window.innerWidth >= 1085;
+        illustrationHeight = 500;
+    }
 </script>
 
 <script>
