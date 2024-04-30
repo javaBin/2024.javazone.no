@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
-import { formatOrdinals } from '../utils/formatOrdinals'; // Ensure this utility is available
-
 function EyeAnimation() {
     const [desktopScreen, setDesktopScreen] = useState(window.innerWidth >= 1085);
     const [illustrationHeight, setIllustrationHeight] = useState(500);
@@ -13,29 +11,32 @@ function EyeAnimation() {
     const floppyEyeWrapperRef = useRef(null);
     const floppyEyeRef = useRef(null);
 
-    useEffect(() => {
-        function handleResize() {
-            setDesktopScreen(window.innerWidth >= 1085);
-            if (illustrationImageRef.current) {
-                setIllustrationHeight(illustrationImageRef.current.getBoundingClientRect().height);
-            }
+    const handleResize = () => {
+        setDesktopScreen(window.innerWidth >= 1085);
+        if (illustrationImageRef.current) {
+            setIllustrationHeight(illustrationImageRef.current.getBoundingClientRect().height);
         }
+    }
 
-        function handleScroll() {
-            const shouldListen = window.scrollY === 0;
-            document[shouldListen ? 'addEventListener' : 'removeEventListener']('mousemove', floppyEyeAnimation);
-        }
+    const handleScroll = () => {
+        const shouldListen = window.scrollY === 0;
+        document[shouldListen ? 'addEventListener' : 'removeEventListener']('mousemove', floppyEyeAnimation);
+    }
+
+    useEffect(() => {
+        handleScroll();
+        handleScroll();
 
         window.addEventListener('resize', handleResize);
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
-    function floppyEyeAnimation(e) {
+
+    const floppyEyeAnimation = (e) => {
         if (!illustrationHeight || !desktopScreen) return;
         if (!floppyEyeRef.current || !floppyEyeWrapperRef.current) return;
 
@@ -76,28 +77,6 @@ function EyeAnimation() {
                         </div>
                     </div>
                 </div>
-                <section
-                    className="shadow-2xl bg-turquoise grid justify-center gap-4 px-4 py-8 border-2 border-[#26454f]">
-                    <h1 className="max-sm:text-3xl">Welcome to JavaZone 2024</h1>
-                    <div>
-                        <p>September {formatOrdinals(4)}-{formatOrdinals(5)} 2024 in Oslo Spektrum, Norway</p>
-                        <p>Conference: September {formatOrdinals(4)}-{formatOrdinals(5)}</p>
-                        <p>Workshops: September {formatOrdinals(3)}</p>
-                    </div>
-
-                    <div>
-                        <p>Ticket sales starts on March {formatOrdinals(1)} at 10 AM</p>
-                        <p>8 790,- + 120,- fee (ex MVA)</p>
-                        <p>Late Bird from May {formatOrdinals(1)} 9 590,- + 120,- fee (ex MVA)</p>
-                        <slot/>
-
-                    </div>
-                    <div>
-                        <p>Registered partners will also be able to reserve tickets on March {formatOrdinals(1)}</p>
-                       <slot/>
-                    </div>
-
-                </section>
             </div>
         </>
 
