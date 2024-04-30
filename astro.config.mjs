@@ -13,5 +13,8 @@ export default defineConfig({
   }),
   integrations: [tailwind({
     applyBaseStyles: false
-  }), react()]
+  }), react()],
+    astro: {
+      preset: 'vercel-edge',
+    }
 });
