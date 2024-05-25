@@ -1,0 +1,87 @@
+---
+import {Image} from "astro:assets"
+
+interface Partner {
+    name: string;
+    homepageUrl: string;
+    logoUrl: string;
+};
+
+const partners: Partner[] = [
+    { name: "Aboveit", homepageUrl: "https://www.aboveit.com", logoUrl: "/svg/aboveit.svg" },
+    { name: "Accenture", homepageUrl: "https://www.accenture.com", logoUrl: "/svg/accenture.svg" },
+    { name: "Arktekk", homepageUrl: "https://www.arktekk.no", logoUrl: "/svg/arktekk.svg" },
+    { name: "Bekk", homepageUrl: "https://www.bekk.no", logoUrl: "/svg/bekk.svg" },
+    { name: "Bouvet", homepageUrl: "https://www.bouvet.no", logoUrl: "/svg/bouvet.svg" },
+    { name: "Buypass", homepageUrl: "https://www.buypass.no", logoUrl: "/svg/buypass.svg" },
+    { name: "Capgemini", homepageUrl: "https://www.capgemini.com", logoUrl: "/svg/capgemini.svg" },
+    { name: "CGI", homepageUrl: "https://www.cgi.com", logoUrl: "/svg/cgi.svg" },
+    { name: "Cloudberries", homepageUrl: "https://www.cloudberries.no", logoUrl: "/svg/cloudberries.svg" },
+    { name: "Computas", homepageUrl: "https://www.computas.com", logoUrl: "/svg/computas.svg" },
+    { name: "DNB", homepageUrl: "https://www.dnb.no", logoUrl: "/svg/dnb.svg" },
+    { name: "Elastic", homepageUrl: "https://www.elastic.co", logoUrl: "/svg/elastic.svg" },
+    { name: "Embriq", homepageUrl: "https://www.embriq.no", logoUrl: "/svg/embriq.svg" },
+    { name: "Entur", homepageUrl: "https://www.entur.no", logoUrl: "/svg/entur.svg" },
+    { name: "Experis", homepageUrl: "https://www.experis.no", logoUrl: "/svg/experis-cropped.svg" },
+    { name: "Finn", homepageUrl: "https://www.finn.no", logoUrl: "/svg/finn.svg" },
+    { name: "Fremtind", homepageUrl: "https://www.fremtind.no", logoUrl: "/svg/fremtind.svg" },
+    { name: "Gjensidige", homepageUrl: "https://www.gjensidige.no", logoUrl: "/svg/gjensidige.svg" },
+    { name: "Google", homepageUrl: "https://www.google.com", logoUrl: "/svg/google.svg" },
+    { name: "Husbanken", homepageUrl: "https://www.husbanken.no", logoUrl: "/svg/husbanken.svg" },
+    { name: "Itera", homepageUrl: "https://www.itera.no", logoUrl: "/svg/itera.svg" },
+    { name: "Kantega", homepageUrl: "https://www.kantega.no", logoUrl: "/svg/kantega.svg" },
+    { name: "Knowit", homepageUrl: "https://www.knowit.no", logoUrl: "/svg/knowit.svg" },
+    { name: "Kodemaker", homepageUrl: "https://www.kodemaker.no", logoUrl: "/svg/kodemaker.svg" },
+    { name: "Miles", homepageUrl: "https://www.miles.no", logoUrl: "/svg/miles.svg" },
+    { name: "NAV", homepageUrl: "https://www.nav.no", logoUrl: "/svg/nav.svg" },
+    { name: "Netcompany", homepageUrl: "https://www.netcompany.com", logoUrl: "/svg/netcompany-cropped.svg" },
+    { name: "Norsk Tipping", homepageUrl: "https://www.norsk-tipping.no", logoUrl: "/svg/norsktipping.svg" },
+    { name: "Oslo", homepageUrl: "https://www.oslo.kommune.no", logoUrl: "/svg/oslo.svg" },
+    { name: "Politiet PIT", homepageUrl: "https://www.politiet.no", logoUrl: "/svg/politietpit.svg" },
+    { name: "Posten Bring", homepageUrl: "https://www.bring.no", logoUrl: "/svg/postenbring.svg" },
+    { name: "Protector", homepageUrl: "https://www.protector.no", logoUrl: "/svg/protector.svg" },
+    { name: "Red Hat", homepageUrl: "https://www.redhat.com", logoUrl: "/svg/redhat.svg" },
+    { name: "SafetyWing", homepageUrl: "https://www.safetywing.com", logoUrl: "/svg/safetywing-cropped.svg" },
+    { name: "Scelto", homepageUrl: "https://www.scelto.no", logoUrl: "/svg/scelto.svg" },
+    { name: "Scienta", homepageUrl: "https://www.scienta.no", logoUrl: "/svg/scienta.svg" },
+    { name: "Skatteetaten", homepageUrl: "https://www.skatteetaten.no", logoUrl: "/svg/skatteetaten.svg" },
+    { name: "Sopra Steria", homepageUrl: "https://www.soprasteria.no", logoUrl: "/svg/soprasteria.svg" },
+    { name: "SpareBank 1", homepageUrl: "https://www.sparebank1.no", logoUrl: "/svg/sparebank1.svg" },
+    { name: "Spirgroup", homepageUrl: "https://www.spirgroup.no", logoUrl: "/svg/spirgroup-cropped.svg" },
+    { name: "SSB", homepageUrl: "https://www.ssb.no", logoUrl: "/svg/ssb.svg" },
+    { name: "Statens Vegvesen", homepageUrl: "https://www.vegvesen.no", logoUrl: "/svg/statensvegvesen.svg" },
+    { name: "Statnett", homepageUrl: "https://www.statnett.no", logoUrl: "/svg/statnett.svg" },
+    { name: "Storebrand", homepageUrl: "https://www.storebrand.no", logoUrl: "/svg/storebrand.svg" },
+    { name: "Systek", homepageUrl: "https://www.systek.no", logoUrl: "/svg/systek.svg" },
+    { name: "Techpros", homepageUrl: "https://www.techpros.no", logoUrl: "/svg/techpros.svg" },
+    { name: "Telenor", homepageUrl: "https://www.telenor.no", logoUrl: "/svg/telenor.svg" },
+    { name: "Tietoevry", homepageUrl: "https://www.tietoevry.com", logoUrl: "/svg/tietoevry.svg" },
+    { name: "Tolletaten", homepageUrl: "https://www.tolletaten.no", logoUrl: "/svg/tolletaten.svg" },
+    { name: "Tripletex", homepageUrl: "https://www.tripletex.no", logoUrl: "/svg/tripletex.svg" },
+    { name: "Twoday", homepageUrl: "https://www.twoday.no", logoUrl: "/svg/twoday.svg" },
+    { name: "Uptime", homepageUrl: "https://www.uptime.no", logoUrl: "/svg/uptime.svg" },
+    { name: "Vaadin", homepageUrl: "https://vaadin.com", logoUrl: "/svg/vaadin.svg" },
+    { name: "Webstep", homepageUrl: "https://www.webstep.no", logoUrl: "/svg/webstep.svg" },
+];
+---
+<section class="block w-screen p-4 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] mt-4">
+    <h2 class="text-3xl leading-9 font-semibold mb-4 text-center">
+        Partners in 2024
+    </h2>
+    <div class="flex flex-wrap justify-center gap-10">
+        {partners
+            .sort(() => Math.random() - 0.5)
+            .map(partner => (
+                <a target="_blank" href={partner.homepageUrl}>
+                    <Image
+                        height="10"
+                        width="10"
+                        class="h-16 w-40 transform transition-transform hover:scale-125"
+                        src={partner.logoUrl}
+                        alt={partner.name}
+                        style={{ padding: "5px" }}
+                    />
+                </a>
+            ))}
+    </div>
+</section>

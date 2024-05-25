@@ -2,128 +2,49 @@
 import Layout from "../../layouts/Layout.astro";
 import {Image} from "astro:assets"
 import ButtonLink from "@/components/ButtonLink.astro"
-
-type Partner = {
-    name: string;
-    homepageUrl: string;
-    logoUrl: string;
-};
-
-interface Props {
-    partners: Partner[];
-}
-
-const partners: Partner[] = [
-    { name: "Aboveit", homepageUrl: "https://www.aboveit.com", logoUrl: "/svg/aboveit.svg" },
-    { name: "Accenture", homepageUrl: "https://www.accenture.com", logoUrl: "/svg/accenture.svg" },
-    { name: "Arktekk", homepageUrl: "https://www.arktekk.no", logoUrl: "/svg/arktekk.svg" },
-    { name: "Bekk", homepageUrl: "https://www.bekk.no", logoUrl: "/svg/bekk.svg" },
-    { name: "Bouvet", homepageUrl: "https://www.bouvet.no", logoUrl: "/svg/bouvet.svg" },
-    { name: "Buypass", homepageUrl: "https://www.buypass.no", logoUrl: "/svg/buypass.svg" },
-    { name: "Capgemini", homepageUrl: "https://www.capgemini.com", logoUrl: "/svg/capgemini.svg" },
-    { name: "CGI", homepageUrl: "https://www.cgi.com", logoUrl: "/svg/cgi.svg" },
-    { name: "Cloudberries", homepageUrl: "https://www.cloudberries.no", logoUrl: "/svg/cloudberries.svg" },
-    { name: "Computas", homepageUrl: "https://www.computas.com", logoUrl: "/svg/computas.svg" },
-    { name: "DNB", homepageUrl: "https://www.dnb.no", logoUrl: "/svg/dnb.svg" },
-    { name: "Elastic", homepageUrl: "https://www.elastic.co", logoUrl: "/svg/elastic.svg" },
-    { name: "Embriq", homepageUrl: "https://www.embriq.no", logoUrl: "/svg/embriq.svg" },
-    { name: "Entur", homepageUrl: "https://www.entur.no", logoUrl: "/svg/entur.svg" },
-    { name: "Experis", homepageUrl: "https://www.experis.no", logoUrl: "/svg/experis-cropped.svg" },
-    { name: "Finn", homepageUrl: "https://www.finn.no", logoUrl: "/svg/finn.svg" },
-    { name: "Fremtind", homepageUrl: "https://www.fremtind.no", logoUrl: "/svg/fremtind.svg" },
-    { name: "Gjensidige", homepageUrl: "https://www.gjensidige.no", logoUrl: "/svg/gjensidige.svg" },
-    { name: "Google", homepageUrl: "https://www.google.com", logoUrl: "/svg/google.svg" },
-    { name: "Husbanken", homepageUrl: "https://www.husbanken.no", logoUrl: "/svg/husbanken.svg" },
-    { name: "Itera", homepageUrl: "https://www.itera.no", logoUrl: "/svg/itera.svg" },
-    { name: "Kantega", homepageUrl: "https://www.kantega.no", logoUrl: "/svg/kantega.svg" },
-    { name: "Knowit", homepageUrl: "https://www.knowit.no", logoUrl: "/svg/knowit.svg" },
-    { name: "Kodemaker", homepageUrl: "https://www.kodemaker.no", logoUrl: "/svg/kodemaker.svg" },
-    { name: "Miles", homepageUrl: "https://www.miles.no", logoUrl: "/svg/miles.svg" },
-    { name: "NAV", homepageUrl: "https://www.nav.no", logoUrl: "/svg/nav.svg" },
-    { name: "Netcompany", homepageUrl: "https://www.netcompany.com", logoUrl: "/svg/netcompany-cropped.svg" },
-    { name: "Norsk Tipping", homepageUrl: "https://www.norsk-tipping.no", logoUrl: "/svg/norsktipping.svg" },
-    { name: "Oslo", homepageUrl: "https://www.oslo.kommune.no", logoUrl: "/svg/oslo.svg" },
-    { name: "Politiet PIT", homepageUrl: "https://www.politiet.no", logoUrl: "/svg/politietpit.svg" },
-    { name: "Posten Bring", homepageUrl: "https://www.bring.no", logoUrl: "/svg/postenbring.svg" },
-    { name: "Protector", homepageUrl: "https://www.protector.no", logoUrl: "/svg/protector.svg" },
-    { name: "Red Hat", homepageUrl: "https://www.redhat.com", logoUrl: "/svg/redhat.svg" },
-    { name: "SafetyWing", homepageUrl: "https://www.safetywing.com", logoUrl: "/svg/safetywing-cropped.svg" },
-    { name: "Scelto", homepageUrl: "https://www.scelto.no", logoUrl: "/svg/scelto.svg" },
-    { name: "Scienta", homepageUrl: "https://www.scienta.no", logoUrl: "/svg/scienta.svg" },
-    { name: "Skatteetaten", homepageUrl: "https://www.skatteetaten.no", logoUrl: "/svg/skatteetaten.svg" },
-    { name: "Sopra Steria", homepageUrl: "https://www.soprasteria.no", logoUrl: "/svg/soprasteria.svg" },
-    { name: "SpareBank 1", homepageUrl: "https://www.sparebank1.no", logoUrl: "/svg/sparebank1.svg" },
-    { name: "Spirgroup", homepageUrl: "https://www.spirgroup.no", logoUrl: "/svg/spirgroup-cropped.svg" },
-    { name: "SSB", homepageUrl: "https://www.ssb.no", logoUrl: "/svg/ssb.svg" },
-    { name: "Statens Vegvesen", homepageUrl: "https://www.vegvesen.no", logoUrl: "/svg/statensvegvesen.svg" },
-    { name: "Statnett", homepageUrl: "https://www.statnett.no", logoUrl: "/svg/statnett.svg" },
-    { name: "Storebrand", homepageUrl: "https://www.storebrand.no", logoUrl: "/svg/storebrand.svg" },
-    { name: "Systek", homepageUrl: "https://www.systek.no", logoUrl: "/svg/systek.svg" },
-    { name: "Techpros", homepageUrl: "https://www.techpros.no", logoUrl: "/svg/techpros.svg" },
-    { name: "Telenor", homepageUrl: "https://www.telenor.no", logoUrl: "/svg/telenor.svg" },
-    { name: "Tietoevry", homepageUrl: "https://www.tietoevry.com", logoUrl: "/svg/tietoevry.svg" },
-    { name: "Tolletaten", homepageUrl: "https://www.tolletaten.no", logoUrl: "/svg/tolletaten.svg" },
-    { name: "Tripletex", homepageUrl: "https://www.tripletex.no", logoUrl: "/svg/tripletex.svg" },
-    { name: "Twoday", homepageUrl: "https://www.twoday.no", logoUrl: "/svg/twoday.svg" },
-    { name: "Uptime", homepageUrl: "https://www.uptime.no", logoUrl: "/svg/uptime.svg" },
-    { name: "Vaadin", homepageUrl: "https://vaadin.com", logoUrl: "/svg/vaadin.svg" },
-    { name: "Webstep", homepageUrl: "https://www.webstep.no", logoUrl: "/svg/webstep.svg" },
-];
+import PartnerWall from "@/components/partner/PartnerWall.astro";
 ---
 
 <Layout title="JavaZone 2024 Partner">
     <article>
         <h1>JavaZone 2024 Partner</h1>
-        <section>
-            <h2>Information to registered partners</h2>
-            <section class="block w-screen bg-black p-4 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] mt-4">
-                <h2 class="text-3xl leading-9 font-semibold text-white mb-4 text-center text-red-text-color">
-                    Partners in 2023
-                </h2>
-                <div class="flex flex-wrap justify-center gap-10">
-                    {partners
-                        .sort(() => Math.random() - 0.5)
-                        .map(partner => (
-                            <a target="_blank" href={partner.homepageUrl}>
-                                <Image
-                                    height="10"
-                                    width="10"
-                                    class="h-16 w-40 transform transition-transform hover:scale-125"
-                                    src={partner.logoUrl}
-                                    alt={partner.name}
-                                    style={{ padding: "5px" }}
-                                />
-                            </a>
-                        ))}
-                </div>
-            </section>
-            <h3>Partner tickets</h3>
-            <p>You have four flexible stand tickets included in your partnership package. These are intended for stand personell, and does not give access to the talks. You must order tickets for everyone of you employees that wants to attend a talk (or if you have more than four who needs to be on the stand at once).</p>
-            <p>Round robin distribution on tickets ordered by May 15th</p>
-            <p>First come first served if tickets are still left after May 15th</p>
-                <p>Price: 7 990,- NOK ex VAT and ticket fee</p>
-            <ButtonLink
-                    href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve partner tickets
-                </ButtonLink>
-            <h3>Stand allocation</h3>
-            <p>We will start the start allocation in the beginning of April. We will contact your partner contact when it is your turn to pick your spot</p>
-            <h3>Partner meeting #1</h3>
-            <p>December 5th 2023</p>
-            <iframe class="max-w-full max-h-52 md:max-h-full" src="https://player.vimeo.com/video/891500045?h=7df20a26e4" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-            <p><a href="https://vimeo.com/891500045">JavaZone 2024 Partner Meeting #1</a> from <a href="https://vimeo.com/user125589327">Macsimum AS</a>.</p>
-            <p><a
-                href="https://www.dropbox.com/scl/fi/wivcmqsj9a5058p8s3qcj/JZ2024PartnermeetingOne.pdf?rlkey=48d1t09xcfjqts9kfytk7aegb&dl=0" target="_blank">Slides</a></p>
-            <h3>Partner meeting #2</h3>
-            <p>March 12th 2024</p>
-            <p><a href="https://vimeo.com/924608632/93124dc2a5?share=copy" target="_blank">Video recording</a></p>
-            <p><a
-                href="https://www.dropbox.com/scl/fi/7hjog348lc3w4h17pb37d/JavaZone2024-Partner-meeting-2.pdf?rlkey=mgh41p138d0khacxtnjcucc7m&dl=0" target="_blank">Slides</a></p>
-            <h3>Partner meeting #3</h3>
-            <p>Scheduled May 28th 2024</p>
-        </section>
+        <PartnerWall/>
+        <h3>Partner tickets</h3>
+        <p>You have four flexible stand tickets included in your partnership package. These are intended for stand
+            personell, and does not give access to the talks. You must order tickets for everyone of you employees that
+            wants to attend a talk (or if you have more than four who needs to be on the stand at once).</p>
+        <p>Round robin distribution on tickets ordered by May 15th</p>
+        <p>First come first served if tickets are still left after May 15th</p>
+        <p>Price: 7 990,- NOK ex VAT and ticket fee</p>
+        <ButtonLink
+            href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve partner
+            tickets
+        </ButtonLink>
+        <h3>Stand allocation</h3>
+        <p>We will start the start allocation in the beginning of April. We will contact your partner contact when it is
+            your turn to pick your spot</p>
+        <h3>Partner meeting #1</h3>
+        <p>December 5th 2023</p>
+        <iframe class="max-w-full max-h-52 md:max-h-full" src="https://player.vimeo.com/video/891500045?h=7df20a26e4"
+                width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen></iframe>
+        <p><a href="https://vimeo.com/891500045">JavaZone 2024 Partner Meeting #1</a> from <a
+            href="https://vimeo.com/user125589327">Macsimum AS</a>.</p>
+        <p><a
+            href="https://www.dropbox.com/scl/fi/wivcmqsj9a5058p8s3qcj/JZ2024PartnermeetingOne.pdf?rlkey=48d1t09xcfjqts9kfytk7aegb&dl=0"
+            target="_blank">Slides</a></p>
+        <h3>Partner meeting #2</h3>
+        <p>March 12th 2024</p>
+        <p><a href="https://vimeo.com/924608632/93124dc2a5?share=copy" target="_blank">Video recording</a></p>
+        <p><a
+            href="https://www.dropbox.com/scl/fi/7hjog348lc3w4h17pb37d/JavaZone2024-Partner-meeting-2.pdf?rlkey=mgh41p138d0khacxtnjcucc7m&dl=0"
+            target="_blank">Slides</a></p>
+        <h3>Partner meeting #3</h3>
+        <p>Scheduled May 28th 2024</p>
         <section>
             <h2>Partner registration</h2>
-            <p>We are currently sold out of partner packages. You can use the link below to register on the waiting list</p>
+            <p>We are currently sold out of partner packages. You can use the link below to register on the waiting
+                list</p>
 
             <p><a target="_blank" href="https://app.checkin.no/event/65953/javazone-2024-partnership">Follow this
                 link to register on waitinglist</a>. (This will send you to Checkin)</p>
