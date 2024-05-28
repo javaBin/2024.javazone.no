@@ -2,47 +2,49 @@
 import Layout from "../../layouts/Layout.astro";
 import {Image} from "astro:assets"
 import ButtonLink from "@/components/ButtonLink.astro"
-import PartnerOverview from "@/components/PartnerOverview.astro";
-import { partners } from "../../api/partners";
+import PartnerWall from "@/components/partner/PartnerWall.astro";
 ---
 
 <Layout title="JavaZone 2024 Partner">
     <article>
-        <h1>JavaZone 2024 Partners</h1>
-
-        <section class="my-6 partner-overview">
-            <PartnerOverview partners={partners} />
-        </section>
-
-        <section class="my-6">
-            <h2>Information to registered partners</h2>
-            <h3>Partner tickets</h3>
-            <p>You have four flexible stand tickets included in your partnership package. These are intended for stand personell, and does not give access to the talks. You must order tickets for everyone of you employees that wants to attend a talk (or if you have more than four who needs to be on the stand at once).</p>
-            <p>Round robin distribution on tickets ordered by May 15th</p>
-            <p>First come first served if tickets are still left after May 15th</p>
-            <p>Price: 7 990,- NOK ex VAT and ticket fee</p>
-            <ButtonLink
-                href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve partner tickets
-            </ButtonLink>
-            <h3>Stand allocation</h3>
-            <p>We will start the start allocation in the beginning of April. We will contact your partner contact when it is your turn to pick your spot</p>
-            <h3>Partner meeting #1</h3>
-            <p>December 5th 2023</p>
-            <p><a href="https://player.vimeo.com/video/891500045?h=7df20a26e4" target="_blank">Video recording</a></p>
-            <p><a
-                href="https://www.dropbox.com/scl/fi/wivcmqsj9a5058p8s3qcj/JZ2024PartnermeetingOne.pdf?rlkey=48d1t09xcfjqts9kfytk7aegb&dl=0" target="_blank">Slides</a></p>
-            <h3>Partner meeting #2</h3>
-            <p>March 12th 2024</p>
-            <p><a href="https://vimeo.com/924608632/93124dc2a5?share=copy" target="_blank">Video recording</a></p>
-            <p><a
-                href="https://www.dropbox.com/scl/fi/7hjog348lc3w4h17pb37d/JavaZone2024-Partner-meeting-2.pdf?rlkey=mgh41p138d0khacxtnjcucc7m&dl=0" target="_blank">Slides</a></p>
-            <h3>Partner meeting #3</h3>
-            <p>Scheduled May 28th 2024</p>
-        </section>
-
-        <section class="my-6">
+        <h1>JavaZone 2024 Partner</h1>
+        <PartnerWall/>
+        <h3>Partner tickets</h3>
+        <p>You have four flexible stand tickets included in your partnership package. These are intended for stand
+            personell, and does not give access to the talks. You must order tickets for everyone of you employees that
+            wants to attend a talk (or if you have more than four who needs to be on the stand at once).</p>
+        <p>Round robin distribution on tickets ordered by May 15th</p>
+        <p>First come first served if tickets are still left after May 15th</p>
+        <p>Price: 7 990,- NOK ex VAT and ticket fee</p>
+        <ButtonLink
+            href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve partner
+            tickets
+        </ButtonLink>
+        <h3>Stand allocation</h3>
+        <p>We will start the start allocation in the beginning of April. We will contact your partner contact when it is
+            your turn to pick your spot</p>
+        <h3>Partner meeting #1</h3>
+        <p>December 5th 2023</p>
+        <iframe class="max-w-full max-h-52 md:max-h-full" src="https://player.vimeo.com/video/891500045?h=7df20a26e4"
+                width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen></iframe>
+        <p><a href="https://vimeo.com/891500045">JavaZone 2024 Partner Meeting #1</a> from <a
+            href="https://vimeo.com/user125589327">Macsimum AS</a>.</p>
+        <p><a
+            href="https://www.dropbox.com/scl/fi/wivcmqsj9a5058p8s3qcj/JZ2024PartnermeetingOne.pdf?rlkey=48d1t09xcfjqts9kfytk7aegb&dl=0"
+            target="_blank">Slides</a></p>
+        <h3>Partner meeting #2</h3>
+        <p>March 12th 2024</p>
+        <p><a href="https://vimeo.com/924608632/93124dc2a5?share=copy" target="_blank">Video recording</a></p>
+        <p><a
+            href="https://www.dropbox.com/scl/fi/7hjog348lc3w4h17pb37d/JavaZone2024-Partner-meeting-2.pdf?rlkey=mgh41p138d0khacxtnjcucc7m&dl=0"
+            target="_blank">Slides</a></p>
+        <h3>Partner meeting #3</h3>
+        <p>Scheduled May 28th 2024</p>
+        <section>
             <h2>Partner registration</h2>
-            <p>We are currently sold out of partner packages. You can use the link below to register on the waiting list</p>
+            <p>We are currently sold out of partner packages. You can use the link below to register on the waiting
+                list</p>
 
             <p><a target="_blank" href="https://app.checkin.no/event/65953/javazone-2024-partnership">Follow this
                 link to register on waitinglist</a>. (This will send you to Checkin)</p>
@@ -56,7 +58,7 @@ import { partners } from "../../api/partners";
                 confirmation of your choice. The formal contract and invoice will be sent to you later </p>
         </section>
 
-        <section class="my-6">
+        <section>
             <h2>Partner packages</h2>
             <p>If you have any questions, please send us an e-mail at <a
                 href="mailto:partner@java.no">partner@java.no</a>
@@ -116,10 +118,6 @@ import { partners } from "../../api/partners";
 </Layout>
 
 <style>
-    body {
-        @apply bg-darkgreen text-white;
-    }
-
     .package {
         margin: 1rem 0;
         padding: 1rem;
@@ -149,5 +147,7 @@ import { partners } from "../../api/partners";
 
     .stand-image {
         object-fit: cover;
+        filter: saturate(0%) brightness(100%) contrast(80%);
+
     }
 </style>

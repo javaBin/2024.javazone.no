@@ -1,125 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import {Image} from "astro:assets"
 import ButtonLink from "@/components/ButtonLink.astro"
-import { formatOrdinals } from "@/utils/formatOrdinals";
-
-let desktopScreen: boolean = true;
-let illustrationHeight: number = 500;
+import {formatOrdinals} from "@/utils/formatOrdinals";
 ---
-
-<script client:idle>
-    desktopScreen = window.innerWidth >= 1085;
-    illustrationHeight = 500;
-</script>
-
-<script>
-    const illustrationWrapper = document.getElementById('illustration-wrapper');
-    const illustrationImage = document.getElementById('illustration-image')
-    const animationImage = document.getElementById('animation-image');
-    const floppyEyeWrapper = document.getElementById('floppy-eye-wrapper');
-    const floppyEye = document.getElementById('floppy-eye');
-
-    const floppyEyeAnimation = (e: MouseEvent) => {
-        if (!illustrationHeight || !desktopScreen) return;
-        if (!floppyEye || !floppyEyeWrapper) return;
-        if (!illustrationImage || !illustrationWrapper) return;
-        if (!animationImage) return;
-
-        // Calculate the position of the mouse relative to the wrapper
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-
-        // Calculate the position of the eye within the wrapper
-        const wrapperRect = floppyEyeWrapper.getBoundingClientRect();
-        const wrapperX = wrapperRect.left + (wrapperRect.width / 2);
-        const wrapperY = wrapperRect.top + (wrapperRect.height / 2);
-        const deltaX = mouseX - wrapperX;
-        const deltaY = mouseY - wrapperY;
-        const angle = Math.atan2(deltaY, deltaX);
-
-        // Calculate the maximum distance the eye can move from the center of the wrapper
-        const maxDistance = Math.min(wrapperRect.width / 2, wrapperRect.height / 2) - (floppyEye.offsetWidth / 2);
-
-        // Calculate the position of the eye
-        const eyeX = wrapperX + Math.cos(angle) * maxDistance;
-        const eyeY = wrapperY + Math.sin(angle) * maxDistance;
-
-        // Update the position of the eye
-        floppyEye.style.left = eyeX - (wrapperRect.left + window.scrollX) - (floppyEye.offsetWidth / 2) + 'px';
-        floppyEye.style.top = eyeY - (wrapperRect.top + window.scrollY) - (floppyEye.offsetHeight / 2) + 'px';
-    }
-
-    const resizeAnimationImage = () => {
-        illustrationHeight = illustrationImage.getBoundingClientRect().height;
-
-        if (illustrationHeight === 0) return;
-        animationImage.style.height = illustrationHeight + 'px';
-    }
-
-    const renderIllustration = () => {
-        desktopScreen = window.innerWidth >= 1085;
-
-        resizeAnimationImage();
-
-        if (desktopScreen) {
-            // dynamic illustration
-            floppyEyeWrapper.style.display = 'block';
-            floppyEyeWrapper.style.transform = 'translate(23.8rem, 22.3rem)';
-            illustrationWrapper.innerHTML = '<div class="grid place-items-center -mt-10 w-full" id="illustration-wrapper">\n' +
-                '                    <!-- Full illustration image -->\n' +
-                '                    <img src="/images/JavaZone2024-comp-cropped-no-eye.svg"\n' +
-                '                           alt="An illustration for \'JavaZone by JavaBin,\' inspired by the 1920s Steamboat Willie theme. It features whimsical representations of technology, including small figures of USB sticks, floppy disks, and punch hole cards, among other vintage and modern tech elements. The design combines a nostalgic black-and-white animation style with technology motifs to celebrate the evolution of computing in a playful manner"\n' +
-                '                           width="1000" id="illustration-image"/> \n' +
-                '                </div>';
-        } else {
-            // static illustration
-            floppyEyeWrapper.style.display = 'none';
-            illustrationWrapper.innerHTML = '<div class="grid place-items-center -mt-10 w-full" id="illustration-wrapper">\n' +
-                '                    <!-- Full illustration image -->\n' +
-                '                    <img src="/images/JavaZone2024-comp-cropped.svg"\n' +
-                '                           alt="An illustration for \'JavaZone by JavaBin,\' inspired by the 1920s Steamboat Willie theme. It features whimsical representations of technology, including small figures of USB sticks, floppy disks, and punch hole cards, among other vintage and modern tech elements. The design combines a nostalgic black-and-white animation style with technology motifs to celebrate the evolution of computing in a playful manner"\n' +
-                '                           width="1000" id="illustration-image"/>\n' +
-                '                </div>';
-        }
-
-    }
-
-    const handleScrollStartStop = () => {
-        if (window.scrollY === 0) {
-            document.addEventListener('mousemove', floppyEyeAnimation);
-        } else {
-            document.removeEventListener('mousemove', floppyEyeAnimation);
-        }
-    }
-
-    document.addEventListener('mousemove', floppyEyeAnimation);
-    window.addEventListener('resize', renderIllustration);
-    window.addEventListener('scroll', handleScrollStartStop);
-
-</script>
 
 <Layout title="JavaZone 2024">
     <div class="grid">
-
-        <!-- Illustration wrapper -->
-        <div class="grid place-items-center -mt-10 w-full" id="illustration-wrapper">
-            <!-- Full illustration image -->
-            <img src="/images/JavaZone2024-comp-cropped-no-eye.svg"
-                alt="An illustration for 'JavaZone by JavaBin,' inspired by the 1920s Steamboat Willie theme. It features whimsical representations of technology, including small figures of USB sticks, floppy disks, and punch hole cards, among other vintage and modern tech elements. The design combines a nostalgic black-and-white animation style with technology motifs to celebrate the evolution of computing in a playful manner"
-                width="1000" id="illustration-image"
-            />
-        </div>
-
-        <!-- Eye wrapper identical size as illustration wrapper -->
-        <div class="absolute grid place-items-center -mt-10 w-full">
-            <!-- Sub-wrapper to fill same size as illustration image -->
-            <div class=`w-[1000px] h-[${illustrationHeight}px]` id="animation-image">
-                <!-- Eye wrapper, placed in front of floppy disk eye -->
-                <div id="floppy-eye-wrapper" class="absolute w-[23px] h-[22px] rounded-full translate-x-[23.8rem] translate-y-[24.8rem]">
-                    <!-- Eye illustration -->
-                    <img src="/images/Eye.svg" alt="Decorative graphic eye" width="8" height="8" id="floppy-eye" class="relative z-50 w-[8px] h-[8px] object-contain" />
-                </div>
-            </div>
+        <div class="grid relative place-items-center -mt-10">
+            <Image class="absolute top-0 animate-[bounce_3.5s_infinite] md:w-[7rem] md:h-[7rem] w-12 h-12"
+                   src="/images/jz24-splash-radio.svg"
+                   alt="Floating radio"
+                     width="75" height="75"/>
+            <Image class="absolute md:top-2.5 top-2 md:left-[23rem] left-16 animate-sway md:w-[11.2rem] md:h-[11.2rem] w-16 h-16"
+                   src="/images/jz24-splash-cloud.svg"
+                   alt="Floating cloud"
+                   width="180" height="180"/>
+            <Image src="/images/jz24-splash.svg"
+                   alt="An illustration for 'JavaZone by JavaBin,' inspired by the 1920s Steamboat Willie theme. It features whimsical representations of technology, including small figures of USB sticks, floppy disks, and punch hole cards, among other vintage and modern tech elements. The design combines a nostalgic black-and-white animation style with technology motifs to celebrate the evolution of computing in a playful manner"
+                   width="1000" height="800"/>
         </div>
 
         <section class="shadow-2xl bg-turquoise grid justify-center gap-4 px-4 py-8 border-2 border-[#26454f]">
@@ -134,12 +33,11 @@ let illustrationHeight: number = 500;
                 <p>Ticket sales starts on March {formatOrdinals(1)} at 10 AM</p>
                 <p>8 790,- + 120,- fee (ex MVA)</p>
                 <p>Late Bird from May {formatOrdinals(1)} 9 590,- + 120,- fee (ex MVA)</p>
-                <ButtonLink href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</ButtonLink>
-
+                    <ButtonLink href="https://app.checkin.no/event/65889/javazone-2024" target="_blank">Get your ticket</ButtonLink>
             </div>
             <div>
                 <p>Registered partners will also be able to reserve tickets on March {formatOrdinals(1)}</p>
-                <ButtonLink href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
+                    <ButtonLink href="https://app.checkin.no/event/68811/javazone-2024-partner-tickets" target="_blank">Reserve
                         partner tickets</ButtonLink>
             </div>
 

@@ -11,7 +11,16 @@ export default {
                 'darkgreen': 'rgb(46, 107, 104)',
                 'purple': '#6200A3',
             },
-        }
+            animation: {
+                sway: 'sway 3.5s ease-in-out infinite',
+            },
+            keyframes: {
+                sway: {
+                    '0%, 100%': {transform: 'translateX(0)'},
+                    '50%': {transform: 'translateX(20px)'},
+                },
+            },
+        },
     },
     plugins: [],
 }
