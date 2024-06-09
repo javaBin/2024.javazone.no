@@ -1,17 +1,76 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-
+import JzKidsProgramCard from "../../components/jzKids/JzKidsProgramCard.astro";
 ---
 <Layout title="JavaZone Kids!">
 
-<div class="h-screen">
-    <h1>JavaZone Kids</h1>
-    <h2>En smakebit på JavaZone for framtidens utviklere</h2>
-    <p>JavaZone inviterer alle til å ta med seg sine barn og ungdommer på Rebel (Teknologihuset) - søndag 1. september.
-        Denne dagen får barn og ungdom en smakebit på voksenlivet. Vi kjører 3 parallelle sesjoner, slik at vi har noe som passer for alle aldre, fra 8 til 17 år.
-        Arrangementet er gratis, men har begrenset plass.
-        Hold av datoen, mer informasjon kommer.</p>
-</div>
+    <div class="inline-block">
+        <h1>JavaZone Kids</h1>
+
+        <h2>En smakebit på JavaZone for framtidens utviklere</h2>
+        <p>JavaZone inviterer alle til å ta med seg sine barn på Rebel søndag 1. september.
+            Vi kjører 3 parallelle workshop, slik at vi har noe for både de mindre og de litt eldre barna.</p>
+        <p>Arrangementet er gratis for alle!</p>
+
+        <h3>Praktisk informasjon</h3>
+
+        <h4>Tid & sted:</h4>
+        <ul>
+            <li>Registrering fra kl. 10.30</li>
+            <li>Arrangement: kl. 11.00 - 15.00</li>
+            <li>Rebel, Universitetsgata 2</li>
+        </ul>
+
+        <p>Vi serverer enkel mat underveis. Det er viktig at du som foresatt også setter av tid til å være til stede
+            hele dagen. Vi lager en egen “foreldresone” med kaffe.</p>
+
+        <h3>Påmelding</h3>
+
+        <p>Påmeldingen åpner mandag 5. august kl. 12.00. Vi har et begrenset antall plasser, derfor er det viktig at du
+            melder på ditt/dine barn før fristen 20. august kl. 12.00.</p>
+        <p>Har dere ikke mulighet til å komme likevel, er det viktig at dette blir gitt beskjed om, siden det pleier å
+            være ventelister på våre kurs.</p>
+
+        <h3>Utstyr</h3>
+        <p>Kursene krever enten egen laptop eller nettbrett. Mer informasjon finner du på den enkelte workshop.</p>
+
+        <h3>Tre parallelle spor</h3>
+        <p>Vi kjører 3 parallelle workshop. Les mer om de under, og meld på den dere ønsker å delta på.</p>
+
+        <div class="grid grid-cols-3 gap-6">
+            <JzKidsProgramCard
+                title="Workshop 1: Processing med Sigmund Hansen"
+                subtitle="(Kinosalen)"
+                content="P5.js gjør det enkelt å komme i gang med å programmere grafikk og lyd i nettleseren. Her ønskes ungdommene velkommen til et minikurs hvor de kan lære seg å programmere. Kurset er rettet mot nybegynnere og krever ingen forkunnskaper. Målet for kurset er å eksperimentere og lære om noen viktige byggestener innen programmering, og at alle skal få laget et lite interaktivt grafisk program."
+                imgSrc="/images/jz24-splash-radio.svg"
+                imgAlt="Floating radio"
+                participant="20"
+                age="12 - 17 år"
+                equipment="Ta med egen laptop"
+            />
+            <JzKidsProgramCard
+                title="Workshop 2: BitBot - Selvkjørende bil med Bjørn Hamre og Thomas Nøkleby"
+                subtitle="(Ada + området utenfor Ada)"
+                content="Bli med og utforsk den selvkjørende bilen BitBot XL. På denne workshopen skal dere lære å programmere en micro:bit som styrer bilen. Dere skal bl.a. lære å bruke sensorene på bilen slik at den selv unngår å krasje i omgivelsene og få den til å følge en bane vi tegner på gulvet. Til slutt tar vi en uhøytidlig konkurranse og ser hvem som raskest fullfører banen."
+                imgSrc="/images/jz24-splash-cloud.svg"
+                imgAlt="Floating radio"
+                participant="20 (10 grupper på 2)"
+                age="12 - 17 år"
+                equipment="Deltakerne må ta med egen PC eller Mac (og lader) de kan koble micro:bit-en til. OBS: Safari-nettleseren på Mac fungerer dårlig - vi anbefaler Chrome."
+            />
+            <JzKidsProgramCard
+                title="Workshop 3: Sphero-roboter med Anuradha Shridharan"
+                subtitle="(Exposalen)"
+                content="Er du klar for å rase roboten din gjennom en utfordrende labyrint? Ved å bruke Sphero-robotikk vil deltakerne oppleve real-time og hands-on programmering med robotene der de kan lære å forstå hvordan roboten kan bevege seg, oppføre seg og hvordan de kan fikse ting som går galt, og teste på nytt. De vil få en labyrint som de må kode for å få roboten til å navigere ruten og komme seg til målstreken."
+                imgSrc="/images/CHARACTER.png"
+                imgAlt="Floating radio"
+                participant="16 (4 grupper på 4)"
+                age="9 - 12 år"
+                equipment="Ta med eget nettbrett med appen “Sphero Edu” installert"
+            />
+        </div>
+
+    </div>
 
 </Layout>
 
