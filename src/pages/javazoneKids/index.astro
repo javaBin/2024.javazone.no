@@ -3,16 +3,130 @@ import Layout from "../../layouts/Layout.astro";
 
 ---
 <Layout title="JavaZone Kids!">
+    <div class="w-full flex flex-col justify-start items-start">
+        <div class="py-8 lg:py-12 px-3 md:px-12">
+            <h1>JavaZone Kids</h1>
+            <h2>En smakebit på voksenlivet</h2>
+        </div>
 
-<div class="h-screen">
-    <h1>JavaZone Kids</h1>
-    <h2>En smakebit på JavaZone for framtidens utviklere</h2>
-    <p>JavaZone inviterer alle til å ta med seg sine barn og ungdommer på Rebel (Teknologihuset) - søndag 1. september.
-        Denne dagen får barn og ungdom en smakebit på voksenlivet. Vi kjører 3 parallelle sesjoner, slik at vi har noe som passer for alle aldre, fra 8 til 17 år.
-        Arrangementet er gratis, men har begrenset plass.
-        Hold av datoen, mer informasjon kommer.</p>
-</div>
+        <h3 class="px-3 md:px-12">TRE PARALLELLE WORKSHOPS</h3>
+        <div class="w-full px-3 py-8 lg:px-12 my-3 border-2 border-black bg-white">
+            <p>JavaZone inviterer alle til å ta med seg sine barn på
+                <b class="text-darkgreen">Rebel søndag 1. september.</b>
+                <br>
+                Vi kjører 3 parallelle workshop, slik at vi har noe for både de mindre og de litt eldre barna.</p>
+            <p>Arrangementet er gratis for alle!</p>
+        </div>
 
+        <h3 class="px-3 md:px-12">PRAKTISK INFORMASJON</h3>
+        <div class="w-full py-8 px-3 lg:px-14 my-3 border-2 border-black bg-white">
+            <div class="py-3">
+                <h4 class="font-medium">Tid & Sted</h4>
+                <p>Registrering fra kl. 10.30<br>Arrangement kl. 11.00 - 15.00</p>
+                <p class="italic text-darkgreen font-medium">Rebel, Universitetsgata 2</p>
+            </div>
+
+            <div class="py-3">
+                <h4 class="font-medium">Påmelding</h4>
+                <p>Påmeldingen åpner mandag 5. august kl. 12.00.<br>Vi har et begrenset antall plasser, derfor er det viktig at du melder på ditt/dine barn før fristen 20. august kl. 12.00.</p>
+                <p>Har dere ikke mulighet til å komme likevel, er det viktig at dette blir gitt beskjed om, siden det pleier å være ventelister på våre kurs.</p>
+            </div>
+
+            <div class="py-3">
+                <h4 class="font-medium">Utstyr</h4>
+                <p>Kursene krever enten egen laptop eller nettbrett. Mer informasjon finner du på den enkelte workshop.</p>
+            </div>
+
+            <div class="py-3">
+                <h4 class="font-medium">Tre parallelle workshops</h4>
+                <p>Vi kjører 3 parallelle workshop. Les mer om de under, og meld på den dere ønsker å delta på. Vi serverer enkel mat underveis. Det er viktig at du som foresatt også setter av tid til å være til stede hele dagen. Vi lager en egen “foreldresone” med kaffe.</p>
+            </div>
+
+            <p class="font-bold italic text-darkgreen">Velkommen til en lærerik dag på Rebel!</p>
+        </div>
+
+        <h3 class="px-3 md:px-12">WORKSHOPS</h3>
+        <div class="w-full h-full my-3 flex flex-col md:flex-row justify-between items-stretch">
+
+            <div class="w-full md:w-[32%] p-3 my-10 lg:my-1 flex flex-col bg-white text-black border-2 border-black relative">
+                <img src="/images/characters/jz24-disc.svg" alt="Decorative character" width="50%" class="absolute -top-8 md:-top-6 lg:-top-10 right-5 md:right-0 lg:-right-10 md:w-8/12"/>
+                <div class="flex flex-row md:flex-col lg:flex-row justify-between mt-20 md:mt-14 lg:mt-20 w-full">
+                    <h4 class="font-bold">Processing</h4>
+                    <h4 class="italic font-medium mr-2 text-darkgreen">Kinosalen</h4>
+                </div>
+                <h5 class="mb-5 w-full">Sigmund Hansen</h5>
+
+                <p class="my-auto">P5.js gjør det enkelt å komme i gang med å programmere grafikk og lyd i nettleseren. Her ønskes ungdommene velkommen til et minikurs hvor de kan lære seg å programmere. <br>
+                    Kurset er rettet mot nybegynnere og krever ingen forkunnskaper. Målet for kurset er å eksperimentere og lære om noen viktige byggestener innen programmering, og at alle skal få laget et lite interaktivt grafisk program.</p>
+
+                <div class="mt-auto mb-5">
+                    <p><span class="font-medium">Alder: </span>12 +</p>
+                    <p><span class="font-medium">Deltakere: </span>20</p>
+                    <p class="lg:mb-6"><span class="font-medium">Utstyr: </span>Ta med egen laptop.</p>
+                </div>
+            </div>
+
+            <div class="w-full md:w-[32%] p-3 my-10 lg:my-1 flex flex-col bg-white text-black border-2 border-black relative">
+                <img src="/images/characters/jz24-sky.svg" alt="Decorative character" width="60%" class="absolute -top-[7rem] md:-top-[6rem] lg:-top-[8rem] -right-3 lg:-right-24 w-1/2 md:w-[60%]"/>
+                <div class="flex flex-row md:flex-col lg:flex-row justify-between mt-20 md:mt-14 lg:mt-20 w-full">
+                    <h4 class="font-bold">BitBot - Selvkjørende bil</h4>
+                    <h4 class="italic font-medium mr-2 text-darkgreen">Ada</h4>
+                </div>
+                <h5 class="mb-5 w-full">Bjørn Hamre og Thomas Nøkleby</h5>
+
+                <p class="my-auto">Bli med og utforsk den selvkjørende bilen BitBot XL. På denne workshopen skal dere lære å programmere en micro:bit som styrer bilen. Dere skal bl.a. lære å bruke sensorene på bilen slik at den selv unngår å krasje i omgivelsene og få den til å følge en bane vi tegner på gulvet. Til slutt tar vi en uhøytidlig konkurranse og ser hvem som raskest fullfører banen.</p>
+
+                <div class="mt-auto mb-5">
+                    <p><span class="font-medium">Alder: </span>12 +</p>
+                    <p><span class="font-medium">Deltakere: </span>25</p>
+                    <p><span class="font-medium">Utstyr: </span>Ta med egen laptop, og overgang fra USB-C til USB-A hvis du har.</p>
+                </div>
+            </div>
+
+            <div class="w-full md:w-[32%] p-3 my-10 lg:my-1 flex flex-col bg-white text-black border-2 border-black relative">
+                <img src="/images/characters/jz24-mc.svg" alt="Decorative character" width="40%" class="absolute -top-32 md:-top-14 lg:-top-32 right-28 md:right-5 lg:right-10 w-4/12 md:w-5/12"/>
+                <div class="flex flex-row md:flex-col lg:flex-row justify-between mt-20 md:mt-14 lg:mt-20 w-full">
+                    <h4 class="font-bold">Sphero-roboter</h4>
+                    <h4 class="italic font-medium mr-2 text-darkgreen">Exposalen</h4>
+                </div>
+                <h5 class="mb-5 w-full">Anuradha Shridharan</h5>
+
+                <p class="my-auto">Er du klar for å rase roboten din gjennom en utfordrende labyrint?<br>
+                    Ved å bruke Sphero-robotikk vil deltakerne oppleve real-time og hands-on programmering med robotene der de kan lære å forstå hvordan roboten kan bevege seg, oppføre seg og hvordan de kan fikse ting som går galt, og teste på nytt.
+                    De vil få en labyrint som de må kode for å få roboten til å navigere ruten og komme seg til målstreken.</p>
+
+                <div class="mt-auto mb-5">
+                    <p><span class="font-medium">Alder: </span>9 +</p>
+                    <p><span class="font-medium">Deltakere: </span>15</p>
+                    <p><span class="font-medium">Utstyr: </span>Ta med eget nettbrett med appen “Sphero Edu” installert.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </Layout>
 
+<style>
+    @property --a {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 10deg;
+    }
+    @keyframes rotate {
+        0% {
+            --a: 0deg;
+        }
+        100% {
+            --a: 360deg;
+        }
+    }
 
+    body {
+        --a: 0deg; /*  needed for firefox to have a valid output */
+        background: repeating-conic-gradient(
+            hsla(0, 0%, 0%, 0.2) var(--a) calc(var(--a) + 15deg),
+            hsla(0, 0%, 100%, 0) var(--a) calc(var(--a) + 30deg)
+        )
+        #00f3d2 no-repeat;
+        animation: rotate 160s linear infinite;
+    }
+</style>
