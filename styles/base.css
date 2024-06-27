@@ -58,5 +58,10 @@
         @apply my-3
     }
 
+    .custom-grid {
+        @apply grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      }
+
 }
 
