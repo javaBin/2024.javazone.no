@@ -4,9 +4,7 @@ import type { Session } from "types/program";
 import { fetchProgram } from "./fetchProgram";
 import SessionCard from "../../components/SessionCard.astro"
 
-const fullprogram = await fetchProgram()
-
-const porgramReady = false;
+const fullprogram = await fetchProgram();
 
 // function filterSessionsByLength(sessions: Session[]): Session[] {
 //   return sessions.filter(session => session.length === "45" || session.length === "60");
