@@ -5,29 +5,6 @@ export type Program = {
   export type SessionLanguage = "no" | "en"
   
   export type SessionFormat = "presentation" | "lightning-talk" | "workshop"
-  
-  // export type Session = {
-  //   intendedAudience: string
-  //   length: string
-  //   format: SessionFormat
-  //   language: SessionLanguage
-  //   abstract: string
-  //   title: string
-  //   room?: string
-  //   startTime?: string
-  //   endTime?: string
-  //   video?: string
-  //   startTimeZulu: string
-  //   endTimeZulu: string
-  //   id: string
-  //   sessionId: string
-  //   conferenceId: string
-  //   startSlot: string
-  //   startSlotZulu: string
-  //   speakers: Speaker[]
-  //   registerLoc?: string
-  //   workshopPrerequisites?: string
-  // }
 
   export type Session = {
     intendedAudience: string;
