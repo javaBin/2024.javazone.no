@@ -14,7 +14,7 @@ const fullprogram = await fetchProgram();
     {fullprogram.sessions.map((session) => (
       <div class="bg-white w-full relative p-5 mb-2 border-black border-2 rounded-xl">
       <a href=`/program/${session.id}` style="text-decoration: none; color: inherit;">
-        <h3 class="text-lg md:text-3xl font-bold p-0">{session.title}</h3>
+        <h2 class="text-lg md:text-3xl font-bold p-0">{session.title}</h2>
         <div class="text-base md:text-xl md:flex gap-14">
         {session.speakers.map((speaker) =>(<h4>{speaker.name}</h4>))}
         </div>
