@@ -1,0 +1,25 @@
+---
+import type { Session } from "types/program"
+
+interface Props {
+    session: Session
+    key: number
+}
+
+const {session} = Astro.props;
+---
+<div class="bg-white mx-auto relative p-3 border-black border-2 rounded-xl w-80 h-52 hover:scale-105 transition ease-in-out delay-150 duration-200">
+    <div class="flex justify-between pb-2">
+        <h4 class="text-base">{session.room}</h4>
+        <i class="text-4xl -mt-1 -mb-5 pr-2 text-stone-200">&hearts;</i>
+    </div>
+    <a href=`/program/${session.id}` style="text-decoration: none; color: inherit;">
+    <h5 class="text-lg font-bold">{session.title} ({session.language})</h5>
+    </a>
+    <div class="text-base">
+        {session.speakers.map((speaker) => (
+          <h4>{speaker.name}</h4>
+        ))}
+    </div> 
+    <h4 class="text-lg pr-4 absolute right-1 bottom-1">{session.length} min</h4>
+</div>
