@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { fetchIndividualProgram } from "./fetchProgram";
+import {Image} from "astro:assets"
+
 
 const { slug } = Astro.params;
 
@@ -13,8 +15,13 @@ const speakers = session?.speakers;
 <Layout title={session ? session.title : "Fant ingenting!"}>
   {session ? (
     <>
-      <a href="/program">Back</a>
+
       <div class="bg-white mx-auto relative mt-4 p-5 border-black border-2 rounded-xl">
+        <div class="w-full position-relative">
+      <a href="/program" class="absolute right-4 -mt-12">
+        <Image class="-rotate-90" src="/images/to-top.svg"  alt="An illustration of an arrow pointing left to navigate back to program." width="50" height="50"/>
+      </a>
+      </div>
         <div class="pb-4">
           <h1 class="text-3xl md:text-6xl">{session.title}</h1>
           <p class="p-0">Time and room: TBD</p>
