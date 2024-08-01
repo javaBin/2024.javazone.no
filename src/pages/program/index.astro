@@ -1,25 +1,60 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { fetchProgram } from "./fetchProgram";
+import type { Session } from "types/program";
+import SessionCard from "@/components/SessionCard.astro";
+
 
 const fullprogram = await fetchProgram();
+
+const formatTime = (time: string): string => {
+    const [hours, minutes] = time.split('T')[1].split(':').slice(0, 2);
+    return `${parseInt(hours, 10)}:${minutes}`;
+  };
+  
+
+function filterSessionsByLength(sessions: Session[]): Session[] {
+    return sessions.filter(session => session.length === "45" || session.length === "60");
+  }
+  
+  const program = filterSessionsByLength(fullprogram.sessions)
+  
+  function groupSessionsByTimeslot(sessions: Session[]): Record<string, Session[]> {
+    return sessions.reduce((acc: Record<string, Session[]>, session: Session) => {
+      const startTime = session.startTime ?? "00:00";
+      const timeslot = startTime.split('T')[1].split(':').slice(0, 2).join(':') ?? "00:00"; 
+      if (!acc[timeslot]) {
+        acc[timeslot] = [];
+      }
+      acc[timeslot].push(session);
+      return acc;
+    }, {});
+  }
+  
+  const groupedSessions = groupSessionsByTimeslot(Object.values(program).flat());
+  const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeCompare(b));
 ---
+
+  
 
 <Layout title="Program">
   
   <div>
   <h1>Program for Javazone 2024</h1>
   <p>These are all the talks that made it into the program. Congratulations to those who were chosen! The times for all talks will be announced later.</p>
-    <div class="">
-    {fullprogram.sessions.map((session) => (
-      <div class="bg-white w-full relative p-5 mb-2 border-black border-2 rounded-xl">
-      <a href=`/program/${session.id}` style="text-decoration: none; color: inherit;">
-        <h2 class="text-lg md:text-3xl font-bold p-0">{session.title}</h2>
-        <div class="text-base md:text-xl md:flex gap-14">
-        {session.speakers.map((speaker) =>(<p>{speaker.name}</p>))}
+  <div class="">
+    <h1>Program for Javazone 2024</h1>
+    {sortedTimeslots.map((time) => (
+      <section>
+        <h1>{time}</h1> 
+        <div class="custom-grid gap-4">
+          {groupedSessions[time]
+            .sort((a, b) => a.room!.localeCompare(b.room!) || a.startTime!.localeCompare(b.startTime!))
+            .map((session, index) => (
+              <SessionCard session={session} key={index} /> 
+            ))}
         </div>
-        </a>
-      </div>
+      </section>
     ))}
     </div>
   </div>
