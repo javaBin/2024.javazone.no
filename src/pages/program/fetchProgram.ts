@@ -1,7 +1,7 @@
 import type { Program } from "types/program"
 
 export async function fetchProgram() {
-  return await fetch('https://sleepingpill.javazone.no/public/allSessions/javazone_2023')
+  return await fetch('https://sleepingpill.javazone.no/public/allSessions/javazone_2024')
     .then<Program>((res) => res.json());
 }
 
