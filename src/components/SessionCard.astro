@@ -13,13 +13,13 @@ const {session} = Astro.props;
 <div
     class="bg-white relative p-3 border-black border-2 rounded-xl hover:scale-105 transition ease-in-out delay-150 duration-200">
     {session.room && session.startTime &&
-        <div class="flex justify-between pb-2">
-            <p class="text-base">{session.room} - {dayAndTimeFormat.format(new Date(session.startTime))}</p>
+        <div class="flex justify-between pb-1 md:pb-2">
+            <p class="my-0 md:my-1 text-sm md:text-base">{session.room} - {dayAndTimeFormat.format(new Date(session.startTime))}</p>
         </div>}
     <a href=`/program/${session.id}` style="text-decoration: none; color: inherit;">
-        <p class="text-lg font-bold">{session.title} ({session.language})</p>
+        <p class="my-0 md:my-1 text-base md:text-lg font-bold">{session.title} ({session.language})</p>
     </a>
-    <div class="text-base">
+    <div class="text-sm md:text-base">
         {session.speakers.map((speaker) => (
             <p class="m-0">{speaker.name}</p>
         ))}
