@@ -1,5 +1,6 @@
 ---
-import type { Session } from "types/program"
+import type {Session} from "types/program"
+import {dayAndTimeFormat} from "../utils/dateformat";
 
 interface Props {
     session: Session
@@ -7,19 +8,21 @@ interface Props {
 }
 
 const {session} = Astro.props;
+
 ---
-<div class="bg-white mx-auto relative p-3 border-black border-2 rounded-xl w-80 h-52 hover:scale-105 transition ease-in-out delay-150 duration-200">
-    <div class="flex justify-between pb-2">
-        <h4 class="text-base">{session.room}</h4>
-        <i class="text-4xl -mt-1 -mb-5 pr-2 text-stone-200">&hearts;</i>
-    </div>
+<div
+    class="bg-white relative p-3 border-black border-2 rounded-xl hover:scale-105 transition ease-in-out delay-150 duration-200">
+    {session.room && session.startTime &&
+        <div class="flex justify-between pb-2">
+            <p class="text-base">{session.room} - {dayAndTimeFormat.format(new Date(session.startTime))}</p>
+        </div>}
     <a href=`/program/${session.id}` style="text-decoration: none; color: inherit;">
-    <h5 class="text-lg font-bold">{session.title} ({session.language})</h5>
+        <p class="text-lg font-bold">{session.title} ({session.language})</p>
     </a>
     <div class="text-base">
         {session.speakers.map((speaker) => (
-          <h4>{speaker.name}</h4>
+            <p class="m-0">{speaker.name}</p>
         ))}
-    </div> 
-    <h4 class="text-lg pr-4 absolute right-1 bottom-1">{session.length} min</h4>
+    </div>
+    <p class="text-lg text-end absolute bottom-0 right-1">{session.length} min</p>
 </div>
