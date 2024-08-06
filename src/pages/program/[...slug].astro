@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import {fetchIndividualProgram} from "./fetchProgram";
 import {Image} from "astro:assets"
-import {dayAndTimeFormat} from "../../utils/dateformat";
+import {dayAndTimeFormatWithMonth} from "../../utils/dateformat";
 
 
 const {slug} = Astro.params;
@@ -27,7 +27,7 @@ const speakers = session?.speakers;
                 <div class="pb-4">
                     <h1 class="text-3xl md:text-6xl">{session.title}</h1>
                     <p class="p-0">Time and
-                        room: {session.startTime ? `${session.room} - ${dayAndTimeFormat.format(new Date(session.startTime))}` : 'TBA'}</p>
+                        room: {session.startTime ? `${session.room} - ${dayAndTimeFormatWithMonth.format(new Date(session.startTime))}` : 'TBA'}</p>
                     {session.registerLoc && <a href={session.registerLoc}>Click this link to register on this workshop</a>}
                 </div>
 
