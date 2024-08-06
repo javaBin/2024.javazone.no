@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { fetchProgram } from "./fetchProgram";
 import type { Session } from "types/program";
 import SessionCard from "@/components/SessionCard.astro";
+import {dayAndTimeFormat} from "../../utils/dateformat";
 
 
 const fullprogram = await fetchProgram();
@@ -13,11 +14,8 @@ const formatTime = (time: string): string => {
   };
 
 
-function filterSessionsByLength(sessions: Session[]): Session[] {
-    return sessions.filter(session => session.length === "45" || session.length === "60");
-  }
 
-  const program = filterSessionsByLength(fullprogram.sessions)
+  const program = fullprogram.sessions
 
   function groupSessionsByTimeslot(sessions: Session[]): Record<string, Session[]> {
     const hasStartTime = sessions.some(session => !!session.startTime);
@@ -30,7 +28,7 @@ function filterSessionsByLength(sessions: Session[]): Session[] {
 
     return sessions.reduce((acc: Record<string, Session[]>, session: Session) => {
       const startTime = session.startTime ?? "00:00";
-      const timeslot = startTime.split('T')[1].split(':').slice(0, 2).join(':') ?? "00:00";
+      const timeslot = startTime;
       if (!acc[timeslot]) {
         acc[timeslot] = [];
       }
@@ -53,7 +51,7 @@ function filterSessionsByLength(sessions: Session[]): Session[] {
   <div>
     {sortedTimeslots.map((time) => (
       <section>
-        <h2>{time}</h2>
+        <h2>{dayAndTimeFormat.format(new Date(time))}</h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {groupedSessions[time]
             .sort((a, b) => a.room?.localeCompare(b.room ?? "") || a.startTime?.localeCompare(b.startTime ?? "") || 0)

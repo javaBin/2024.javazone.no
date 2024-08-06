@@ -28,7 +28,7 @@ const speakers = session?.speakers;
                     <h1 class="text-3xl md:text-6xl">{session.title}</h1>
                     <p class="p-0">Time and
                         room: {session.startTime ? `${session.room} - ${dayAndTimeFormat.format(new Date(session.startTime))}` : 'TBA'}</p>
-                    {session.registerLoc && <a href={session.registerLoc}>Klikk her for å melde på denne workshopen</a>}
+                    {session.registerLoc && <a href={session.registerLoc}>Click this link to register on this workshop</a>}
                 </div>
 
                 <div class="grid md:grid-cols-4 md:gap-12">
