@@ -1,5 +1,6 @@
 ---
 import type {Session} from "types/program"
+import {dayAndMonthFormat} from "../utils/dateformat";
 
 interface Props {
     session: Session
@@ -7,16 +8,13 @@ interface Props {
 }
 
 const {session} = Astro.props;
-const dateFormat = Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long"
-})
+
 ---
 <div
     class="bg-white relative p-3 border-black border-2 rounded-xl hover:scale-105 transition ease-in-out delay-150 duration-200">
     {session.room && session.startTime &&
         <div class="flex justify-between pb-2">
-            <p class="text-base">{session.room} - {dateFormat.format(new Date(session.startTime))}</p>
+            <p class="text-base">{session.room} - {dayAndMonthFormat.format(new Date(session.startTime))}</p>
             <i class="text-4xl -mt-1 -mb-5 pr-2 text-stone-200">&hearts;</i>
         </div>}
     <a href=`/program/${session.id}` style="text-decoration: none; color: inherit;">

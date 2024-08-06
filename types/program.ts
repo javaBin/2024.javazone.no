@@ -1,12 +1,12 @@
 export type Program = {
-    sessions: Session[]
-  }
-  
-  export type SessionLanguage = "no" | "en"
-  
-  export type SessionFormat = "presentation" | "lightning-talk" | "workshop"
+    sessions: Session[];
+};
 
-  export type Session = {
+export type SessionLanguage = "no" | "en";
+
+export type SessionFormat = "presentation" | "lightning-talk" | "workshop";
+
+export type Session = {
     intendedAudience: string;
     length: string;
     format: string;
@@ -18,6 +18,8 @@ export type Program = {
     conferenceId: string;
     speakers: Speaker[];
     room?: string;
+    workshopPrerequisites?: string;
+    registerLoc?: string;
     startTime?: string;
     endTime?: string;
     video?: string;
@@ -25,11 +27,10 @@ export type Program = {
     endTimeZulu?: string;
     startSlot?: string;
     startSlotZulu?: string;
-  };
-  
-  export type  Speaker = {
-    name: string
-    bio?: string
-    twitter: string
-  }
-  
+};
+
+export type Speaker = {
+    name: string;
+    bio?: string;
+    twitter: string;
+};
