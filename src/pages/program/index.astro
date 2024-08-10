@@ -13,10 +13,6 @@ const formatTime = (time: string): string => {
     return `${parseInt(hours, 10)}:${minutes}`;
 };
 
-const logy = () => (
-    console.log("sdf")
-)
-
 const program = fullprogram.sessions
 
 function groupSessionsByTimeslot(sessions: Session[]): Record<string, Session[]> {
@@ -43,16 +39,7 @@ const groupedSessions = groupSessionsByTimeslot(Object.values(program).flat());
 const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeCompare(b));
 ---
 
-<script>
-    // This script will only run in the browser
-    document.addEventListener('DOMContentLoaded', function () {
-        const button = document.getElementById('logButton');
-
-        button.addEventListener('click', function () {
-            console.log('Button was clicked!');
-        });
-    });
-</script>
+<script src="./filterScript.ts"></script>
 
 <Layout title="Program">
     <div>
@@ -62,13 +49,16 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
         <div>
             <section class="bg-white border-black border-2 rounded-xl p-4 grid grid-cols-2 gap-4 mb-8">
                 <div class="col-span-1"><p class="bold text-big-text-color">Day</p>
-                    <FilterButton id="logButton">
+                    <FilterButton id="bothBtn">
                         Both
                     </FilterButton>
-                    <FilterButton>
+                    <FilterButton id="tuesdayBtn">
+                        Tuesday
+                    </FilterButton>
+                    <FilterButton id="wednesdayBtn">
                         Wednesday
                     </FilterButton>
-                    <FilterButton>
+                    <FilterButton id="thursdayBtn">
                         Thursday
                     </FilterButton>
                 </div>
@@ -76,10 +66,10 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
                     <FilterButton>
                         Both
                     </FilterButton>
-                    <FilterButton>
+                    <FilterButton id="norwegianBtn">
                         Norwegian
                     </FilterButton>
-                    <FilterButton>
+                    <FilterButton id="englishBtn">
                         English
                     </FilterButton>
                 </div>
@@ -108,20 +98,24 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
                 </div>
             </section>
 
-            {sortedTimeslots.map((time) => (
-                <section>
-                    {time && <h2>{dayAndTimeFormatWithMonth.format(new Date(time))}</h2>}
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {groupedSessions[time]
-                            .sort((a, b) => a.room?.localeCompare(b.room ?? "") || a.startTime?.localeCompare(b.startTime ?? "") || 0)
-                            .map((session, index) => (
-                                <SessionCard session={session} key={index}/>
-                            ))}
-                    </div>
-                </section>
-            ))}
+            <!-- Placeholder for filtered sessions -->
+            <div id="filteredSessions">
+                {sortedTimeslots.map((time) => (
+                    <section>
+                        {time && <h2>{dayAndTimeFormatWithMonth.format(new Date(time))}</h2>}
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {groupedSessions[time]
+                                .sort((a, b) => a.room?.localeCompare(b.room ?? "") || a.startTime?.localeCompare(b.startTime ?? "") || 0)
+                                .map((session, index) => (
+                                    <SessionCard session={session} key={index}/>
+                                ))}
+                        </div>
+                    </section>
+                ))}
+            </div>
         </div>
     </div>
 </Layout>
+
 
 
