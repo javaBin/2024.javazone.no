@@ -85,56 +85,107 @@ if (typeof window !== "undefined") {
             </section>`).join('');
     };
 
-    // Event listeners for day buttons
-    bothDaysButton?.addEventListener("click", () => {
-        currentDayFilter = "";
-        updateSessions();
-    });
+    /*function that tells the button element that it is active or not*/
+    function setActiveButton(button: HTMLElement, active: boolean) {
+        if (active) {
+            button.classList.add("bg-white", "text-darkgray", "border-darkgray", "border-2");
+            button.classList.remove("bg-darkgreen", "text-white");
+        } else {
+            button.classList.add("bg-darkgreen", "text-white");
+            button.classList.remove("bg-white", "text-darkgray", "border-darkgray", "border-2");
+        }
+    }
 
-    wdnsDayButton?.addEventListener("click", () => {
-        currentDayFilter = "September 4";
-        updateSessions();
-    });
+    if (bothDaysButton && wdnsDayButton && thrsDayButton) {
+        bothDaysButton?.addEventListener("click", () => {
+            currentDayFilter = "";
+            setActiveButton(bothDaysButton, true);
+            setActiveButton(wdnsDayButton, false);
+            setActiveButton(thrsDayButton, false);
+            updateSessions();
+        });
 
-    thrsDayButton?.addEventListener("click", () => {
-        currentDayFilter = "September 5";
-        updateSessions();
-    });
+        wdnsDayButton?.addEventListener("click", () => {
+            currentDayFilter = "September 4";
+            setActiveButton(wdnsDayButton, true);
+            setActiveButton(bothDaysButton, false);
+            setActiveButton(thrsDayButton, false);
+            updateSessions();
+        });
 
-    // Event listeners for language buttons
-    allLanguageBtn?.addEventListener("click", () => {
-        currentLanguageFilter = "";
-        updateSessions();
-    });
+        thrsDayButton?.addEventListener("click", () => {
+            currentDayFilter = "September 5";
+            setActiveButton(thrsDayButton, true);
+            setActiveButton(bothDaysButton, false);
+            setActiveButton(wdnsDayButton, false);
+            updateSessions();
+        });
+    }
+// language buttons
+    if (allLanguageBtn && norwegianBtn && englishBtn) {
+        allLanguageBtn?.addEventListener("click", () => {
+            currentLanguageFilter = "";
+            setActiveButton(allLanguageBtn, true);
+            setActiveButton(norwegianBtn, false);
+            setActiveButton(englishBtn, false);
+            updateSessions();
+        });
 
-    norwegianBtn?.addEventListener("click", () => {
-        currentLanguageFilter = "no";
-        updateSessions();
-    });
+        norwegianBtn?.addEventListener("click", () => {
+            currentLanguageFilter = "no";
+            setActiveButton(norwegianBtn, true);
+            setActiveButton(allLanguageBtn, false);
+            setActiveButton(englishBtn, false);
+            updateSessions();
+        });
 
-    englishBtn?.addEventListener("click", () => {
-        currentLanguageFilter = "en";
-        updateSessions();
-    });
+        englishBtn?.addEventListener("click", () => {
+            currentLanguageFilter = "en";
+            setActiveButton(englishBtn, true);
+            setActiveButton(allLanguageBtn, false);
+            setActiveButton(norwegianBtn, false);
+            updateSessions();
+        });
+    }
 
-    // Event listeners for format buttons
+    // format buttons
     allFormatBtn?.addEventListener("click", () => {
         currentFormatFilter = "";
         updateSessions();
+
+        setActiveButton(allFormatBtn, true);
+        setActiveButton(presentationBtn, false);
+        setActiveButton(lightningTalkBtn, false);
+        setActiveButton(workshopBtn, false);
     });
 
     presentationBtn?.addEventListener("click", () => {
         currentFormatFilter = "presentation";
         updateSessions();
+
+        setActiveButton(presentationBtn, true);
+        setActiveButton(allFormatBtn, false);
+        setActiveButton(lightningTalkBtn, false);
+        setActiveButton(workshopBtn, false);
     });
 
     lightningTalkBtn?.addEventListener("click", () => {
         currentFormatFilter = "lightning-talk";
         updateSessions();
+
+        setActiveButton(lightningTalkBtn, true);
+        setActiveButton(allFormatBtn, false);
+        setActiveButton(presentationBtn, false);
+        setActiveButton(workshopBtn, false);
     });
 
     workshopBtn?.addEventListener("click", () => {
         currentFormatFilter = "workshop";
         updateSessions();
+
+        setActiveButton(workshopBtn, true);
+        setActiveButton(allFormatBtn, false);
+        setActiveButton(presentationBtn, false);
+        setActiveButton(lightningTalkBtn, false);
     });
 }
