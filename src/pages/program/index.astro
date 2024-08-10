@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import {fetchProgram, logMessage} from "./fetchProgram";
+import {fetchProgram} from "./fetchProgram";
 import type {Session} from "types/program";
 import SessionCard from "@/components/SessionCard.astro";
 import FilterButton from "./FilterButton.astro"
@@ -49,11 +49,8 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
         <div>
             <section class="bg-white border-black border-2 rounded-xl p-4 grid grid-cols-2 gap-4 mb-8">
                 <div class="col-span-1"><p class="bold text-big-text-color">Day</p>
-                    <FilterButton id="bothBtn">
+                    <FilterButton id="bothDaysBtn">
                         Both
-                    </FilterButton>
-                    <FilterButton id="tuesdayBtn">
-                        Tuesday
                     </FilterButton>
                     <FilterButton id="wednesdayBtn">
                         Wednesday
@@ -63,7 +60,7 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
                     </FilterButton>
                 </div>
                 <div class="col-span-1"><p class="bold text-big-text-color">Language</p>
-                    <FilterButton>
+                    <FilterButton id="allLanguageBtn">
                         Both
                     </FilterButton>
                     <FilterButton id="norwegianBtn">
@@ -74,20 +71,19 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
                     </FilterButton>
                 </div>
                 <div class="col-span-full"><p class="bold text-big-text-color">Format</p>
-                    <FilterButton>
+                    <FilterButton id="allFormatBtn">
                         All (123)
                     </FilterButton>
-                    <FilterButton>
+                    <FilterButton id="presentationBtn">
                         Presentation (84)
                     </FilterButton>
-
-                    <FilterButton>
+                    <FilterButton id="lightningTalksBtn">
                         Lightning talks (39)
                     </FilterButton>
-                    <FilterButton>
-                        AI Zone (13)
+                    <FilterButton id="workshopBtn">
+                        Workshops (13)
                     </FilterButton>
-                    <FilterButton>
+                    <FilterButton id="favoriteBtn">
                         My favorites (0)
                     </FilterButton>
                 </div>

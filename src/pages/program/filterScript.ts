@@ -21,23 +21,49 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
 
 if (typeof window !== "undefined") {
     // DOM elements
-    const bothDaysButton = document.getElementById("bothBtn");
-    const tuesDayButton = document.getElementById("tuesdayBtn");
+    const bothDaysButton = document.getElementById("bothDaysBtn");
     const wdnsDayButton = document.getElementById("wednesdayBtn");
     const thrsDayButton = document.getElementById("thursdayBtn");
+
+    const allLanguageBtn = document.getElementById("allLanguageBtn");
+    const norwegianBtn = document.getElementById("norwegianBtn");
+    const englishBtn = document.getElementById("englishBtn");
+
+    const allFormatBtn = document.getElementById("allFormatBtn");
+    const presentationBtn = document.getElementById("presentationBtn");
+    const lightningTalkBtn = document.getElementById("lightningTalkBtn");
+    const workshopBtn = document.getElementById("workshopBtn");
+
     const filteredSessionsContainer = document.getElementById("filteredSessions");
 
-    // Update sessions based on selected day
-    const updateSessions = (filterTerm: string) => {
-        const filteredTimeslots = sortedTimeslots.filter((time) =>
-            dayAndMonthFormat.format(new Date(time)).includes(filterTerm)
-        );
+    // Initial filters
+    let currentDayFilter = "";
+    let currentLanguageFilter = "";
+    let currentFormatFilter = "";
+
+    // Function to update sessions based on selected filters
+    const updateSessions = () => {
+        const filteredTimeslots = sortedTimeslots.filter((time) => {
+            const sessions = groupedSessions[time];
+            return sessions.some((session) => {
+                const matchesDay = currentDayFilter === "" || dayAndMonthFormat.format(new Date(session.startTime)).includes(currentDayFilter);
+                const matchesLanguage = currentLanguageFilter === "" || session.language.includes(currentLanguageFilter);
+                const matchesFormat = currentFormatFilter === "" || session.format.includes(currentFormatFilter);
+                return matchesDay && matchesLanguage && matchesFormat;
+            });
+        });
 
         filteredSessionsContainer!!.innerHTML = filteredTimeslots.map((time) => `
             <section>
                 ${time ? `<h2>${new Date(time).toLocaleString('en-US', { month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</h2>` : ''}
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     ${groupedSessions[time]
+            .filter(session => {
+                const matchesDay = currentDayFilter === "" || dayAndMonthFormat.format(new Date(session.startTime)).includes(currentDayFilter);
+                const matchesLanguage = currentLanguageFilter === "" || session.language.includes(currentLanguageFilter);
+                const matchesFormat = currentFormatFilter === "" || session.format.includes(currentFormatFilter);
+                return matchesDay && matchesLanguage && matchesFormat;
+            })
             .sort((a, b) =>
                 a.room?.localeCompare(b.room ?? "") ||
                 a.startTime?.localeCompare(b.startTime ?? "") || 0)
@@ -59,9 +85,56 @@ if (typeof window !== "undefined") {
             </section>`).join('');
     };
 
-    // Event listeners for the buttons
-    bothDaysButton?.addEventListener("click", () => updateSessions(""));
-    tuesDayButton?.addEventListener("click", () => updateSessions("September 3"));
-    wdnsDayButton?.addEventListener("click", () => updateSessions("September 4"));
-    thrsDayButton?.addEventListener("click", () => updateSessions("September 5"));
+    // Event listeners for day buttons
+    bothDaysButton?.addEventListener("click", () => {
+        currentDayFilter = "";
+        updateSessions();
+    });
+
+    wdnsDayButton?.addEventListener("click", () => {
+        currentDayFilter = "September 4";
+        updateSessions();
+    });
+
+    thrsDayButton?.addEventListener("click", () => {
+        currentDayFilter = "September 5";
+        updateSessions();
+    });
+
+    // Event listeners for language buttons
+    allLanguageBtn?.addEventListener("click", () => {
+        currentLanguageFilter = "";
+        updateSessions();
+    });
+
+    norwegianBtn?.addEventListener("click", () => {
+        currentLanguageFilter = "no";
+        updateSessions();
+    });
+
+    englishBtn?.addEventListener("click", () => {
+        currentLanguageFilter = "en";
+        updateSessions();
+    });
+
+    // Event listeners for format buttons
+    allFormatBtn?.addEventListener("click", () => {
+        currentFormatFilter = "";
+        updateSessions();
+    });
+
+    presentationBtn?.addEventListener("click", () => {
+        currentFormatFilter = "presentation";
+        updateSessions();
+    });
+
+    lightningTalkBtn?.addEventListener("click", () => {
+        currentFormatFilter = "lightning-talk";
+        updateSessions();
+    });
+
+    workshopBtn?.addEventListener("click", () => {
+        currentFormatFilter = "workshop";
+        updateSessions();
+    });
 }
