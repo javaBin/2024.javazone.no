@@ -34,6 +34,8 @@ if (typeof window !== "undefined") {
     const lightningTalkBtn = document.getElementById("lightningTalkBtn");
     const workshopBtn = document.getElementById("workshopBtn");
 
+    const favoriteBtn = document.getElementById("favoriteBtn");
+
     const filteredSessionsContainer = document.getElementById("filteredSessions");
 
     // Initial filters
@@ -46,7 +48,11 @@ if (typeof window !== "undefined") {
         const filteredTimeslots = sortedTimeslots.filter((time) => {
             const sessions = groupedSessions[time];
             return sessions.some((session) => {
-                const matchesDay = currentDayFilter === "" || dayAndMonthFormat.format(new Date(session.startTime)).includes(currentDayFilter);
+                const startTime = session.startTime;
+                if (startTime === undefined) {
+                    return false;
+                }
+                const matchesDay = currentDayFilter === "" || dayAndMonthFormat.format(new Date(startTime)).includes(currentDayFilter);
                 const matchesLanguage = currentLanguageFilter === "" || session.language.includes(currentLanguageFilter);
                 const matchesFormat = currentFormatFilter === "" || session.format.includes(currentFormatFilter);
                 return matchesDay && matchesLanguage && matchesFormat;
@@ -59,7 +65,11 @@ if (typeof window !== "undefined") {
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     ${groupedSessions[time]
             .filter(session => {
-                const matchesDay = currentDayFilter === "" || dayAndMonthFormat.format(new Date(session.startTime)).includes(currentDayFilter);
+                const startTime = session.startTime;
+                if (startTime === undefined) {
+                    return false;
+                }
+                const matchesDay = currentDayFilter === "" || dayAndMonthFormat.format(new Date(startTime)).includes(currentDayFilter);
                 const matchesLanguage = currentLanguageFilter === "" || session.language.includes(currentLanguageFilter);
                 const matchesFormat = currentFormatFilter === "" || session.format.includes(currentFormatFilter);
                 return matchesDay && matchesLanguage && matchesFormat;
@@ -137,4 +147,5 @@ if (typeof window !== "undefined") {
         currentFormatFilter = "workshop";
         updateSessions();
     });
+
 }
