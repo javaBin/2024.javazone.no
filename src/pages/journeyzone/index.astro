@@ -8,11 +8,13 @@ import { Image } from "astro:assets";
 <div class="w-full flex flex-col justify-start items-start">
     <div class="py-8 lg:py-12 px-3 md:px-12">
         <h1>Welcome to the Viking Era JourneyZone!</h1>
-        <p>Imagine finding yourselves deep in a mysterious, ancient forest. <b class="text-darkgreen">No phones. No Internet.</b> Only you, a map and nature. You find yourselves lost and together you need to find your way back. You must solve puzzles, follow clues, and overcome natural obstacles. Waterfalls must be crossed, gorges climbed, and rivers navigated by canoe.</p>
-        </div>
+    </div>
 
-    <h3 class="px-3 md:px-12"><strong>But that's not all...</strong></h3>
     <div class="w-full px-3 py-8 lg:px-12 my-3 border-2 border-black bg-white">
+        <p>Imagine finding yourselves deep in a mysterious, ancient forest. <b class="text-darkgreen">No phones. No Internet.</b> Only you, a map and nature. You find yourselves lost and together you need to find your way back. You must solve puzzles, follow clues, and overcome natural obstacles. Waterfalls must be crossed, gorges climbed, and rivers navigated by canoe.</p>
+
+        <h3><strong>But that's not all...</strong></h3>
+
         <p>As you move forward, you suddenly discover that time seems to be behaving strangely. With every puzzle you solve and obstacles you pass you seem to move further back in time. Eventually, you find yourselves face to face with a <b class="text-darkgreen">Viking camp.</b> The year is 1052, and you have traveled back to the time of the <b class="text-darkgreen">Viking Era.</b></p>
         <p>In this strange and fascinating world, you are greeted by none other than King Harald Hardraade's men. He has led you to his place because you are the best at what you do. The king has a special mission: to build a new <b class="text-darkgreen">Viking ship</b>, faster and more agile than ever before. He needs your knowledge and skills to complete this monumental project.</p>
         <p>This is a unique opportunity to experience history up close, to collaborate as a team, and to learn about an era filled with adventure, bravery, and craftsmanship. Can you live up to the king's expectations and help him create a ship that will be remembered through the ages?</p>
@@ -65,6 +67,31 @@ import { Image } from "astro:assets";
         color: rgb(50, 50, 50);
         max-width: 1200px;
         font-style: italic;
+    }
+
+    @property --a {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 10deg;
+    }
+
+    @keyframes rotate {
+        0% {
+            --a: 0deg;
+        }
+        100% {
+            --a: 360deg;
+        }
+    }
+
+    body {
+        --a: 0deg; /*  needed for firefox to have a valid output */
+        background: repeating-conic-gradient(
+            hsla(0, 0%, 0%, 0.2) var(--a) calc(var(--a) + 15deg),
+            hsla(0, 0%, 100%, 0) var(--a) calc(var(--a) + 30deg)
+        )
+        #00f3d2 no-repeat;
+        animation: rotate 160s linear infinite;
     }
 </style>
 

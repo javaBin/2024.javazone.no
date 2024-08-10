@@ -12,3 +12,7 @@ export const fetchIndividualProgram = (
   fetchProgram().then((program) =>
     program.sessions.find((session) => session.id === id),
   )
+
+export const logMessage = () => {
+    console.log('Button clicked!');
+}

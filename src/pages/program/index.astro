@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import {fetchProgram} from "./fetchProgram";
+import {fetchProgram, logMessage} from "./fetchProgram";
 import type {Session} from "types/program";
 import SessionCard from "@/components/SessionCard.astro";
+import FilterButton from "./FilterButton.astro"
 import {dayAndTimeFormatWithMonth} from "../../utils/dateformat";
-
 
 const fullprogram = await fetchProgram();
 
@@ -13,7 +13,9 @@ const formatTime = (time: string): string => {
     return `${parseInt(hours, 10)}:${minutes}`;
 };
 
-
+const logy = () => (
+    console.log("sdf")
+)
 
 const program = fullprogram.sessions
 
@@ -41,13 +43,71 @@ const groupedSessions = groupSessionsByTimeslot(Object.values(program).flat());
 const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeCompare(b));
 ---
 
+<script>
+    // This script will only run in the browser
+    document.addEventListener('DOMContentLoaded', function () {
+        const button = document.getElementById('logButton');
+
+        button.addEventListener('click', function () {
+            console.log('Button was clicked!');
+        });
+    });
+</script>
 
 <Layout title="Program">
-
     <div>
         <h1>Program for Javazone 2024</h1>
-        <p>These are all the talks that made it into the program. Workshop registration and your personalised schedule is coming soon!</p>
+        <p>These are all the talks that made it into the program. Workshop registration and your personalised schedule
+            is coming soon!</p>
         <div>
+            <section class="bg-white border-black border-2 rounded-xl p-4 grid grid-cols-2 gap-4 mb-8">
+                <div class="col-span-1"><p class="bold text-big-text-color">Day</p>
+                    <FilterButton id="logButton">
+                        Both
+                    </FilterButton>
+                    <FilterButton>
+                        Wednesday
+                    </FilterButton>
+                    <FilterButton>
+                        Thursday
+                    </FilterButton>
+                </div>
+                <div class="col-span-1"><p class="bold text-big-text-color">Language</p>
+                    <FilterButton>
+                        Both
+                    </FilterButton>
+                    <FilterButton>
+                        Norwegian
+                    </FilterButton>
+                    <FilterButton>
+                        English
+                    </FilterButton>
+                </div>
+                <div class="col-span-full"><p class="bold text-big-text-color">Format</p>
+                    <FilterButton>
+                        All (123)
+                    </FilterButton>
+                    <FilterButton>
+                        Presentation (84)
+                    </FilterButton>
+
+                    <FilterButton>
+                        Lightning talks (39)
+                    </FilterButton>
+                    <FilterButton>
+                        AI Zone (13)
+                    </FilterButton>
+                    <FilterButton>
+                        My favorites (0)
+                    </FilterButton>
+                </div>
+                <div class="col-span-1">
+                    <FilterButton>
+                        Clear filters
+                    </FilterButton>
+                </div>
+            </section>
+
             {sortedTimeslots.map((time) => (
                 <section>
                     {time && <h2>{dayAndTimeFormatWithMonth.format(new Date(time))}</h2>}
