@@ -43,6 +43,15 @@ if (typeof window !== "undefined") {
     let currentLanguageFilter = "";
     let currentFormatFilter = "";
 
+    bothDaysButton?.classList.remove("bg-darkgreen", "text-white");
+    bothDaysButton?.classList.add("bg-white", "text-darkgray", "border-darkgray", "border-2");
+
+    allLanguageBtn?.classList.remove("bg-darkgreen", "text-white");
+    allLanguageBtn?.classList.add("bg-white", "text-darkgray", "border-darkgray", "border-2");
+
+    allFormatBtn?.classList.remove("bg-darkgreen", "text-white");
+    allFormatBtn?.classList.add("bg-white", "text-darkgray", "border-darkgray", "border-2");
+
     // Function to update sessions based on selected filters
     const updateSessions = () => {
         const filteredTimeslots = sortedTimeslots.filter((time) => {
@@ -106,6 +115,7 @@ if (typeof window !== "undefined") {
         }
     }
 
+
     if (bothDaysButton && wdnsDayButton && thrsDayButton) {
         bothDaysButton?.addEventListener("click", () => {
             currentDayFilter = "";
@@ -158,45 +168,46 @@ if (typeof window !== "undefined") {
         });
     }
 
-    // format buttons
-    allFormatBtn?.addEventListener("click", () => {
-        currentFormatFilter = "";
-        updateSessions();
+    if (allFormatBtn && presentationBtn && lightningTalkBtn && workshopBtn){
+        // format buttons
+        allFormatBtn?.addEventListener("click", () => {
+            currentFormatFilter = "";
+            updateSessions();
 
-        setActiveButton(allFormatBtn, true);
-        setActiveButton(presentationBtn, false);
-        setActiveButton(lightningTalkBtn, false);
-        setActiveButton(workshopBtn, false);
-    });
+            setActiveButton(allFormatBtn, true);
+            setActiveButton(presentationBtn, false);
+            setActiveButton(lightningTalkBtn, false);
+            setActiveButton(workshopBtn, false);
+        });
 
-    presentationBtn?.addEventListener("click", () => {
-        currentFormatFilter = "presentation";
-        updateSessions();
+        presentationBtn?.addEventListener("click", () => {
+            currentFormatFilter = "presentation";
+            updateSessions();
 
-        setActiveButton(presentationBtn, true);
-        setActiveButton(allFormatBtn, false);
-        setActiveButton(lightningTalkBtn, false);
-        setActiveButton(workshopBtn, false);
-    });
+            setActiveButton(presentationBtn, true);
+            setActiveButton(allFormatBtn, false);
+            setActiveButton(lightningTalkBtn, false);
+            setActiveButton(workshopBtn, false);
+        });
 
-    lightningTalkBtn?.addEventListener("click", () => {
-        currentFormatFilter = "lightning-talk";
-        updateSessions();
+        lightningTalkBtn?.addEventListener("click", () => {
+            currentFormatFilter = "lightning-talk";
+            updateSessions();
 
-        setActiveButton(lightningTalkBtn, true);
-        setActiveButton(allFormatBtn, false);
-        setActiveButton(presentationBtn, false);
-        setActiveButton(workshopBtn, false);
-    });
+            setActiveButton(lightningTalkBtn, true);
+            setActiveButton(allFormatBtn, false);
+            setActiveButton(presentationBtn, false);
+            setActiveButton(workshopBtn, false);
+        });
 
-    workshopBtn?.addEventListener("click", () => {
-        currentFormatFilter = "workshop";
-        updateSessions();
+        workshopBtn?.addEventListener("click", () => {
+            currentFormatFilter = "workshop";
+            updateSessions();
 
-        setActiveButton(workshopBtn, true);
-        setActiveButton(allFormatBtn, false);
-        setActiveButton(presentationBtn, false);
-        setActiveButton(lightningTalkBtn, false);
-    });
-
+            setActiveButton(workshopBtn, true);
+            setActiveButton(allFormatBtn, false);
+            setActiveButton(presentationBtn, false);
+            setActiveButton(lightningTalkBtn, false);
+        });
+    }
 }
