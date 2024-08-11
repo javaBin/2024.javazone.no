@@ -5,6 +5,10 @@ import { dayAndMonthFormat } from "@/utils/dateformat.ts";
 // Fetch and group sessions by timeslot
 const programs = (await fetchProgram()).sessions;
 
+function getTotalSessionsCount(sessions: Session[]): number {
+    return sessions.length;
+}
+
 function groupSessionsByTimeslot(sessions: Session[]): Record<string, Session[]> {
     return sessions.reduce((acc: Record<string, Session[]>, session: Session) => {
         const timeslot = session.startSlot ?? "00:00";
@@ -18,6 +22,10 @@ function groupSessionsByTimeslot(sessions: Session[]): Record<string, Session[]>
 
 const groupedSessions = groupSessionsByTimeslot(Object.values(programs).flat());
 const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeCompare(b));
+const totalSessionsCount = getTotalSessionsCount(Object.values(programs).flat());
+const totalPresentationCount = getTotalSessionsCount(Object.values(programs).flat().filter(session => session.format === "presentation"));
+const totalLightningTalkCount = getTotalSessionsCount(Object.values(programs).flat().filter(session => session.format === "lightning-talk"));
+const totalWorkshopCount = getTotalSessionsCount(Object.values(programs).flat().filter(session => session.format === "workshop"));
 
 if (typeof window !== "undefined") {
     // DOM elements
@@ -33,6 +41,17 @@ if (typeof window !== "undefined") {
     const presentationBtn = document.getElementById("presentationBtn");
     const lightningTalkBtn = document.getElementById("lightningTalkBtn");
     const workshopBtn = document.getElementById("workshopBtn");
+
+    const allFormatSpan = document.getElementById("allFormatSpan");
+    const presentationSpan = document.getElementById("presentationSpan");
+    const lightningTalkSpan = document.getElementById("lightningTalkSpan");
+    const workshopSpan = document.getElementById("workshopSpan");
+    if (allFormatSpan && presentationSpan && lightningTalkSpan && workshopSpan) {
+        allFormatSpan.textContent = `(${totalSessionsCount})`;
+        presentationSpan.textContent = `(${totalPresentationCount})`;
+        lightningTalkSpan.textContent = `(${totalLightningTalkCount})`;
+        workshopSpan.textContent = `(${totalWorkshopCount})`;
+    }
 
     const favoriteBtn = document.getElementById("favoriteBtn");
 
@@ -54,9 +73,19 @@ if (typeof window !== "undefined") {
 
     // Function to update sessions based on selected filters
     const updateSessions = () => {
+        const filteredSessions = Object.values(groupedSessions).flat().filter((session) => {
+            const startTime = session.startTime;
+            if (startTime === undefined) {
+                return false;
+            }
+            const matchesDay = currentDayFilter === "" || dayAndMonthFormat.format(new Date(startTime)).includes(currentDayFilter);
+            const matchesLanguage = currentLanguageFilter === "" || session.language.includes(currentLanguageFilter);
+            const matchesFormat = currentFormatFilter === "" || session.format.includes(currentFormatFilter);
+            return matchesDay && matchesLanguage && matchesFormat;
+        });
+
         const filteredTimeslots = sortedTimeslots.filter((time) => {
-            const sessions = groupedSessions[time];
-            return sessions.some((session) => {
+            return groupedSessions[time].some((session) => {
                 const startTime = session.startTime;
                 if (startTime === undefined) {
                     return false;
@@ -67,6 +96,14 @@ if (typeof window !== "undefined") {
                 return matchesDay && matchesLanguage && matchesFormat;
             });
         });
+
+        // Update the session count based on the filters
+        if (allFormatSpan && presentationSpan && lightningTalkSpan && workshopSpan) {
+            allFormatSpan.textContent = `(${filteredSessions.length})`;
+            presentationSpan.textContent = `(${filteredSessions.filter(session => session.format === "presentation").length})`;
+            lightningTalkSpan.textContent = `(${filteredSessions.filter(session => session.format === "lightning-talk").length})`;
+            workshopSpan.textContent = `(${filteredSessions.filter(session => session.format === "workshop").length})`;
+        }
 
         filteredSessionsContainer!!.innerHTML = filteredTimeslots.map((time) => `
             <section>
