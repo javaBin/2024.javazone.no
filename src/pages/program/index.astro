@@ -46,56 +46,36 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
         <h1>Program for Javazone 2024</h1>
         <p>These are all the talks that made it into the program. Workshop registration and your personalised schedule
             is coming soon!</p>
-        <div>
-            <section class="bg-white border-black border-2 rounded-xl p-4 grid grid-cols-2 gap-4 mb-8">
-                <div class="col-span-1"><p class="bold text-big-text-color">Day</p>
-                    <FilterButton id="bothDaysBtn">
-                        Both
-                    </FilterButton>
-                    <FilterButton id="wednesdayBtn">
-                        Wednesday
-                    </FilterButton>
-                    <FilterButton id="thursdayBtn">
-                        Thursday
-                    </FilterButton>
+
+        <div class="flex gap-8">
+            <!-- Filter Section -->
+            <aside class="w-64 bg-white border-black border-2 rounded-xl p-4 sticky top-4 min-h-fit">
+                <div class="mb-4">
+                    <p class="bold text-big-text-color">Format</p>
+                    <FilterButton id="fullProgramBtn">Full program</FilterButton>
+                    <FilterButton id="liveBtn">Live</FilterButton>
+                    <FilterButton id="favoriteBtn">My favorites (0)</FilterButton>
                 </div>
-                <div class="col-span-1"><p class="bold text-big-text-color">Language</p>
-                    <FilterButton id="allLanguageBtn">
-                        Both
-                    </FilterButton>
-                    <FilterButton id="norwegianBtn">
-                        Norwegian
-                    </FilterButton>
-                    <FilterButton id="englishBtn">
-                        English
-                    </FilterButton>
+
+                <div class="mb-4">
+                    <p class="bold text-big-text-color">Day</p>
+                    <FilterButton id="bothDaysBtn">Both</FilterButton>
+                    <FilterButton id="wednesdayBtn">Wednesday</FilterButton>
+                    <FilterButton id="thursdayBtn">Thursday</FilterButton>
                 </div>
-                <div class="col-span-full"><p class="bold text-big-text-color">Format</p>
-                    <FilterButton id="allFormatBtn">
-                        All <span id="allFormatSpan"></span>
-                    </FilterButton>
-                    <FilterButton id="presentationBtn">
-                        Presentation <span id="presentationSpan"></span>
-                    </FilterButton>
-                    <FilterButton id="lightningTalkBtn">
-                        Lightning talks <span id="lightningTalkSpan"></span>
-                    </FilterButton>
-                    <FilterButton id="workshopBtn">
-                        Workshops <span id="workshopSpan"></span>
-                    </FilterButton>
-                    <FilterButton id="favoriteBtn">
-                        My favorites (0)
-                    </FilterButton>
+                <div class="mb-4">
+                    <p class="bold text-big-text-color">Language</p>
+                    <FilterButton id="allLanguageBtn">Both</FilterButton>
+                    <FilterButton id="norwegianBtn">Norwegian</FilterButton>
+                    <FilterButton id="englishBtn">English</FilterButton>
                 </div>
-                <div class="col-span-1">
-                    <FilterButton>
-                        Clear filters
-                    </FilterButton>
+                <div>
+                    <FilterButton>Clear filters</FilterButton>
                 </div>
-            </section>
+            </aside>
 
             <!-- Placeholder for filtered sessions -->
-            <div id="filteredSessions">
+            <div id="filteredSessions" class="flex-grow">
                 {sortedTimeslots.map((time) => (
                     <section>
                         {time && <h2>{dayAndTimeFormatWithMonth.format(new Date(time))}</h2>}
