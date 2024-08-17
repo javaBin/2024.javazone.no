@@ -8,11 +8,6 @@ import {dayAndTimeFormatWithMonth} from "../../utils/dateformat";
 
 const fullprogram = await fetchProgram();
 
-const formatTime = (time: string): string => {
-    const [hours, minutes] = time.split('T')[1].split(':').slice(0, 2);
-    return `${parseInt(hours, 10)}:${minutes}`;
-};
-
 const program = fullprogram.sessions
 
 function groupSessionsByTimeslot(sessions: Session[]): Record<string, Session[]> {
@@ -40,6 +35,7 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
 ---
 
 <script src="./filterScript.ts"></script>
+<script src="./favoriteScript.ts"></script>
 
 <Layout title="Program">
     <div>

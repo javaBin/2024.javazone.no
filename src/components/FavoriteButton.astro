@@ -1,0 +1,40 @@
+---
+const id: string = Astro.props.session;
+const sessionId = id;
+---
+
+<button class="favorite-btn text-4xl hover:opacity-60" data-session-id={sessionId} title="Add/remove favorite">
+  Loading...
+</button>
+<script define:vars={{ sessionId }}>
+    const button = document.querySelector(`button[data-session-id='${sessionId}']`);
+    if (!button) return;
+
+    function updateButtonText() {
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      if (favorites.includes(sessionId)) {
+        button.innerHTML = "&#9733;";
+      } else {
+        button.innerHTML = "&#9734;";
+      }
+    }
+
+    updateButtonText();
+
+    button.addEventListener('click', (event) => {
+      event.stopPropagation()
+      event.preventDefault();
+      console.log("hi!!!");
+      let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+      if (favorites.includes(sessionId)) {
+        favorites = favorites.filter((id) => id !== sessionId);
+        button.innerHTML = "&#9734;";
+      } else {
+        favorites.push(sessionId);
+        button.innerHTML = "&#9733;";
+      }
+
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    });
+</script>
