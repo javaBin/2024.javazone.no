@@ -118,29 +118,3 @@ import ButtonLink from "@/components/ButtonLink.astro";
         </div>
     </div>
 </Layout>
-
-<style>
-    @property --a {
-        syntax: "<angle>";
-        inherits: false;
-        initial-value: 10deg;
-    }
-    @keyframes rotate {
-        0% {
-            --a: 0deg;
-        }
-        100% {
-            --a: 360deg;
-        }
-    }
-
-    body {
-        --a: 0deg; /*  needed for firefox to have a valid output */
-        background: repeating-conic-gradient(
-            hsla(0, 0%, 0%, 0.2) var(--a) calc(var(--a) + 15deg),
-            hsla(0, 0%, 100%, 0) var(--a) calc(var(--a) + 30deg)
-        )
-        #00f3d2 no-repeat;
-        animation: rotate 160s linear infinite;
-    }
-</style>
