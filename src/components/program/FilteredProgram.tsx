@@ -1,7 +1,7 @@
-import type { Session } from "../../../types/program.ts";
-import { Filter, type FilterType } from "@/components/filter/Filter.tsx";
-import { Program } from "@/components/program/Program.tsx";
+import type { Session } from "../../types/program.ts";
 import { useState } from "react";
+import {Filter, type FilterType} from "../filter/Filter.tsx";
+import {Program} from "./Program.tsx";
 
 interface Props {
     timeSlots: string[];

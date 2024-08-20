@@ -1,6 +1,6 @@
-import { dayAndTimeFormatWithMonth } from "@/utils/dateformat.ts";
-import type { Session } from "../../../types/program.ts";
-import { SessionCard } from "@/components/program/SessionCard.tsx";
+import type { Session } from "../../types/program.ts";
+import {dayAndTimeFormatWithMonth} from "../../utils/dateformat.ts";
+import {SessionCard} from "./SessionCard.tsx";
 
 interface Props {
     timeSlots: string[];

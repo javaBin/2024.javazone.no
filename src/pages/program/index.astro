@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import {fetchProgram} from "./fetchProgram";
-import type {Session} from "types/program";
+import type {Session} from "../../types/program";
 import {dayAndTimeFormatWithMonth} from "../../utils/dateformat";
-import {FilteredProgram} from "@/components/program/FilteredProgram";
+import {FilteredProgram} from "../../components/program/FilteredProgram.tsx";
 
 const fullprogram = await fetchProgram();
 

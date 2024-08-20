@@ -1,5 +1,5 @@
-import { dayAndTimeFormat } from "@/utils/dateformat.ts";
-import type { Session } from "../../../types/program.ts";
+import type { Session } from "../../types/program.ts";
+import {dayAndTimeFormat} from "../../utils/dateformat.ts";
 
 export const SessionCard = ({ session }: { session: Session }) => (
     <div className="bg-white relative p-3 border-black border-2 rounded-xl hover:scale-105 transition ease-in-out delay-150 duration-200">
