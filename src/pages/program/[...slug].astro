@@ -41,13 +41,13 @@ const speakers = session?.speakers;
                             <p class="whitespace-pre-line">{session.workshopPrerequisites}</p>
                         )}
                     </div>
-                    <div class="mt-3 font-bold gap-4">
+                    <div class="font-bold gap-4">
                         <p>Type: {session.format}</p>
                         <p>Language: {session.language === "no" ? "Norwegian" : "English"}</p>
                     </div>
                 </div>
             </div>
-            <div class="p-5">
+            <div class="p-5 bg-white border-black border-2 rounded-xl mx-auto mt-4">
                 {speakers && speakers.map((speaker) => (
                     <div>
                         <p class="font-bold">{speaker.name}</p>
