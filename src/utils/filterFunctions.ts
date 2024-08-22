@@ -14,8 +14,6 @@ export function groupSessionsByTimeslot(sessions: Session[]): Record<string, Ses
 
 export function filterSessionTerms(
     session: Session,
-    currentDayFilter: string,
-    currentLanguageFilter: string,
     liveMode: boolean,
     now: Date,
     futureTime: Date
@@ -24,14 +22,8 @@ export function filterSessionTerms(
     if (startTime === undefined) {
         return false;
     }
-    const matchesDay =
-        currentDayFilter === "" ||
-        dayAndMonthFormat.format(startTime).includes(currentDayFilter);
-    const matchesLanguage =
-        currentLanguageFilter === "" ||
-        session.language.includes(currentLanguageFilter);
 
     const isLive = liveMode && startTime >= now && startTime <= futureTime;
 
-    return matchesDay && matchesLanguage && (!liveMode || isLive);
+    return (!liveMode || isLive);
 }

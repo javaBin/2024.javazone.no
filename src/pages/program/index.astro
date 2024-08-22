@@ -43,37 +43,21 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
         <p>These are all the talks that made it into the program. Workshop registration and your personalised schedule
             is coming soon!</p>
 
-        <div class="flex gap-8">
+        <div class="flex flex-col gap-8">
             <!-- Filter Section -->
-            <aside class="w-64 bg-white border-black border-2 rounded-xl p-4 sticky top-4 min-h-fit">
+            <div class="w-full bg-white border-black border-2 rounded-xl p-4">
                 <div class="mb-4">
                     <p class="bold text-big-text-color">Format</p>
                     <FilterButton id="fullProgramBtn">Full program</FilterButton>
                     <FilterButton id="liveBtn">Live</FilterButton>
                     <FilterButton id="favoriteBtn">My favorites (0)</FilterButton>
                 </div>
-
-                <div class="mb-4">
-                    <p class="bold text-big-text-color">Day</p>
-                    <FilterButton id="bothDaysBtn">Both</FilterButton>
-                    <FilterButton id="wednesdayBtn">Wednesday</FilterButton>
-                    <FilterButton id="thursdayBtn">Thursday</FilterButton>
-                </div>
-                <div class="mb-4">
-                    <p class="bold text-big-text-color">Language</p>
-                    <FilterButton id="allLanguageBtn">Both</FilterButton>
-                    <FilterButton id="norwegianBtn">Norwegian</FilterButton>
-                    <FilterButton id="englishBtn">English</FilterButton>
-                </div>
-                <div>
-                    <FilterButton>Clear filters</FilterButton>
-                </div>
-            </aside>
+            </div>
 
             <!-- Placeholder for filtered sessions -->
             <div id="filteredSessions" class="flex-grow">
                 {sortedTimeslots.map((time) => (
-                    <section>
+                    <section class="mb-8">
                         {time && <h2>{dayAndTimeFormatWithMonth.format(new Date(time))}</h2>}
                         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             {groupedSessions[time]

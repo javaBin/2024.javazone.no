@@ -13,29 +13,13 @@ const sortedTimeslots = Object.keys(groupedSessions).sort((a, b) => a.localeComp
 
 if (typeof window !== "undefined") {
     // DOM elements
-    const bothDaysButton = document.getElementById("bothDaysBtn");
-    const wdnsDayButton = document.getElementById("wednesdayBtn");
-    const thrsDayButton = document.getElementById("thursdayBtn");
-
-    const allLanguageBtn = document.getElementById("allLanguageBtn");
-    const norwegianBtn = document.getElementById("norwegianBtn");
-    const englishBtn = document.getElementById("englishBtn");
-
-    const fullProgramBtn = document.getElementById("fullProgramBtn");
+   const fullProgramBtn = document.getElementById("fullProgramBtn");
     const liveBtn = document.getElementById("liveBtn");
 
     const filteredSessionsContainer = document.getElementById("filteredSessions");
 
     // Initial filters
-    let currentDayFilter = "";
-    let currentLanguageFilter = "";
     let liveMode = false; // Variable to track if we're in "Live" mode
-
-    bothDaysButton?.classList.remove("bg-darkgreen", "text-white");
-    bothDaysButton?.classList.add("bg-white", "text-darkgray", "border-darkgray", "border-2");
-
-    allLanguageBtn?.classList.remove("bg-darkgreen", "text-white");
-    allLanguageBtn?.classList.add("bg-white", "text-darkgray", "border-darkgray", "border-2");
 
     fullProgramBtn?.classList.remove("bg-darkgreen", "text-white");
     fullProgramBtn?.classList.add("bg-white", "text-darkgray", "border-darkgray", "border-2");
@@ -49,7 +33,7 @@ if (typeof window !== "undefined") {
         // Filter and map sessions directly within each timeslot
         filteredSessionsContainer!!.innerHTML = sortedTimeslots.map((time) => {
             const sessions = groupedSessions[time].filter((session) =>
-                filterSessionTerms(session, currentDayFilter, currentLanguageFilter, liveMode, now, futureTime)
+                filterSessionTerms(session, liveMode, now, futureTime)
             );
 
             if (sessions.length > 0) {
@@ -95,66 +79,6 @@ if (typeof window !== "undefined") {
             button.classList.add("bg-darkgreen", "text-white");
             button.classList.remove("bg-white", "text-darkgray", "border-darkgray", "border-2");
         }
-    }
-
-    // Event listeners for day buttons
-    if (bothDaysButton && wdnsDayButton && thrsDayButton) {
-        bothDaysButton?.addEventListener("click", () => {
-            currentDayFilter = "";
-            liveMode = false;
-            setActiveButton(bothDaysButton, true);
-            setActiveButton(wdnsDayButton, false);
-            setActiveButton(thrsDayButton, false);
-            updateSessions();
-        });
-
-        wdnsDayButton?.addEventListener("click", () => {
-            currentDayFilter = "September 4";
-            liveMode = false;
-            setActiveButton(wdnsDayButton, true);
-            setActiveButton(bothDaysButton, false);
-            setActiveButton(thrsDayButton, false);
-            updateSessions();
-        });
-
-        thrsDayButton?.addEventListener("click", () => {
-            currentDayFilter = "September 5";
-            liveMode = false;
-            setActiveButton(thrsDayButton, true);
-            setActiveButton(bothDaysButton, false);
-            setActiveButton(wdnsDayButton, false);
-            updateSessions();
-        });
-    }
-
-    // Event listeners for language buttons
-    if (allLanguageBtn && norwegianBtn && englishBtn) {
-        allLanguageBtn?.addEventListener("click", () => {
-            currentLanguageFilter = "";
-            liveMode = false;
-            setActiveButton(allLanguageBtn, true);
-            setActiveButton(norwegianBtn, false);
-            setActiveButton(englishBtn, false);
-            updateSessions();
-        });
-
-        norwegianBtn?.addEventListener("click", () => {
-            currentLanguageFilter = "no";
-            liveMode = false;
-            setActiveButton(norwegianBtn, true);
-            setActiveButton(allLanguageBtn, false);
-            setActiveButton(englishBtn, false);
-            updateSessions();
-        });
-
-        englishBtn?.addEventListener("click", () => {
-            currentLanguageFilter = "en";
-            liveMode = false;
-            setActiveButton(englishBtn, true);
-            setActiveButton(allLanguageBtn, false);
-            setActiveButton(norwegianBtn, false);
-            updateSessions();
-        });
     }
 
     // Event listener for the Live button and full program button
