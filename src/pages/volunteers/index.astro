@@ -4,128 +4,241 @@ import ButtonLink from "../../components/ButtonLink.astro";
 ---
 
 <Layout title="JavaZone 2024 Volunteers">
-    <div><h1 class=" text-big-text-color text-center">Bli frivillig på JavaZone</h1>
-        <p class="text-center  text-big-text-color mb-6">Information in Norwegian for potential
-            student volunteers</p>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init aos-animate">Hva er
-            Javazone?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init aos-animate" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">JavaZone er verdens største community-drevne
-                Java-konferanse.</p>
-                <p>Hvert år strømmer over 3200 utviklere til Oslo for å delta på JavaZone. I tillegg
-                    kommer nærmere 160 foredragsholdere fra hele verden, pluss mennesker fra over 50 ulike partnere.</p>
+    <div>
+        <h1 class="text-big-text-color">Bli frivillig på JavaZone</h1>
+        <p class="text-big-text-color mb-6">Information in Norwegian for potential student volunteers</p>
+
+        <section class="mb-6 flex flex-col lg:flex-row justify-between items-start w-full border-2 border-black bg-white rounded-2xl px-8 py-6 lg:px-12">
+            <div class="flex-col w-full lg:w-3/5 xl:w-2/3">
+                <div>
+                    <h3
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
+                    class="text-2xl text-big-text-color aos-init aos-animate">
+                        Hva er JavaZone?
+                    </h3>
+
+                    <div class="aos-init aos-animate"
+                         data-aos="fade"
+                         data-aos-duration="1000"
+                         data-aos-delay="500">
+                        <p class="mb-[1em]">JavaZone er verdens største community-drevne Java-konferanse.</p>
+                        <p>Hvert år strømmer over 3200 utviklere til Oslo for å delta på JavaZone. I tillegg
+                            kommer nærmere 160 foredragsholdere fra hele verden, pluss mennesker fra over 50 ulike partnere.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                        class="text-2xl text-big-text-color aos-init aos-animate">
+                        Hvem leter vi etter?
+                    </h3>
+                    <div class="aos-init aos-animate"
+                         data-aos="fade"
+                         data-aos-duration="1000"
+                         data-aos-delay="500">
+                        <p class="mb-[1em]">
+                            Har du lyst til å bidra til at disse menneskene skal få en fantastisk opplevelse, og også få ta del i dette selv?
+                        </p>
+                        <p>Er du student høsten 2024?</p>
+                    </div>
+                </div>
+
+                <div class="flex mt-0 md:mt-16 lg:mt-28">
+                    <ButtonLink href="https://forms.gle/H1xWxKRcsbCqbYg9A" target="_blank">
+                        Meld deg som frivillig!
+                    </ButtonLink>
+                </div>
+            </div>
+
+            <div class="w-2/5 xl:w-1/3 place-self-center lg:place-self-end">
+                <img loading="lazy" src="/images/characters/jz24-usb-duke.svg" alt="jz-characters" class="object-contain">
             </div>
         </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init aos-animate">Hvem leter vi
-            etter?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init aos-animate" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Har du lyst til å bidra til at disse menneskene skal
-                få en fantastisk opplevelse, og også få ta del i dette selv?</p>
-                <p>Er du student høsten 2024?</p></div>
-        </section>
-        <div class="flex justify-center">
-            <img loading="lazy" src="/images/CHARACTER.png" alt="jz-character">
-        </div>
 
-        <div class="flex justify-center  ">
-            <ButtonLink href="https://forms.gle/H1xWxKRcsbCqbYg9A" target="_blank">
-                Meld deg som frivillig!
-            </ButtonLink>
-        </div>
+        <!-- Q&A -->
+        <h2 class="text-3xl leading-9 text-big-text-color mt-8 mb-6 mx-3 md:mx-6">
+            Ofte stilte spørsmål
+        </h2>
 
-        <h2 class="text-3xl leading-9  text-big-text-color text-center mt-8 mb-6">Ofte stilte
-            spørsmål</h2>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">I don't speak Norwegian what
-            about me?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Being a volunteer at JavaZone you need to be able to
-                communicate in both Norwegian and English. This is because you are one of the main go-to-people for 3200
-                guests.</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Hvem kan bli frivillig på
-            JavaZone?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Alle studenter som behersker norsk og engelsk flytende
-                kan bli frivillige på JavaZone. Så lenge du vil gjøre en innsats, så er du hjertelig velkommen til å
-                søke!</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Hva skal jeg gjøre som
-            frivillig?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Det vil være en del ulike oppgaver, og du kan blant
-                annet være salvakt, ha ansvar for info-stand eller utdeling av headsett. Nærmere informasjon om
-                oppgavene vil bli gitt rett før JavaZone og under opplæringsmøtet i forkant av konferansen. Vi vil prøve å
-                dele ut vakter og arbeidoppgaver tilpasset dine ønsker og interesser.</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Hvor mange frivillige bidrar
-            på JavaZone?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Hvert år deltar over 50 frivillige på JavaZone.
-                Interessen for dette er stor, så dessverre får ikke alle søkere plass, men ikke la dette hindre deg i å
-                søke, prøv da vel!</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Får jeg med meg noe faglig
-            som frivillig?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Å være frivillig på JavaZone er litt som å være
-                frivillig på en musikkfestival, bare mer nerdete! Du får ca. 50% fri, og kan da gå på foredrag, spise
-                god mat og snakke med kule folk.</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Hva med reise hvis jeg ikke
-            bor i Oslo?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">JavaZone dekker ikke reise eller overnatting for
-                frivillige, men erfaringsmessig så er det mange studiesteder som velger å gi reisestøtte. Spør derfor
-                studentforeningen eller instituttet ditt om dette.</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Får jeg bli med på
-            AweZone?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Selvsagt får du det! JavaZone er ikke det samme uten!
-                Her får du se de kuleste bandene og snakke med de beste folka i IT-bransjen! Ingen jobbing på kvelden –
-                bare fest og moro =)</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Når må jeg møte opp som
-            frivillig?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Det er oppmøte i Oslo Spektrum kl. 19:00 tirsdag 3.
-                september for opplæring, noen oppgaver, mat og omvisning i lokalene. JavaZone er ferdig kl. 18 på
-                torsdag 5. september. Da rigger vi ned i ca. 1 time, og deretter går vi videre for mat og drikke. Vi
-                spanderer :) Detaljer blir sendt ut til de som blir tatt opp som frivillige.</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Når må jeg søke?</h4>
-            <div class="w-3/5 right-0 max-[890px]:w-full aos-init" data-aos="fade" data-aos-duration="1000"
-                 data-aos-delay="500"><p class="mb-[1em]">Søknadsfristen er mandag 3. juni.</p></div>
-        </section>
-        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid "><h4
-            data-aos="fade-right" data-aos-duration="1000"
-            class="text-2xl  text-big-text-color max-w-[300px] aos-init">Hvordan kan jeg tipse
-            andre?</h4>
-            <div class="flex flex-col w-3/5 right-0 max-w-full aos-init" data-aos="fade" data-aos-duration="1000"
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl text-big-text-color max-w-[300px] aos-init">
+                I don't speak Norwegian what about me?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
                  data-aos-delay="500">
-                <p>Lik og del gjerne en av våre poster i sosiale medier </p>
+                <p class="mb-[1em]">Being a volunteer at JavaZone you need to be able to
+                communicate in both Norwegian and English 🗣️ This is because you are one of the main go-to-people for <span class="font-medium">3200</span>
+                guests.</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Hvem kan bli frivillig på JavaZone?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em]">Alle studenter som behersker norsk og engelsk flytende
+                kan bli frivillige på JavaZone. Så lenge du vil gjøre en innsats, så er du hjertelig velkommen til å
+                søke! ❤️</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Hva skal jeg gjøre som frivillig?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em]">Det vil være en del ulike oppgaver, og du kan blant
+                annet være salvakt, ha ansvar for info-stand eller utdeling av headsett 🎧 Nærmere informasjon om
+                oppgavene vil bli gitt rett før JavaZone og under opplæringsmøtet i forkant av konferansen 🍕 Vi vil prøve å
+                dele ut vakter og arbeidoppgaver tilpasset <span class="font-medium">dine ønsker og interesser.</span></p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Hvor mange frivillige bidrar på JavaZone?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em]">Hvert år deltar over 50 frivillige på JavaZone.
+                Interessen for dette er stor, så dessverre får ikke alle søkere plass, men ikke la dette hindre deg i å
+                søke, prøv da vel!</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Får jeg med meg noe faglig som frivillig?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em]">Å være frivillig på JavaZone er litt som å være
+                frivillig på en musikkfestival, bare mer nerdete! 🤓 Du får ca. <span class="font-medium">50% fri</span>, og kan da gå på
+                    <a href="/program" rel="noopener noreferrer" class="font-medium underline hover:no-underline decoration-2 decoration-fuchsia-900 text-fuchsia-900">foredrag</a>, spise
+                god mat og snakke med kule folk 😎</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Hva med reise hvis jeg ikke bor i Oslo?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em]">JavaZone dekker ikke reise eller overnatting for
+                frivillige, men erfaringsmessig så er det mange studiesteder som velger å gi reisestøtte 💡 Spør derfor
+                studentforeningen eller instituttet ditt om dette.</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Får jeg bli med på AweZone?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em]">Selvsagt får du det! JavaZone er ikke det samme uten!
+                Her får du se de kuleste bandene og snakke med de beste folka i IT-bransjen! Ingen jobbing på kvelden –
+                bare fest og <span class="font-medium">moro</span> 🕺</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Når må jeg møte opp som frivillig?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em]">Det er oppmøte i <span class="font-medium">Oslo Spektrum kl. 19:00 tirsdag 3.
+                september</span> for opplæring, noen oppgaver, mat og omvisning i lokalene. JavaZone er ferdig kl. 18 på
+                torsdag 5. september. Da rigger vi ned i ca. 1 time, og deretter går vi videre for mat og drikke. Vi
+                spanderer! 🤩 Detaljer blir sendt ut til de som blir tatt opp som frivillige.</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Når må jeg søke?
+            </h4>
+
+            <div class="w-3/5 right-0 max-[890px]:w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p class="mb-[1em] font-medium">Søknadsfristen er mandag 3. juni.</p>
+            </div>
+        </section>
+
+        <section class="mb-6 flex justify-between items-baseline w-full relative max-[890px]:grid mx-3 md:mx-6">
+            <h4
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="text-2xl  text-big-text-color max-w-[300px] aos-init">
+                Hvordan kan jeg tipse andre?
+            </h4>
+
+            <div class="flex flex-col w-3/5 right-0 max-w-full aos-init mr-6"
+                 data-aos="fade"
+                 data-aos-duration="1000"
+                 data-aos-delay="500">
+                <p>Lik og del gjerne en av våre poster i sosiale medier.</p>
                 <div class="flex flex-row items-center">
                     <a class="text-big-text-color m-1"
                        href="https://www.facebook.com/javazoneconference/posts/pfbid0fE6STTXjpepZV89NPwCJDGCRFTCouw1Z1pQXtPcjrjJ5UbRjnhCs8ppR82FGuMHel"
