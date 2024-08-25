@@ -9,14 +9,14 @@ interface Props {
 }
 
 export const FilteredProgram = ({ timeSlots, sessions }: Props) => {
-    const [filter, setFilter] = useState<FilterType>("LIVE");
+    const [filter, setFilter] = useState<FilterType>("FULL_PROGRAM");
 
 
 
     return (
-        <>
+        <div className="flex flex-col gap-8">
             <Filter filter={filter} onChange={setFilter} />
-            <Program timeSlots={timeSlots} sessions={sessions} />
-        </>
+            <Program timeSlots={timeSlots} sessions={sessions} filter={filter}/>
+        </div>
     );
 };
