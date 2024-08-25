@@ -59,7 +59,7 @@ export const SessionCard = ({ session, clicked, setClicked }: Props) => {
                     </button>
                 </div>
             )}
-            <a href={`/program/${session.id}`}>
+            <a href={`/program/${session.id}`} className="no-underline text-inherit">
                 <p className="my-0 md:my-1 text-base md:text-lg font-bold">
                     {session.title} ({session.language})
                 </p>
