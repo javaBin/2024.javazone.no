@@ -84,7 +84,7 @@ export const Program = ({ timeSlots, sessions, filter}: Props) => {
                                     0,
                             )
                             .map((session, index) => (
-                                <SessionCard session={session} clicked={clicked} setClicked={setClicked} key={index} />
+                                <SessionCard session={session} clicked={clicked} setClicked={setClicked} key={session.id} />
                             ))}
                     </div>
                 </section>
