@@ -1,0 +1,10 @@
+.render-img {
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .render-img {
+        display: none;
+    }
+}
+
