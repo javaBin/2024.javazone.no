@@ -78,6 +78,7 @@ export const Program = ({ timeSlots, sessions, filter }: Props) => {
             {filter === "FAVORITES" && (
                 <section className="mt-3">
                     <h2>My favorites</h2>
+                    <p>Press the ☆ icon on any talk or workshop to add it to your favorite list</p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
                         {getFavoriteSessions(sessionsById)
                             .sort(

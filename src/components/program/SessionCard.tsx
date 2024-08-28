@@ -52,7 +52,7 @@ export const SessionCard = ({ session, clicked, setClicked }: Props) => {
                     <button
                         className="text-4xl hover:opacity-60"
                         data-session-id={`${session.id}`}
-                        title="Add/remove favorite"
+                        title={isFavorite ? "Remove from favorites" : "Add to favorites"}
                         onClick={handleFavoriteClick}
                     >
                         {isFavorite ? "★" : "☆"}
