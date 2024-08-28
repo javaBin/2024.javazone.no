@@ -1,7 +1,7 @@
 "use client";
 
 import type { Session } from "../../types/program.ts";
-import { dayAndTimeFormat } from "../../utils/dateformat.ts";
+import {dayAndTimeFormat, dayAndTimeFormatWithMonth} from "../../utils/dateformat.ts";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -47,7 +47,7 @@ export const SessionCard = ({ session, clicked, setClicked }: Props) => {
                 <div className="flex justify-between pb-1 md:pb-2">
                     <p className="my-0 md:my-1 text-sm md:text-base">
                         {session.room} -{" "}
-                        {dayAndTimeFormat.format(new Date(session.startTime))} - {session.format}
+                        {dayAndTimeFormatWithMonth.format(new Date(session.startTime))} - {session.format}
                     </p>
                     <button
                         className="text-4xl hover:opacity-60"

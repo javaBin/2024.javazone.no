@@ -78,15 +78,18 @@ export const Program = ({ timeSlots, sessions, filter }: Props) => {
             {filter === "FAVORITES" && (
                 <section className="mt-3">
                     <h2>My favorites</h2>
-                    <p>Press the ☆ icon on any talk or workshop to add it to your favorite list</p>
+                    <p>
+                        Press the ☆ icon on any talk or workshop to add it to
+                        your favorite list
+                    </p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
                         {getFavoriteSessions(sessionsById)
                             .sort(
                                 (a, b) =>
-                                    a.room?.localeCompare(b.room ?? "") ||
                                     a.startTime?.localeCompare(
                                         b.startTime ?? "",
                                     ) ||
+                                    a.room?.localeCompare(b.room ?? "") ||
                                     0,
                             )
                             .map((session, index) => (
@@ -175,7 +178,12 @@ export const Program = ({ timeSlots, sessions, filter }: Props) => {
                     ) : currentTime.getDate() === 4 ? (
                         <h2>Coming up next: AWEZONE :D</h2>
                     ) : null}
-                    {!liveData.next && !liveData.now && (<h2>Nothing relevant here yet, wait till JavaZone begins 😉</h2>)}
+                    {!liveData.next && !liveData.now && (
+                        <h2>
+                            Nothing relevant here yet, wait till JavaZone begins
+                            😉
+                        </h2>
+                    )}
                 </section>
             )}
         </div>
