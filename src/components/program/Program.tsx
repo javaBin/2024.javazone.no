@@ -174,7 +174,7 @@ export const Program = ({ timeSlots, sessions, filter }: Props) => {
                     ) : currentTime.getDate() === 4 ? (
                         <h2>Coming up next: AWEZONE :D</h2>
                     ) : null}
-                    {!liveData.next && !liveData.now && (<h2>Nothing relevant here yet, wait till the conference starts 😉</h2>)}
+                    {!liveData.next && !liveData.now && (<h2>Nothing relevant here yet, wait till JavaZone begins 😉</h2>)}
                 </section>
             )}
         </div>
