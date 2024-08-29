@@ -1,6 +1,9 @@
 "use client";
 
-import {dayAndTimeFormat, dayAndTimeFormatWithMonth} from "../../utils/dateformat.ts";
+import {
+    dayAndTimeFormat,
+    dayAndTimeFormatWithMonth,
+} from "../../utils/dateformat.ts";
 import type { Session } from "../../types/program.ts";
 import { useState } from "react";
 
@@ -55,11 +58,13 @@ export const SessionDetails = ({ session }: Props) => {
 
             <div className="grid md:grid-cols-4 md:gap-12">
                 <div className="md:col-span-3">
-                    <p>{session.abstract}</p>
+                    <p className="whitespace-pre-line">{session.abstract}</p>
                     <h2 className="font-bold mt-10 text-xl md:text-3xl">
                         Intended audience:{" "}
                     </h2>
-                    <p>{session.intendedAudience}</p>
+                    <p className="whitespace-pre-line">
+                        {session.intendedAudience}
+                    </p>
                     {session.workshopPrerequisites && (
                         <>
                             <h2 className="font-bold mt-10 text-xl md:text-3xl">
