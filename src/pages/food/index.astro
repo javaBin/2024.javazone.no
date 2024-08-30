@@ -8,6 +8,8 @@ import { partners } from "../../components/partner/partners";
 <Layout title="Food">
     <h1>Food at JavaZone</h1>
 
+    <a href="#menu">Skip to menu 👇</a>
+
     <p>Welcome to JavaZone 2024, that promises to energize your taste buds and satisfy your cravings throughout the
         conference. We are happy to announce a collaboration with our long-term friends Hans-Kristian and Mathias from
         The Food Hub. They have been inspired by their travels and are looking forward to sharing their authentic
@@ -35,7 +37,7 @@ import { partners } from "../../components/partner/partners";
         Bon
         appétit! in Norwegian)</p>
 
-    <div class="lg:grid lg:grid-cols-3">
+    <div class="lg:grid lg:grid-cols-3" id="menu">
         {Object.entries(food).map(([key, v]: [key: string, v: VendorInfo]) => {
             const partner = partners.find(p => p.name === v.vendor);
             return (
