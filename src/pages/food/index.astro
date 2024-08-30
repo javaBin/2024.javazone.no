@@ -7,6 +7,34 @@ import { partners } from "../../components/partner/partners";
 ---
 <Layout title="Food">
     <h1>Food at JavaZone</h1>
+
+    <p>Welcome to JavaZone 2024, that promises to energize your taste buds and satisfy your cravings throughout the
+        conference. We are happy to announce a collaboration with our long-term friends Hans-Kristian and Mathias from
+        The Food Hub. They have been inspired by their travels and are looking forward to sharing their authentic
+        cooking with you. Our eight restaurants will serve a diverse array of mouthwatering dishes, ensuring that
+        attendees with various preferences and allergies can enjoy their meals to the fullest.</p>
+    <Image
+        height="150"
+        width="150"
+        class=" m-8 float-left"
+        src={"/images/TheFoodHub-logo.svg"}
+        alt="The Food Hub Logo"
+    />
+    <p>For attendees with allergies or dietary restrictions, rest assured that each restaurant is committed to providing
+        a
+        safe and enjoyable dining experience. Our chefs are well-versed in accommodating gluten, nut, dairy, and other
+        common allergies. We also have Halal options available at most of the restaurants.
+        Simply inform the restaurant staff of your dietary needs, and they will guide you through the menu or offer
+        personalized suggestions.</p>
+    <p><a href="https://vimeo.com/1003970001">Take a look at this video of Hans-Kristian and Mathias from The Food
+        Hub explaining the food concepts.</a></p>
+
+
+    <p>As you savor these delicious dishes, take comfort in knowing that we've taken every measure to make your dining
+        experience during the conference not only flavorful but also sustainable and inclusive. “Vel bekomme!” (Means
+        Bon
+        appétit! in Norwegian)</p>
+
     <div class="lg:grid lg:grid-cols-3">
         {Object.entries(food).map(([key, v]: [key: string, v: VendorInfo]) => {
             const partner = partners.find(p => p.name === v.vendor);
