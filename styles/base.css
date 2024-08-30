@@ -54,6 +54,10 @@
         cursor: url('../../images/JavaZone2024-hand.gif'), pointer;
     }
 
+    button {
+        cursor: url('../../images/JavaZone2024-hand.gif'), pointer;
+    }
+
     p {
         @apply my-3
     }
