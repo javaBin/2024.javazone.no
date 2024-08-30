@@ -1,0 +1,444 @@
+{
+    "Super Bowl": {
+        "vendor": "Knowit",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "Poke bowl with Ahi tuna, pickled red onion, pineapple, edamame, chili mayo, and peanuts",
+                        "allergens": [
+                            "Gluten free soy",
+                            "sulfite",
+                            "sesame seeds",
+                            "fish",
+                            "egg",
+                            "mustard"
+                        ],
+                        "halal": true
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Pulled pork Korean BBQ with kimchi, pickles, and chili mayo",
+                        "allergens": [
+                            "Gluten free soy",
+                            "sulfite",
+                            "sesame seeds",
+                            "egg",
+                            "mustard"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Soy and sesame glazed chicken with spicy slaw and chili mayo",
+                        "allergens": [
+                            "Gluten free soy",
+                            "sulfite",
+                            "sesame seeds",
+                            "egg",
+                            "mustard"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Italian Corner": {
+        "vendor": "Webstep",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "Pizza picante and pizza finocchiona",
+                        "allergens": [
+                            "Wheat (gluten)",
+                            "milk"
+                        ],
+                        "gluten_free": true,
+                        "halal": true
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Antipasti, Italian charcuterie and cheeses, olives, apricot chutney and grissini",
+                        "allergens": [
+                            "Wheat (gluten)",
+                            "milk",
+                            "sulfite"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Caprese salad with fresh mozzarella, pine nuts, basil, and parmesan",
+                        "allergens": [
+                            "Milk"
+                        ]
+                    },
+                    {
+                        "description": "Focaccia and aioli",
+                        "allergens": [
+                            "Wheat (gluten)",
+                            "egg",
+                            "mustard",
+                            "sulfite"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "American BBQ": {
+        "vendor": "Kodemaker",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "BBQ chicken and sausage with creamed corn, coleslaw, and BBQ sauce",
+                        "allergens": [
+                            "Lactose",
+                            "gluten free soy",
+                            "egg",
+                            "mustard",
+                            "sulfite"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Pork belly 'burnt ends' with creamed corn, coleslaw, and BBQ sauce",
+                        "allergens": [
+                            "Lactose",
+                            "gluten free soy",
+                            "egg",
+                            "mustard",
+                            "sulfite"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Chicken lollipops with smokey BBQ rub, served with blue-cheese and hot sauce dip",
+                        "allergens": [
+                            "Milk"
+                        ]
+                    },
+                    {
+                        "description": "Served with cornbread",
+                        "allergens": [
+                            "Wheat",
+                            "milk"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "The Burger Shack": {
+        "vendor": "Accenture",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "Classic slider with caramelized onion, salad, beefsteak tomato, and parmesan-mayo",
+                        "allergens": [
+                            "Wheat",
+                            "milk",
+                            "egg",
+                            "mustard",
+                            "sulfite"
+                        ],
+                        "gluten_free": true
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Pulled beef slider Korean style with kimchi slaw and gochujang sauce",
+                        "allergens": [
+                            "Wheat",
+                            "milk",
+                            "gluten free soy",
+                            "egg",
+                            "mustard",
+                            "sulfite"
+                        ],
+                        "gluten_free": true
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Pulled pork slider with jalapenos, BBQ sauce, and red cabbage slaw",
+                        "allergens": [
+                            "Wheat",
+                            "gluten free soy",
+                            "milk",
+                            "egg",
+                            "mustard",
+                            "sulfite"
+                        ],
+                        "gluten_free": true
+                    }
+                ]
+            }
+        ]
+    },
+    "Indian Bazar": {
+        "vendor": "Bouvet",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "Butter chicken curry served with steamed rice, raita, mango chutney, and papadum",
+                        "allergens": [
+                            "Lactose",
+                            "cashew nuts"
+                        ],
+                        "halal": true
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Dal Mahkhani - Creamed and rich lentil stew served with steamed rice",
+                        "allergens": [
+                            "Lactose"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Potato and chickpea samosas with pomegranate yoghurt explosion dressing and tamarind sauce",
+                        "allergens": [
+                            "Lactose",
+                            "wheat"
+                        ]
+                    },
+                    {
+                        "description": "Served with fresh naan bread",
+                        "allergens": [
+                            "Wheat"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Big Greek Wedding": {
+        "vendor": "Bekk",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "Gyros with marinated chicken, tzatziki, tomatoes, and Greek pita bread",
+                        "allergens": [
+                            "Wheat",
+                            "lactose"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Greek salad with feta, olives, cucumber, red onion, tomatoes, capers, oregano, and olive oil",
+                        "allergens": [
+                            "Lactose"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Greek meatballs from Strøm-Larsen with tzatziki, bulgur salad with pomegranate, cucumber, feta, and spring onion",
+                        "allergens": [
+                            "Lactose",
+                            "wheat",
+                            "sulfite"
+                        ]
+                    },
+                    {
+                        "description": "Served with fresh focaccia",
+                        "allergens": [
+                            "Wheat"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "The Vegan": {
+        "vendor": "SpareBank 1",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "Quinoa bowl with edamame, pineapple, pomegranate, and pickled red onion",
+                        "allergens": [
+                            "Sulfite"
+                        ]
+                    },
+                    {
+                        "description": "Olives, focaccia, vegan aioli, hummus, artichokes, tomato, and avocado salad",
+                        "allergens": [
+                            "Wheat"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Dal - Indian classic lentil dal with naan bread",
+                        "allergens": [
+                            "Wheat"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Lentil burger with caramelized onion, coleslaw, vegan mayo, and crispy salad",
+                        "allergens": [
+                            "Wheat"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "The Sweet Spot": {
+        "vendor": "Capgemini",
+        "dishes": [
+            {
+                "title": "Every day",
+                "items": [
+                    {
+                        "description": "Apple financier, signature apple cake",
+                        "allergens": [
+                            "Almonds",
+                            "milk",
+                            "wheat",
+                            "egg"
+                        ]
+                    },
+                    {
+                        "description": "Norwegian 'Tilslørte Bondepiker' - Apple marmalade with vanilla cream and crispy crumble",
+                        "allergens": [
+                            "Milk",
+                            "wheat",
+                            "egg"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 1",
+                "items": [
+                    {
+                        "description": "Passion fruit mousse with raspberries and white chocolate",
+                        "allergens": [
+                            "Milk",
+                            "egg"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "DAY 2",
+                "items": [
+                    {
+                        "description": "Mini Lemon tarts with meringue",
+                        "allergens": [
+                            "Wheat",
+                            "milk",
+                            "egg"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Evening Snacks": {
+        "vendor": "JavaZone",
+        "dishes": [
+            {
+                "title": "Chili Options",
+                "items": [
+                    {
+                        "description": "Chili con Carne with sour cream and nachos",
+                        "allergens": [
+                            "Milk"
+                        ]
+                    },
+                    {
+                        "description": "Chili sin Carne with sour cream and nachos",
+                        "allergens": [
+                            "Milk"
+                        ]
+                    },
+                    {
+                        "description": "Chili Halal Pollo with sour cream and nachos",
+                        "allergens": [
+                            "Milk"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Hot Dog",
+                "items": [
+                    {
+                        "description": "\"Over Oslo\" hot dog with ramson from Strøm-Larsen, served with \"lompe\" (a potato tortilla), ketchup, and mustard",
+                        "allergens": [
+                            "Wheat"
+                        ],
+                        "gluten_free": true
+                    }
+                ]
+            }
+        ]
+    }
+}

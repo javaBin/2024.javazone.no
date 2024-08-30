@@ -1,7 +1,45 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import food from "./food.json";
+import type { VendorInfo } from "./types";
+import { Image } from "astro:assets";
+import { partners } from "../../components/partner/partners";
 ---
 <Layout title="Food">
     <h1>Food at JavaZone</h1>
-    <p>Info about food will come soon...</p>
+    <div class="lg:grid lg:grid-cols-3">
+        {Object.entries(food).map(([key, v]: [key: string, v: VendorInfo]) => {
+            const partner = partners.find(p => p.name === v.vendor);
+            return (
+                <div class="bg-white p-4 m-8 text-center">
+                    <div class="">
+                        <h2 id={v.vendor}>{key}</h2>
+                        {partner &&
+                            <Image
+                                height="10"
+                                width="10"
+                                class="h-16 w-40 m-auto"
+                                src={partner.logoUrl}
+                                alt={partner.name}
+                                style={{ padding: "5px" }}
+                            />}
+                    </div>
+
+                    {v.dishes.map(dish =>
+                        <div class="text-center">
+                            <h3 class="font-['Limelight'] text-[#2e645e]">{dish.title}</h3>
+                            {dish.items.map(item =>
+                                <>
+                                    {item.description && <p class="font-semibold">{item.description}</p>}
+                                    {!!item.allergens.length && <p>(Allergens: {item.allergens.join(", ")})</p>}
+                                    {item.gluten_free && <p>Gluten free available</p>}
+                                    {item.halal && <p>Halal option available</p>}
+                                </>)}
+
+                        </div>)}
+                </div>);
+        })
+        }
+    </div>
+
 </Layout>
