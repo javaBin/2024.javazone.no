@@ -33,10 +33,11 @@ const speakers = session?.speakers;
                     <div>
                         <p class="font-bold">{speaker.name}</p>
                         <p class="whitespace-pre-line">{speaker.bio}</p>
-                        <a href={`https://x.com/${speaker.twitter}`} class="inline-flex items-center gap-4">
-                            <Image src="/images/SoMe/twitter-x.svg" alt="X logo" width="50" height="50"/>
-                            {speaker.twitter}
-                        </a>
+                        {speaker.twitter && (
+                            <a href={`https://x.com/${speaker.twitter}`} class="inline-flex items-center gap-4">
+                                <Image src="/images/SoMe/twitter-x.svg" alt="X logo" width="50" height="50"/>
+                                {speaker.twitter}
+                            </a>)}
                     </div>
                 ))}
         </div>
