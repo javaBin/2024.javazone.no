@@ -50,7 +50,7 @@ export const partners: Partner[] = [
     { name: "Scienta", homepageUrl: "https://www.scienta.no", logoUrl: "/svg/scienta.svg" },
     { name: "Skatteetaten", homepageUrl: "https://www.skatteetaten.no", logoUrl: "/svg/skatteetaten.svg" },
     { name: "Sopra Steria", homepageUrl: "https://www.soprasteria.no", logoUrl: "/svg/soprasteria.svg" },
-    { name: "SpareBank 1", homepageUrl: "https://www.sparebank1.no", logoUrl: "/svg/sparebank1.svg" },
+    { name: "Sparebank-1", homepageUrl: "https://www.sparebank1.no", logoUrl: "/svg/sparebank1.svg" },
     { name: "Spirgroup", homepageUrl: "https://www.spirgroup.no", logoUrl: "/svg/spirgroup-cropped.svg" },
     { name: "SSB", homepageUrl: "https://www.ssb.no", logoUrl: "/svg/ssb.svg" },
     { name: "Statens Vegvesen", homepageUrl: "https://www.vegvesen.no", logoUrl: "/svg/statensvegvesen.svg" },
