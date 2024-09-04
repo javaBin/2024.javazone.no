@@ -1,4 +1,3 @@
-import './filter.css';
 export type FilterType = "LIVE" | "FULL_PROGRAM" | "FAVORITES";
 
 interface Props {
@@ -18,12 +17,12 @@ const Button = ({ children, onClick, current }: any) => (
 );
 
 export const Filter = ({ filter, onChange }: Props) => (
-    <div className="p-4 flex">
-        <div className="mx-auto gap-10 flex flex-col md:flex-row">
+    <div className="p-4">
+        <div className="gap-4 flex flex-col lg:flex-row">
             <img
                 src="/images/characters/jz24-disc.svg"
                 alt="Retro disc character"
-                className="h-[80px] render-img"
+                className="hidden lg:block lg:max-h-[120px]"
             />
             <Button
                 onClick={() => onChange("FULL_PROGRAM")}
@@ -46,7 +45,7 @@ export const Filter = ({ filter, onChange }: Props) => (
             <img
                 src={`/images/characters/jz24-mc.svg`}
                 alt="Retro disc character"
-                className="h-[120px] -mt-[40px] render-img"
+                className="hidden lg:block lg:max-h-[120px]"
             />
         </div>
     </div>

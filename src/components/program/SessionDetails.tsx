@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { dayAndTimeFormatWithMonth } from "../../utils/dateformat.ts";
+import {dayAndTimeFormat, dayAndTimeFormatWithMonth} from "../../utils/dateformat.ts";
 import type { Session } from "../../types/program.ts";
-import {useState} from "react";
+import { useState } from "react";
 
 interface Props {
     session: Session;
@@ -10,7 +10,9 @@ interface Props {
 
 export const SessionDetails = ({ session }: Props) => {
     const favoriteIds = JSON.parse(localStorage.getItem("favorites") || "[]");
-    const [isFavorite, setIsFavorite] = useState(favoriteIds.includes(session.id));
+    const [isFavorite, setIsFavorite] = useState(
+        favoriteIds.includes(session.id),
+    );
 
     const handleFavoriteClick = () => {
         const index = favoriteIds.indexOf(session.id);
@@ -31,7 +33,17 @@ export const SessionDetails = ({ session }: Props) => {
                 <p className="p-0">
                     Time and room:{" "}
                     {session.startTime
-                        ? `${session.room} - ${dayAndTimeFormatWithMonth.format(new Date(session.startTime))}`
+                        ? `${session.room} - ${dayAndTimeFormatWithMonth.format(
+                              new Date(session.startTime),
+                          )}`
+                        : "TBA"}
+                </p>
+                <p className="p-0">
+                    Finishes at{" "}
+                    {session.endTime
+                        ? `${dayAndTimeFormat.format(
+                              new Date(session.endTime),
+                          )}`
                         : "TBA"}
                 </p>
                 {session.registerLoc && (
