@@ -176,7 +176,16 @@ export const Program = ({ timeSlots, sessions, filter }: Props) => {
                             </div>
                         </>
                     ) : currentTime.getDate() === 4 ? (
-                        <h2>Coming up next: AWEZONE :D</h2>
+                        <>
+                            <h2>Coming up next: 7:20 PM 🎉🕺💃</h2>
+
+                            <a href="/awezone">
+                                <img
+                                    src={`/images/AweZone2024-logo.svg`}
+                                    alt="AweZone"
+                                />
+                            </a>
+                        </>
                     ) : null}
                     {!liveData.next && !liveData.now && (
                         <h2>
