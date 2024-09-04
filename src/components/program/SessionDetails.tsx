@@ -56,6 +56,17 @@ export const SessionDetails = ({ session }: Props) => {
                 )}
             </div>
 
+            {session.video && (
+                <iframe
+                    className="max-w-full max-h-52 md:max-h-full border-none"
+                    src={`https://player.vimeo.com/video/${session.video}`}
+                    width="640"
+                    height="360"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+            )}
+
             <div className="grid md:grid-cols-4 md:gap-12">
                 <div className="md:col-span-3">
                     <p className="whitespace-pre-line">{session.abstract}</p>

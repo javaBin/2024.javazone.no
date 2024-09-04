@@ -54,7 +54,7 @@ export const SessionCard = ({ session, clicked, setClicked }: Props) => {
                             {dayAndTimeFormatWithMonth.format(
                                 new Date(session.startTime),
                             )}{" "}
-                            - {session.format}
+                            - {session.format} {session.video ? '🎬' : ''}
                         </p>
                     </div>
                 )}
