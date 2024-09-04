@@ -136,26 +136,6 @@ export const Program = ({ timeSlots, sessions, filter }: Props) => {
                 ))}
             {filter === "LIVE" && (
                 <section className="mt-3">
-                    {liveData.now && (
-                        <>
-                            <h2>
-                                Currently running:{" "}
-                                {dayAndTimeFormat.format(
-                                    new Date(liveData.now),
-                                )}
-                            </h2>
-                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
-                                {sessions[liveData.now].map((session) => (
-                                    <SessionCard
-                                        session={session}
-                                        clicked={clicked}
-                                        setClicked={setClicked}
-                                        key={session.id}
-                                    />
-                                ))}
-                            </div>
-                        </>
-                    )}
                     {liveData.next ? (
                         <>
                             <h2>
@@ -187,6 +167,26 @@ export const Program = ({ timeSlots, sessions, filter }: Props) => {
                             </a>
                         </>
                     ) : null}
+                    {liveData.now && (
+                        <>
+                            <h2>
+                                Currently running:{" "}
+                                {dayAndTimeFormat.format(
+                                    new Date(liveData.now),
+                                )}
+                            </h2>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
+                                {sessions[liveData.now].map((session) => (
+                                    <SessionCard
+                                        session={session}
+                                        clicked={clicked}
+                                        setClicked={setClicked}
+                                        key={session.id}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
                     {!liveData.next && !liveData.now && (
                         <h2>
                             Nothing relevant here yet, wait till JavaZone begins
