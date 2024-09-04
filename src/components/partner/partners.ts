@@ -55,7 +55,7 @@ export const partners: Partner[] = [
     { name: "SSB", homepageUrl: "https://www.ssb.no", logoUrl: "/svg/ssb.svg" },
     { name: "Statens Vegvesen", homepageUrl: "https://www.vegvesen.no", logoUrl: "/svg/statensvegvesen.svg" },
     { name: "Statnett", homepageUrl: "https://www.statnett.no", logoUrl: "/svg/statnett.svg" },
-    { name: "Storebrand", homepageUrl: "https://www.storebrand.no", logoUrl: "/svg/storebrand.svg" },
+    { name: "Storebrand", homepageUrl: "https://www.storebrand.no", logoUrl: "/svg/storebrand2.svg" },
     { name: "Systek", homepageUrl: "https://www.systek.no", logoUrl: "/svg/systek.svg" },
     { name: "Techpros", homepageUrl: "https://www.techpros.no", logoUrl: "/svg/techpros.svg" },
     { name: "Telenor", homepageUrl: "https://www.telenor.no", logoUrl: "/svg/telenor.svg" },
