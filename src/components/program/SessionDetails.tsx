@@ -13,7 +13,6 @@ export const SessionDetails = ({ session }: Props) => {
     const [isFavorite, setIsFavorite] = useState(favoriteIds.includes(session.id));
 
     const handleFavoriteClick = () => {
-        const favoriteIds = JSON.parse(localStorage.getItem("favorites") || "[]");
         const index = favoriteIds.indexOf(session.id);
         if (index === -1) {
             favoriteIds.push(session.id);
