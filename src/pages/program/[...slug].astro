@@ -27,7 +27,8 @@ const speakers = session?.speakers;
             </div>
         <SessionDetails client:only="react" session={session}/>
         </div>
-        <div class="p-5 bg-white border-black border-2 rounded-xl mx-auto mt-4">            {speakers &&
+        <div class="p-5 bg-white border-black border-2 rounded-xl mx-auto mt-4">
+            {speakers &&
                 speakers.map((speaker) => (
                     <div>
                         <p class="font-bold">{speaker.name}</p>

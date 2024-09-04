@@ -2,19 +2,15 @@
 
 import { dayAndTimeFormatWithMonth } from "../../utils/dateformat.ts";
 import type { Session } from "../../types/program.ts";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 interface Props {
     session: Session;
 }
 
 export const SessionDetails = ({ session }: Props) => {
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    useEffect(() => {
-        const favoriteIds = JSON.parse(localStorage.getItem("favorites") || "[]");
-        setIsFavorite(favoriteIds.includes(session.id));
-    }, [session.id]);
+    const favoriteIds = JSON.parse(localStorage.getItem("favorites") || "[]");
+    const [isFavorite, setIsFavorite] = useState(favoriteIds.includes(session.id));
 
     const handleFavoriteClick = () => {
         const favoriteIds = JSON.parse(localStorage.getItem("favorites") || "[]");
