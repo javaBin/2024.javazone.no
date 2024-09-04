@@ -27,8 +27,9 @@ if (typeof window !== "undefined") {
     // Function to update sessions based on selected filters
     const updateSessions = () => {
         const now = new Date();
+        now.setMinutes(0, 0, 0);
         const futureTime = new Date(now);
-        futureTime.setHours(now.getHours() + 3); // Set to 3 hours in the future
+        futureTime.setHours(now.getHours() + 2);
 
         // Filter and map sessions directly within each timeslot
         filteredSessionsContainer!!.innerHTML = sortedTimeslots.map((time) => {

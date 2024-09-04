@@ -18,7 +18,7 @@ export function filterSessionTerms(
     now: Date,
     futureTime: Date
 ): boolean {
-    const startTime = session.startTime ? new Date(session.startTime) : undefined;
+    const startTime = session.startSlot ? new Date(session.startSlot) : undefined;
     if (startTime === undefined) {
         return false;
     }
