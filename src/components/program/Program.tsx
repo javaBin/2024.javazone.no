@@ -11,18 +11,18 @@ interface Props {
     filter: string;
 }
 
-function filterSessionTerms(
-    session: Session,
-    liveMode: boolean,
-    now: Date,
-    futureTime: Date,
-): boolean {
+function filterSessionTerms(session: Session, liveMode: boolean, now: Date): boolean {
     const startTime = session.startSlot ? new Date(session.startSlot) : undefined;
     if (startTime === undefined) {
         return false;
     }
 
-    const isLive = liveMode && startTime >= now && startTime <= futureTime;
+    const nearestPastTime = new Date(now);
+    nearestPastTime.setHours(nearestPastTime.getHours() - 1);
+    const nearestFutureTime = new Date(now);
+    nearestFutureTime.setHours(nearestFutureTime.getHours() + 2);
+
+    const isLive = liveMode && (startTime >= nearestPastTime && startTime <= nearestFutureTime);
 
     return (!liveMode || isLive);
 }
@@ -84,7 +84,7 @@ export const Program = ({ timeSlots, sessions, filter}: Props) => {
                                         a.startTime?.localeCompare(b.startTime ?? "") ||
                                         0,
                                 )
-                                .map((session, index) => (
+                                .map((session) => (
                                     <SessionCard session={session} clicked={clicked} setClicked={setClicked} key={session.id} />
                                 ))}
                         </div>
