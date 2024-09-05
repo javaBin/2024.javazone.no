@@ -3,7 +3,7 @@
 import type { Session } from "../../types/program.ts";
 import {dayAndTimeFormatWithMonth} from "../../utils/dateformat.ts";
 import {SessionCard} from "./SessionCard.tsx";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 interface Props {
     timeSlots: string[];
@@ -40,12 +40,6 @@ export const Program = ({ timeSlots, sessions, filter}: Props) => {
         return favoriteIds.map((id: string) => sessionsById[id]).filter((session: Session | undefined): session is Session => !!session);
     }
 
-    let favoritesArray: Session[]= getFavoriteSessions();
-
-    useEffect(() => {
-        favoritesArray = getFavoriteSessions();
-    }, [clicked]);
-
     if (filter == "LIVE"){
         const now = new Date();
         now.setMinutes(0, 0, 0);
@@ -62,7 +56,7 @@ export const Program = ({ timeSlots, sessions, filter}: Props) => {
                 <section className="mt-3">
                     <h2>My favorites</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
-                        {favoritesArray
+                        {getFavoriteSessions()
                             .sort(
                                 (a, b) =>
                                     a.room?.localeCompare(b.room ?? "") ||
